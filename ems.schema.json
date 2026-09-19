@@ -165,6 +165,17 @@
     },
     "demo": {
       "$ref": "#/$defs/demo"
+    },
+    "features": {
+      "type": "object",
+      "description": "Explicit feature instances. Presence enables a package; an empty registry enables no optional packages.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/feature"
+      }
     }
   },
   "required": [
@@ -355,6 +366,20 @@
           "type": "string",
           "description": "Type of scalar values. Defaults to number; use string for equipment status or boolean for an alarm.",
           "default": "number"
+        },
+        "access": {
+          "type": "string",
+          "enum": [
+            "r",
+            "w",
+            "rw"
+          ],
+          "default": "r",
+          "description": "EMS access contract. Write capability is not user authorization. Write-only tags are never subscribed."
+        },
+        "description": {
+          "type": "string",
+          "description": "Installation-specific tag description; the feature contract supplies the standard meaning."
         }
       },
       "required": [],
@@ -1194,6 +1219,878 @@
         "geometry"
       ],
       "additionalProperties": false
+    },
+    "feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "site"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "site-metering",
+            "pv",
+            "wind",
+            "hydro",
+            "bess",
+            "dso",
+            "dso-simulation",
+            "local-controller",
+            "controller-settings",
+            "remote-dispatch",
+            "command-profiles",
+            "schedules",
+            "meteo",
+            "cameras",
+            "alerts",
+            "connections",
+            "analytics",
+            "history",
+            "topology",
+            "users"
+          ]
+        },
+        "site": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "equipment": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          }
+        },
+        "uses": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "site-metering"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "soc": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Aggregate state of charge: Measured aggregate battery SoC; never inferred by averaging unweighted rack values. number, r, %; optional."
+                  },
+                  "grid": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Grid exchange: Net exchange at the connection point; positive export, negative import. number, r, MW; optional."
+                  },
+                  "generation": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Total generation: Measured combined generation. number, r, MW; optional."
+                  },
+                  "load": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Site load: Measured site consumption, positive consumption. number, r, MW; optional."
+                  },
+                  "pv": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; optional."
+                  },
+                  "wind": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; optional."
+                  },
+                  "hydro": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; optional."
+                  },
+                  "battery": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Site battery consumption; positive charging, negative discharging. Use scale -1 if the source uses the device export convention. number, r, MW; optional."
+                  },
+                  "energyToday": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Energy today: Generated energy since local midnight. number, r, MWh; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "pv"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "power": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; required."
+                  },
+                  "status": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Operating state: State reported by the equipment, independent of transport connection. string, r; required."
+                  },
+                  "temperature": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Temperature: Measured module or inverter temperature. number, r, °C; optional."
+                  },
+                  "energyToday": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Energy today: Generated energy since local midnight. number, r, MWh; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "wind"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "power": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; required."
+                  },
+                  "status": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Operating state: State reported by the equipment, independent of transport connection. string, r; required."
+                  },
+                  "windSpeed": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Wind speed: Measured wind speed. number, r, m/s; optional."
+                  },
+                  "rotorSpeed": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Rotor speed: Measured rotor rotation speed. number, r, rpm; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "hydro"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "power": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; required."
+                  },
+                  "status": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Operating state: State reported by the equipment, independent of transport connection. string, r; required."
+                  },
+                  "flow": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Water flow: Measured turbine water flow. number, r, m³/s; optional."
+                  },
+                  "head": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Hydraulic head: Measured hydraulic head. number, r, m; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "bess"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "power": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Active power: Measured active power at this device; positive output/discharge, negative input/charge. number, r, MW; required."
+                  },
+                  "status": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Operating state: State reported by the equipment, independent of transport connection. string, r; required."
+                  },
+                  "soc": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "State of charge: Measured stored charge relative to usable battery capacity. number, r, %; required."
+                  },
+                  "temperature": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Temperature: Measured battery temperature. number, r, °C; optional."
+                  },
+                  "chargeAvailable": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Available charging: Currently permitted charging power. number, r, MW; optional."
+                  },
+                  "dischargeAvailable": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Available discharging: Currently permitted discharging power. number, r, MW; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "dso"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "signal": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "DSO export allowance: Received 0/30/60/100 signal. Multiply by connection capacity for the export ceiling. number, r, %; required."
+                  },
+                  "connected": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "RTU connected: RTU communication availability reported by the controller. boolean, r; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "dso-simulation"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "dso": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site dso feature instance ID."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "local-controller"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Operating state: State reported by the equipment, independent of transport connection. string, r; required."
+                  },
+                  "requestedPower": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Requested power: Aggregate input command before local strategy; positive discharge/export. number, r, MW; required."
+                  },
+                  "deliveredPower": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Delivered power: Aggregate output after local strategy; positive discharge/export. number, r, MW; required."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "controller-settings"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "peakTarget": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Peak import target: Desired maximum grid import. Apply as part of a validated settings transaction. number, rw, MW; required."
+                  },
+                  "peakShare": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Peak-shaving reserve: Share of usable battery power and energy reserved for peak shaving; remainder is load shifting. number, rw, %; required."
+                  },
+                  "socMin": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "SoC minimum: Lower operating boundary; must be below SoC maximum. number, rw, %; required."
+                  },
+                  "socMax": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "SoC maximum: Upper operating boundary; must exceed SoC minimum. number, rw, %; required."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "controller": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site local-controller feature instance ID."
+                  },
+                  "battery": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site bess feature instance ID."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "remote-dispatch"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "connected": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Aggregator connected: Transport availability, not permission to dispatch. boolean, r; required."
+                  },
+                  "enabled": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Remote control allowed: False blocks remote commands and selects local authority at the controller. Re-enable must not select remote automatically. boolean, rw; required."
+                  },
+                  "source": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Command source: Authoritative exclusive source: local or aggregator. string, rw; required."
+                  },
+                  "profile": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Received external profile: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, r; optional."
+                  },
+                  "profileStatus": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "External profile state: Controller-reported validation/acceptance state of the latest profile. string, r; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "controller": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site local-controller feature instance ID."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "command-profiles"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "requested": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Requested profile: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, r; required."
+                  },
+                  "afterController": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "After controller: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, r; required."
+                  },
+                  "afterDso": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "After DSO: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, r; optional."
+                  },
+                  "delivered": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Delivered profile: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, r; required."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "controller": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site local-controller feature instance ID."
+                  },
+                  "dso": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Optional same-site dso feature instance ID."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "schedules"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "plan": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Dispatch plan: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, rw; required."
+                  },
+                  "acceptedRevision": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Accepted revision: Revision actually accepted by the controller; do not infer acceptance from a successful write. string, r; required."
+                  },
+                  "state": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Operating state: State reported by the equipment, independent of transport connection. string, r; required."
+                  },
+                  "submit": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Submit full plan: Complete version-1 profile envelope encoded as a JSON string; MW commands, positive discharge/export. Acceptance needs revision readback. string, w; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "controller": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site local-controller feature instance ID."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "meteo"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {
+                  "temperature": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Ambient temperature: Measured ambient air temperature. number, r, °C; required."
+                  },
+                  "irradiance": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Irradiance: Measured incident solar irradiance. number, r, W/m²; optional."
+                  },
+                  "windSpeed": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Wind speed: Measured wind speed. number, r, m/s; optional."
+                  },
+                  "windDirection": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Wind direction: Meteorological direction in degrees from north. number, r, °; optional."
+                  },
+                  "humidity": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Relative humidity: Ambient relative humidity. number, r, %; optional."
+                  },
+                  "pressure": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Atmospheric pressure: Measured atmospheric pressure. number, r, hPa; optional."
+                  }
+                }
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "cameras"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "alerts"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "connections"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "analytics"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {
+                  "metering": {
+                    "type": "string",
+                    "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                    "description": "Required same-site site-metering feature instance ID."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "history"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "topology"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "users"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "tags": {
+                "type": "object",
+                "properties": {}
+              },
+              "uses": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

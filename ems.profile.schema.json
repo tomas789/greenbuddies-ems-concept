@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:greenbuddies:ems:profile:1",
+  "title": "Whole EMS command profile",
+  "description": "Encoded as an OPC UA String. Intervals must cover the validity window contiguously. Target IDs must belong to the feature site. Server/controller acceptance must be read separately.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "revision",
+    "validFrom",
+    "validUntil",
+    "intervals"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "validUntil": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "intervals": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end",
+          "targets"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "targets": {
+            "type": "object",
+            "minProperties": 1,
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            },
+            "additionalProperties": {
+              "type": "number",
+              "description": "Signed MW; positive discharge/export, negative charge/import."
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -7405,6 +7405,114 @@
       "nodeId": "ns=2;s=EMS.MLN.MONITORING.reading",
       "demo": 6,
       "format": "unit0-5"
+    },
+    "MLN.control.state": {
+      "nodeId": "ns=2;s=EMS.MLN.control.state",
+      "dataType": "string",
+      "access": "r",
+      "demo": "Optimizing"
+    },
+    "MLN.control.requestedPower": {
+      "nodeId": "ns=2;s=EMS.MLN.control.requestedPower",
+      "dataType": "number",
+      "access": "r",
+      "demo": 28.9,
+      "unit": "MW"
+    },
+    "MLN.control.deliveredPower": {
+      "nodeId": "ns=2;s=EMS.MLN.control.deliveredPower",
+      "dataType": "number",
+      "access": "r",
+      "demo": 20.14,
+      "unit": "MW"
+    },
+    "MLN.control.peakTarget": {
+      "nodeId": "ns=2;s=EMS.MLN.control.peakTarget",
+      "dataType": "number",
+      "access": "rw",
+      "demo": 4,
+      "unit": "MW"
+    },
+    "MLN.control.peakShare": {
+      "nodeId": "ns=2;s=EMS.MLN.control.peakShare",
+      "dataType": "number",
+      "access": "rw",
+      "demo": 40,
+      "unit": "%"
+    },
+    "MLN.control.socMin": {
+      "nodeId": "ns=2;s=EMS.MLN.control.socMin",
+      "dataType": "number",
+      "access": "rw",
+      "demo": 15,
+      "unit": "%"
+    },
+    "MLN.control.socMax": {
+      "nodeId": "ns=2;s=EMS.MLN.control.socMax",
+      "dataType": "number",
+      "access": "rw",
+      "demo": 90,
+      "unit": "%"
+    },
+    "MLN.control.profile.requested": {
+      "nodeId": "ns=2;s=EMS.MLN.control.profile.requested",
+      "dataType": "string",
+      "access": "r",
+      "demo": "{\"version\":1,\"revision\":\"AGR-047\",\"validFrom\":\"2026-09-19T11:30:00Z\",\"validUntil\":\"2026-09-19T15:30:00Z\",\"intervals\":[{\"start\":\"2026-09-19T11:30:00Z\",\"end\":\"2026-09-19T11:45:00Z\",\"targets\":{\"PV\":18.4,\"BESS-01\":-4.2,\"WIND\":7.8,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T11:45:00Z\",\"end\":\"2026-09-19T12:00:00Z\",\"targets\":{\"PV\":17.8,\"BESS-01\":-4.2,\"WIND\":7.68,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:00:00Z\",\"end\":\"2026-09-19T12:15:00Z\",\"targets\":{\"PV\":17.2,\"BESS-01\":-4.2,\"WIND\":7.56,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:15:00Z\",\"end\":\"2026-09-19T12:30:00Z\",\"targets\":{\"PV\":16.6,\"BESS-01\":-4.2,\"WIND\":7.44,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:30:00Z\",\"end\":\"2026-09-19T12:45:00Z\",\"targets\":{\"PV\":16.0,\"BESS-01\":-4.2,\"WIND\":7.32,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:45:00Z\",\"end\":\"2026-09-19T13:00:00Z\",\"targets\":{\"PV\":15.4,\"BESS-01\":-4.2,\"WIND\":7.2,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:00:00Z\",\"end\":\"2026-09-19T13:15:00Z\",\"targets\":{\"PV\":14.8,\"BESS-01\":-4.2,\"WIND\":7.08,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:15:00Z\",\"end\":\"2026-09-19T13:30:00Z\",\"targets\":{\"PV\":14.2,\"BESS-01\":-4.2,\"WIND\":6.96,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:30:00Z\",\"end\":\"2026-09-19T13:45:00Z\",\"targets\":{\"PV\":13.6,\"BESS-01\":6.5,\"WIND\":6.84,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:45:00Z\",\"end\":\"2026-09-19T14:00:00Z\",\"targets\":{\"PV\":13.0,\"BESS-01\":6.5,\"WIND\":6.72,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:00:00Z\",\"end\":\"2026-09-19T14:15:00Z\",\"targets\":{\"PV\":12.4,\"BESS-01\":6.5,\"WIND\":6.6,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:15:00Z\",\"end\":\"2026-09-19T14:30:00Z\",\"targets\":{\"PV\":11.8,\"BESS-01\":6.5,\"WIND\":6.48,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:30:00Z\",\"end\":\"2026-09-19T14:45:00Z\",\"targets\":{\"PV\":11.2,\"BESS-01\":6.5,\"WIND\":6.36,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:45:00Z\",\"end\":\"2026-09-19T15:00:00Z\",\"targets\":{\"PV\":10.6,\"BESS-01\":6.5,\"WIND\":6.24,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:00:00Z\",\"end\":\"2026-09-19T15:15:00Z\",\"targets\":{\"PV\":10.0,\"BESS-01\":6.5,\"WIND\":6.12,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:15:00Z\",\"end\":\"2026-09-19T15:30:00Z\",\"targets\":{\"PV\":9.4,\"BESS-01\":6.5,\"WIND\":6.0,\"HYDRO\":1.24}}]}"
+    },
+    "MLN.control.profile.afterController": {
+      "nodeId": "ns=2;s=EMS.MLN.control.profile.afterController",
+      "dataType": "string",
+      "access": "r",
+      "demo": "{\"version\":1,\"revision\":\"AGR-047\",\"validFrom\":\"2026-09-19T11:30:00Z\",\"validUntil\":\"2026-09-19T15:30:00Z\",\"intervals\":[{\"start\":\"2026-09-19T11:30:00Z\",\"end\":\"2026-09-19T11:45:00Z\",\"targets\":{\"PV\":17.48,\"BESS-01\":-3.99,\"WIND\":7.41,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T11:45:00Z\",\"end\":\"2026-09-19T12:00:00Z\",\"targets\":{\"PV\":16.91,\"BESS-01\":-3.99,\"WIND\":7.3,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:00:00Z\",\"end\":\"2026-09-19T12:15:00Z\",\"targets\":{\"PV\":16.34,\"BESS-01\":-3.99,\"WIND\":7.18,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:15:00Z\",\"end\":\"2026-09-19T12:30:00Z\",\"targets\":{\"PV\":15.77,\"BESS-01\":-3.99,\"WIND\":7.07,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:30:00Z\",\"end\":\"2026-09-19T12:45:00Z\",\"targets\":{\"PV\":15.2,\"BESS-01\":-3.99,\"WIND\":6.95,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:45:00Z\",\"end\":\"2026-09-19T13:00:00Z\",\"targets\":{\"PV\":14.63,\"BESS-01\":-3.99,\"WIND\":6.84,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:00:00Z\",\"end\":\"2026-09-19T13:15:00Z\",\"targets\":{\"PV\":14.06,\"BESS-01\":-3.99,\"WIND\":6.73,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:15:00Z\",\"end\":\"2026-09-19T13:30:00Z\",\"targets\":{\"PV\":13.49,\"BESS-01\":-3.99,\"WIND\":6.61,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:30:00Z\",\"end\":\"2026-09-19T13:45:00Z\",\"targets\":{\"PV\":12.92,\"BESS-01\":6.17,\"WIND\":6.5,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:45:00Z\",\"end\":\"2026-09-19T14:00:00Z\",\"targets\":{\"PV\":12.35,\"BESS-01\":6.17,\"WIND\":6.38,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:00:00Z\",\"end\":\"2026-09-19T14:15:00Z\",\"targets\":{\"PV\":11.78,\"BESS-01\":6.17,\"WIND\":6.27,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:15:00Z\",\"end\":\"2026-09-19T14:30:00Z\",\"targets\":{\"PV\":11.21,\"BESS-01\":6.17,\"WIND\":6.16,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:30:00Z\",\"end\":\"2026-09-19T14:45:00Z\",\"targets\":{\"PV\":10.64,\"BESS-01\":6.17,\"WIND\":6.04,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:45:00Z\",\"end\":\"2026-09-19T15:00:00Z\",\"targets\":{\"PV\":10.07,\"BESS-01\":6.17,\"WIND\":5.93,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:00:00Z\",\"end\":\"2026-09-19T15:15:00Z\",\"targets\":{\"PV\":9.5,\"BESS-01\":6.17,\"WIND\":5.81,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:15:00Z\",\"end\":\"2026-09-19T15:30:00Z\",\"targets\":{\"PV\":8.93,\"BESS-01\":6.17,\"WIND\":5.7,\"HYDRO\":1.24}}]}"
+    },
+    "MLN.control.profile.delivered": {
+      "nodeId": "ns=2;s=EMS.MLN.control.profile.delivered",
+      "dataType": "string",
+      "access": "r",
+      "demo": "{\"version\":1,\"revision\":\"AGR-047\",\"validFrom\":\"2026-09-19T11:30:00Z\",\"validUntil\":\"2026-09-19T15:30:00Z\",\"intervals\":[{\"start\":\"2026-09-19T11:30:00Z\",\"end\":\"2026-09-19T11:45:00Z\",\"targets\":{\"PV\":16.56,\"BESS-01\":-3.78,\"WIND\":7.02,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T11:45:00Z\",\"end\":\"2026-09-19T12:00:00Z\",\"targets\":{\"PV\":16.02,\"BESS-01\":-3.78,\"WIND\":6.91,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:00:00Z\",\"end\":\"2026-09-19T12:15:00Z\",\"targets\":{\"PV\":15.48,\"BESS-01\":-3.78,\"WIND\":6.8,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:15:00Z\",\"end\":\"2026-09-19T12:30:00Z\",\"targets\":{\"PV\":14.94,\"BESS-01\":-3.78,\"WIND\":6.7,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:30:00Z\",\"end\":\"2026-09-19T12:45:00Z\",\"targets\":{\"PV\":14.4,\"BESS-01\":-3.78,\"WIND\":6.59,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:45:00Z\",\"end\":\"2026-09-19T13:00:00Z\",\"targets\":{\"PV\":13.86,\"BESS-01\":-3.78,\"WIND\":6.48,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:00:00Z\",\"end\":\"2026-09-19T13:15:00Z\",\"targets\":{\"PV\":13.32,\"BESS-01\":-3.78,\"WIND\":6.37,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:15:00Z\",\"end\":\"2026-09-19T13:30:00Z\",\"targets\":{\"PV\":12.78,\"BESS-01\":-3.78,\"WIND\":6.26,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:30:00Z\",\"end\":\"2026-09-19T13:45:00Z\",\"targets\":{\"PV\":12.24,\"BESS-01\":5.85,\"WIND\":6.16,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:45:00Z\",\"end\":\"2026-09-19T14:00:00Z\",\"targets\":{\"PV\":11.7,\"BESS-01\":5.85,\"WIND\":6.05,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:00:00Z\",\"end\":\"2026-09-19T14:15:00Z\",\"targets\":{\"PV\":11.16,\"BESS-01\":5.85,\"WIND\":5.94,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:15:00Z\",\"end\":\"2026-09-19T14:30:00Z\",\"targets\":{\"PV\":10.62,\"BESS-01\":5.85,\"WIND\":5.83,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:30:00Z\",\"end\":\"2026-09-19T14:45:00Z\",\"targets\":{\"PV\":10.08,\"BESS-01\":5.85,\"WIND\":5.72,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:45:00Z\",\"end\":\"2026-09-19T15:00:00Z\",\"targets\":{\"PV\":9.54,\"BESS-01\":5.85,\"WIND\":5.62,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:00:00Z\",\"end\":\"2026-09-19T15:15:00Z\",\"targets\":{\"PV\":9.0,\"BESS-01\":5.85,\"WIND\":5.51,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:15:00Z\",\"end\":\"2026-09-19T15:30:00Z\",\"targets\":{\"PV\":8.46,\"BESS-01\":5.85,\"WIND\":5.4,\"HYDRO\":1.24}}]}"
+    },
+    "MLN.control.remote.connected": {
+      "nodeId": "ns=2;s=EMS.MLN.control.remote.connected",
+      "dataType": "boolean",
+      "access": "r",
+      "demo": true
+    },
+    "MLN.control.remote.enabled": {
+      "nodeId": "ns=2;s=EMS.MLN.control.remote.enabled",
+      "dataType": "boolean",
+      "access": "rw",
+      "demo": true
+    },
+    "MLN.control.remote.source": {
+      "nodeId": "ns=2;s=EMS.MLN.control.remote.source",
+      "dataType": "string",
+      "access": "rw",
+      "demo": "aggregator"
+    },
+    "MLN.control.remote.profileStatus": {
+      "nodeId": "ns=2;s=EMS.MLN.control.remote.profileStatus",
+      "dataType": "string",
+      "access": "r",
+      "demo": "Accepted · demo"
+    },
+    "MLN.control.schedule.plan": {
+      "nodeId": "ns=2;s=EMS.MLN.control.schedule.plan",
+      "dataType": "string",
+      "access": "rw",
+      "demo": "{\"version\":1,\"revision\":\"LOCAL-012\",\"validFrom\":\"2026-09-19T11:30:00Z\",\"validUntil\":\"2026-09-19T15:30:00Z\",\"intervals\":[{\"start\":\"2026-09-19T11:30:00Z\",\"end\":\"2026-09-19T11:45:00Z\",\"targets\":{\"PV\":15.64,\"BESS-01\":-3.57,\"WIND\":6.63,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T11:45:00Z\",\"end\":\"2026-09-19T12:00:00Z\",\"targets\":{\"PV\":15.13,\"BESS-01\":-3.57,\"WIND\":6.53,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:00:00Z\",\"end\":\"2026-09-19T12:15:00Z\",\"targets\":{\"PV\":14.62,\"BESS-01\":-3.57,\"WIND\":6.43,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:15:00Z\",\"end\":\"2026-09-19T12:30:00Z\",\"targets\":{\"PV\":14.11,\"BESS-01\":-3.57,\"WIND\":6.32,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:30:00Z\",\"end\":\"2026-09-19T12:45:00Z\",\"targets\":{\"PV\":13.6,\"BESS-01\":-3.57,\"WIND\":6.22,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T12:45:00Z\",\"end\":\"2026-09-19T13:00:00Z\",\"targets\":{\"PV\":13.09,\"BESS-01\":-3.57,\"WIND\":6.12,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:00:00Z\",\"end\":\"2026-09-19T13:15:00Z\",\"targets\":{\"PV\":12.58,\"BESS-01\":-3.57,\"WIND\":6.02,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:15:00Z\",\"end\":\"2026-09-19T13:30:00Z\",\"targets\":{\"PV\":12.07,\"BESS-01\":-3.57,\"WIND\":5.92,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:30:00Z\",\"end\":\"2026-09-19T13:45:00Z\",\"targets\":{\"PV\":11.56,\"BESS-01\":5.52,\"WIND\":5.81,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T13:45:00Z\",\"end\":\"2026-09-19T14:00:00Z\",\"targets\":{\"PV\":11.05,\"BESS-01\":5.52,\"WIND\":5.71,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:00:00Z\",\"end\":\"2026-09-19T14:15:00Z\",\"targets\":{\"PV\":10.54,\"BESS-01\":5.52,\"WIND\":5.61,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:15:00Z\",\"end\":\"2026-09-19T14:30:00Z\",\"targets\":{\"PV\":10.03,\"BESS-01\":5.52,\"WIND\":5.51,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:30:00Z\",\"end\":\"2026-09-19T14:45:00Z\",\"targets\":{\"PV\":9.52,\"BESS-01\":5.52,\"WIND\":5.41,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T14:45:00Z\",\"end\":\"2026-09-19T15:00:00Z\",\"targets\":{\"PV\":9.01,\"BESS-01\":5.52,\"WIND\":5.3,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:00:00Z\",\"end\":\"2026-09-19T15:15:00Z\",\"targets\":{\"PV\":8.5,\"BESS-01\":5.52,\"WIND\":5.2,\"HYDRO\":1.24}},{\"start\":\"2026-09-19T15:15:00Z\",\"end\":\"2026-09-19T15:30:00Z\",\"targets\":{\"PV\":7.99,\"BESS-01\":5.52,\"WIND\":5.1,\"HYDRO\":1.24}}]}"
+    },
+    "MLN.control.schedule.acceptedRevision": {
+      "nodeId": "ns=2;s=EMS.MLN.control.schedule.acceptedRevision",
+      "dataType": "string",
+      "access": "r",
+      "demo": "LOCAL-012"
+    },
+    "MLN.control.schedule.state": {
+      "nodeId": "ns=2;s=EMS.MLN.control.schedule.state",
+      "dataType": "string",
+      "access": "r",
+      "demo": "Standby"
     }
   },
   "equipmentTypes": {
@@ -7788,29 +7896,13 @@
       "gridCapacityMW": 35,
       "busVoltageKV": 22,
       "bindings": {
-        "pv": "MLN.pv",
-        "wind": "MLN.wind",
-        "hydro": "MLN.hydro",
-        "battery": "MLN.battery",
-        "load": "MLN.load",
-        "soc": "MLN.soc",
-        "energyToday": "MLN.energyToday",
-        "temperature": "MLN.temperature",
-        "irradiance": "MLN.irradiance",
-        "windSpeed": "MLN.windSpeed",
-        "rtu": "MLN.rtu",
         "devicesOnline": "MLN.devicesOnline",
         "devicesTotal": "MLN.devicesTotal",
         "moduleTemperature": "MLN.moduleTemperature",
-        "humidity": "MLN.humidity",
-        "pressure": "MLN.pressure",
-        "windDirection": "MLN.windDirection",
         "precipitation": "MLN.precipitation",
         "waterLevel": "MLN.waterLevel",
         "head": "MLN.head",
         "riverFlow": "MLN.riverFlow",
-        "generation": "MLN.generation",
-        "grid": "MLN.grid",
         "frequency": "MLN.frequency",
         "voltage": "MLN.voltage",
         "powerFactor": "MLN.powerFactor",
@@ -8223,8 +8315,6 @@
           "capacity": "32 MWp",
           "description": "Two solar fields · 58 inverters and their DC arrays.",
           "bindings": {
-            "power": "MLN.PV.power",
-            "status": "MLN.PV.status",
             "measurement0": "MLN.PV.measurement0",
             "measurement1": "MLN.PV.measurement1",
             "measurement2": "MLN.PV.measurement2"
@@ -8258,8 +8348,6 @@
           "name": "Solar field · East",
           "description": "Eastern array · 30 inverter / array pairs.",
           "bindings": {
-            "power": "MLN.PV-01.power",
-            "status": "MLN.PV-01.status",
             "measurement0": "MLN.PV-01.measurement0",
             "measurement1": "MLN.PV-01.measurement1",
             "measurement2": "MLN.PV-01.measurement2",
@@ -8284,8 +8372,6 @@
           "name": "Solar field · West",
           "description": "Western array · 28 inverter / array pairs.",
           "bindings": {
-            "power": "MLN.PV-02.power",
-            "status": "MLN.PV-02.status",
             "measurement0": "MLN.PV-02.measurement0",
             "measurement1": "MLN.PV-02.measurement1",
             "measurement2": "MLN.PV-02.measurement2",
@@ -8311,9 +8397,6 @@
           "capacity": "20 MW / 40 MWh",
           "description": "20 power converters and 32 battery racks.",
           "bindings": {
-            "power": "MLN.BESS-01.power",
-            "soc": "MLN.BESS-01.soc",
-            "status": "MLN.BESS-01.status",
             "measurement0": "MLN.BESS-01.measurement0",
             "measurement1": "MLN.BESS-01.measurement1",
             "measurement2": "MLN.BESS-01.measurement2",
@@ -8338,8 +8421,6 @@
           "capacity": "12 MW",
           "description": "Four turbines on the northern ridge.",
           "bindings": {
-            "power": "MLN.WIND.power",
-            "status": "MLN.WIND.status",
             "measurement0": "MLN.WIND.measurement0",
             "measurement1": "MLN.WIND.measurement1",
             "measurement2": "MLN.WIND.measurement2"
@@ -8374,8 +8455,6 @@
           "capacity": "2 MW",
           "description": "Two run-of-river hydro units.",
           "bindings": {
-            "power": "MLN.HYDRO.power",
-            "status": "MLN.HYDRO.status",
             "measurement0": "MLN.HYDRO.measurement0",
             "measurement1": "MLN.HYDRO.measurement1",
             "measurement2": "MLN.HYDRO.measurement2"
@@ -8437,11 +8516,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 01",
           "bindings": {
-            "power": "MLN.PV-INV-01.power",
             "temperature": "MLN.PV-INV-01.temperature",
             "dcVoltage": "MLN.PV-INV-01.dcVoltage",
             "limit": "MLN.PV-INV-01.limit",
-            "status": "MLN.PV-INV-01.status",
             "measurement0": "MLN.PV-INV-01.measurement0",
             "measurement1": "MLN.PV-INV-01.measurement1",
             "measurement2": "MLN.PV-INV-01.measurement2"
@@ -8458,8 +8535,6 @@
           "type": "array-pv",
           "name": "PV array 01",
           "bindings": {
-            "power": "MLN.PV-ARR-01.power",
-            "status": "MLN.PV-ARR-01.status",
             "measurement0": "MLN.PV-ARR-01.measurement0",
             "measurement1": "MLN.PV-ARR-01.measurement1",
             "measurement2": "MLN.PV-ARR-01.measurement2"
@@ -8476,11 +8551,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 02",
           "bindings": {
-            "power": "MLN.PV-INV-02.power",
             "temperature": "MLN.PV-INV-02.temperature",
             "dcVoltage": "MLN.PV-INV-02.dcVoltage",
             "limit": "MLN.PV-INV-02.limit",
-            "status": "MLN.PV-INV-02.status",
             "measurement0": "MLN.PV-INV-02.measurement0",
             "measurement1": "MLN.PV-INV-02.measurement1",
             "measurement2": "MLN.PV-INV-02.measurement2"
@@ -8497,8 +8570,6 @@
           "type": "array-pv",
           "name": "PV array 02",
           "bindings": {
-            "power": "MLN.PV-ARR-02.power",
-            "status": "MLN.PV-ARR-02.status",
             "measurement0": "MLN.PV-ARR-02.measurement0",
             "measurement1": "MLN.PV-ARR-02.measurement1",
             "measurement2": "MLN.PV-ARR-02.measurement2"
@@ -8515,11 +8586,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 03",
           "bindings": {
-            "power": "MLN.PV-INV-03.power",
             "temperature": "MLN.PV-INV-03.temperature",
             "dcVoltage": "MLN.PV-INV-03.dcVoltage",
             "limit": "MLN.PV-INV-03.limit",
-            "status": "MLN.PV-INV-03.status",
             "measurement0": "MLN.PV-INV-03.measurement0",
             "measurement1": "MLN.PV-INV-03.measurement1",
             "measurement2": "MLN.PV-INV-03.measurement2"
@@ -8536,8 +8605,6 @@
           "type": "array-pv",
           "name": "PV array 03",
           "bindings": {
-            "power": "MLN.PV-ARR-03.power",
-            "status": "MLN.PV-ARR-03.status",
             "measurement0": "MLN.PV-ARR-03.measurement0",
             "measurement1": "MLN.PV-ARR-03.measurement1",
             "measurement2": "MLN.PV-ARR-03.measurement2"
@@ -8554,11 +8621,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 04",
           "bindings": {
-            "power": "MLN.PV-INV-04.power",
             "temperature": "MLN.PV-INV-04.temperature",
             "dcVoltage": "MLN.PV-INV-04.dcVoltage",
             "limit": "MLN.PV-INV-04.limit",
-            "status": "MLN.PV-INV-04.status",
             "measurement0": "MLN.PV-INV-04.measurement0",
             "measurement1": "MLN.PV-INV-04.measurement1",
             "measurement2": "MLN.PV-INV-04.measurement2"
@@ -8575,8 +8640,6 @@
           "type": "array-pv",
           "name": "PV array 04",
           "bindings": {
-            "power": "MLN.PV-ARR-04.power",
-            "status": "MLN.PV-ARR-04.status",
             "measurement0": "MLN.PV-ARR-04.measurement0",
             "measurement1": "MLN.PV-ARR-04.measurement1",
             "measurement2": "MLN.PV-ARR-04.measurement2"
@@ -8593,11 +8656,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 05",
           "bindings": {
-            "power": "MLN.PV-INV-05.power",
             "temperature": "MLN.PV-INV-05.temperature",
             "dcVoltage": "MLN.PV-INV-05.dcVoltage",
             "limit": "MLN.PV-INV-05.limit",
-            "status": "MLN.PV-INV-05.status",
             "measurement0": "MLN.PV-INV-05.measurement0",
             "measurement1": "MLN.PV-INV-05.measurement1",
             "measurement2": "MLN.PV-INV-05.measurement2"
@@ -8614,8 +8675,6 @@
           "type": "array-pv",
           "name": "PV array 05",
           "bindings": {
-            "power": "MLN.PV-ARR-05.power",
-            "status": "MLN.PV-ARR-05.status",
             "measurement0": "MLN.PV-ARR-05.measurement0",
             "measurement1": "MLN.PV-ARR-05.measurement1",
             "measurement2": "MLN.PV-ARR-05.measurement2"
@@ -8632,11 +8691,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 06",
           "bindings": {
-            "power": "MLN.PV-INV-06.power",
             "temperature": "MLN.PV-INV-06.temperature",
             "dcVoltage": "MLN.PV-INV-06.dcVoltage",
             "limit": "MLN.PV-INV-06.limit",
-            "status": "MLN.PV-INV-06.status",
             "measurement0": "MLN.PV-INV-06.measurement0",
             "measurement1": "MLN.PV-INV-06.measurement1",
             "measurement2": "MLN.PV-INV-06.measurement2"
@@ -8653,8 +8710,6 @@
           "type": "array-pv",
           "name": "PV array 06",
           "bindings": {
-            "power": "MLN.PV-ARR-06.power",
-            "status": "MLN.PV-ARR-06.status",
             "measurement0": "MLN.PV-ARR-06.measurement0",
             "measurement1": "MLN.PV-ARR-06.measurement1",
             "measurement2": "MLN.PV-ARR-06.measurement2"
@@ -8671,11 +8726,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 07",
           "bindings": {
-            "power": "MLN.PV-INV-07.power",
             "temperature": "MLN.PV-INV-07.temperature",
             "dcVoltage": "MLN.PV-INV-07.dcVoltage",
             "limit": "MLN.PV-INV-07.limit",
-            "status": "MLN.PV-INV-07.status",
             "measurement0": "MLN.PV-INV-07.measurement0",
             "measurement1": "MLN.PV-INV-07.measurement1",
             "measurement2": "MLN.PV-INV-07.measurement2"
@@ -8692,8 +8745,6 @@
           "type": "array-pv",
           "name": "PV array 07",
           "bindings": {
-            "power": "MLN.PV-ARR-07.power",
-            "status": "MLN.PV-ARR-07.status",
             "measurement0": "MLN.PV-ARR-07.measurement0",
             "measurement1": "MLN.PV-ARR-07.measurement1",
             "measurement2": "MLN.PV-ARR-07.measurement2"
@@ -8710,11 +8761,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 08",
           "bindings": {
-            "power": "MLN.PV-INV-08.power",
             "temperature": "MLN.PV-INV-08.temperature",
             "dcVoltage": "MLN.PV-INV-08.dcVoltage",
             "limit": "MLN.PV-INV-08.limit",
-            "status": "MLN.PV-INV-08.status",
             "measurement0": "MLN.PV-INV-08.measurement0",
             "measurement1": "MLN.PV-INV-08.measurement1",
             "measurement2": "MLN.PV-INV-08.measurement2"
@@ -8731,8 +8780,6 @@
           "type": "array-pv",
           "name": "PV array 08",
           "bindings": {
-            "power": "MLN.PV-ARR-08.power",
-            "status": "MLN.PV-ARR-08.status",
             "measurement0": "MLN.PV-ARR-08.measurement0",
             "measurement1": "MLN.PV-ARR-08.measurement1",
             "measurement2": "MLN.PV-ARR-08.measurement2"
@@ -8749,11 +8796,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 09",
           "bindings": {
-            "power": "MLN.PV-INV-09.power",
             "temperature": "MLN.PV-INV-09.temperature",
             "dcVoltage": "MLN.PV-INV-09.dcVoltage",
             "limit": "MLN.PV-INV-09.limit",
-            "status": "MLN.PV-INV-09.status",
             "measurement0": "MLN.PV-INV-09.measurement0",
             "measurement1": "MLN.PV-INV-09.measurement1",
             "measurement2": "MLN.PV-INV-09.measurement2"
@@ -8770,8 +8815,6 @@
           "type": "array-pv",
           "name": "PV array 09",
           "bindings": {
-            "power": "MLN.PV-ARR-09.power",
-            "status": "MLN.PV-ARR-09.status",
             "measurement0": "MLN.PV-ARR-09.measurement0",
             "measurement1": "MLN.PV-ARR-09.measurement1",
             "measurement2": "MLN.PV-ARR-09.measurement2"
@@ -8788,11 +8831,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 10",
           "bindings": {
-            "power": "MLN.PV-INV-10.power",
             "temperature": "MLN.PV-INV-10.temperature",
             "dcVoltage": "MLN.PV-INV-10.dcVoltage",
             "limit": "MLN.PV-INV-10.limit",
-            "status": "MLN.PV-INV-10.status",
             "measurement0": "MLN.PV-INV-10.measurement0",
             "measurement1": "MLN.PV-INV-10.measurement1",
             "measurement2": "MLN.PV-INV-10.measurement2"
@@ -8809,8 +8850,6 @@
           "type": "array-pv",
           "name": "PV array 10",
           "bindings": {
-            "power": "MLN.PV-ARR-10.power",
-            "status": "MLN.PV-ARR-10.status",
             "measurement0": "MLN.PV-ARR-10.measurement0",
             "measurement1": "MLN.PV-ARR-10.measurement1",
             "measurement2": "MLN.PV-ARR-10.measurement2"
@@ -8827,11 +8866,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 11",
           "bindings": {
-            "power": "MLN.PV-INV-11.power",
             "temperature": "MLN.PV-INV-11.temperature",
             "dcVoltage": "MLN.PV-INV-11.dcVoltage",
             "limit": "MLN.PV-INV-11.limit",
-            "status": "MLN.PV-INV-11.status",
             "measurement0": "MLN.PV-INV-11.measurement0",
             "measurement1": "MLN.PV-INV-11.measurement1",
             "measurement2": "MLN.PV-INV-11.measurement2"
@@ -8848,8 +8885,6 @@
           "type": "array-pv",
           "name": "PV array 11",
           "bindings": {
-            "power": "MLN.PV-ARR-11.power",
-            "status": "MLN.PV-ARR-11.status",
             "measurement0": "MLN.PV-ARR-11.measurement0",
             "measurement1": "MLN.PV-ARR-11.measurement1",
             "measurement2": "MLN.PV-ARR-11.measurement2"
@@ -8866,11 +8901,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 12",
           "bindings": {
-            "power": "MLN.PV-INV-12.power",
             "temperature": "MLN.PV-INV-12.temperature",
             "dcVoltage": "MLN.PV-INV-12.dcVoltage",
             "limit": "MLN.PV-INV-12.limit",
-            "status": "MLN.PV-INV-12.status",
             "measurement0": "MLN.PV-INV-12.measurement0",
             "measurement1": "MLN.PV-INV-12.measurement1",
             "measurement2": "MLN.PV-INV-12.measurement2"
@@ -8905,8 +8938,6 @@
           "type": "array-pv",
           "name": "PV array 12",
           "bindings": {
-            "power": "MLN.PV-ARR-12.power",
-            "status": "MLN.PV-ARR-12.status",
             "measurement0": "MLN.PV-ARR-12.measurement0",
             "measurement1": "MLN.PV-ARR-12.measurement1",
             "measurement2": "MLN.PV-ARR-12.measurement2"
@@ -8923,11 +8954,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 13",
           "bindings": {
-            "power": "MLN.PV-INV-13.power",
             "temperature": "MLN.PV-INV-13.temperature",
             "dcVoltage": "MLN.PV-INV-13.dcVoltage",
             "limit": "MLN.PV-INV-13.limit",
-            "status": "MLN.PV-INV-13.status",
             "measurement0": "MLN.PV-INV-13.measurement0",
             "measurement1": "MLN.PV-INV-13.measurement1",
             "measurement2": "MLN.PV-INV-13.measurement2"
@@ -8944,8 +8973,6 @@
           "type": "array-pv",
           "name": "PV array 13",
           "bindings": {
-            "power": "MLN.PV-ARR-13.power",
-            "status": "MLN.PV-ARR-13.status",
             "measurement0": "MLN.PV-ARR-13.measurement0",
             "measurement1": "MLN.PV-ARR-13.measurement1",
             "measurement2": "MLN.PV-ARR-13.measurement2"
@@ -8962,11 +8989,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 14",
           "bindings": {
-            "power": "MLN.PV-INV-14.power",
             "temperature": "MLN.PV-INV-14.temperature",
             "dcVoltage": "MLN.PV-INV-14.dcVoltage",
             "limit": "MLN.PV-INV-14.limit",
-            "status": "MLN.PV-INV-14.status",
             "measurement0": "MLN.PV-INV-14.measurement0",
             "measurement1": "MLN.PV-INV-14.measurement1",
             "measurement2": "MLN.PV-INV-14.measurement2"
@@ -8983,8 +9008,6 @@
           "type": "array-pv",
           "name": "PV array 14",
           "bindings": {
-            "power": "MLN.PV-ARR-14.power",
-            "status": "MLN.PV-ARR-14.status",
             "measurement0": "MLN.PV-ARR-14.measurement0",
             "measurement1": "MLN.PV-ARR-14.measurement1",
             "measurement2": "MLN.PV-ARR-14.measurement2"
@@ -9001,11 +9024,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 15",
           "bindings": {
-            "power": "MLN.PV-INV-15.power",
             "temperature": "MLN.PV-INV-15.temperature",
             "dcVoltage": "MLN.PV-INV-15.dcVoltage",
             "limit": "MLN.PV-INV-15.limit",
-            "status": "MLN.PV-INV-15.status",
             "measurement0": "MLN.PV-INV-15.measurement0",
             "measurement1": "MLN.PV-INV-15.measurement1",
             "measurement2": "MLN.PV-INV-15.measurement2"
@@ -9022,8 +9043,6 @@
           "type": "array-pv",
           "name": "PV array 15",
           "bindings": {
-            "power": "MLN.PV-ARR-15.power",
-            "status": "MLN.PV-ARR-15.status",
             "measurement0": "MLN.PV-ARR-15.measurement0",
             "measurement1": "MLN.PV-ARR-15.measurement1",
             "measurement2": "MLN.PV-ARR-15.measurement2"
@@ -9040,11 +9059,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 16",
           "bindings": {
-            "power": "MLN.PV-INV-16.power",
             "temperature": "MLN.PV-INV-16.temperature",
             "dcVoltage": "MLN.PV-INV-16.dcVoltage",
             "limit": "MLN.PV-INV-16.limit",
-            "status": "MLN.PV-INV-16.status",
             "measurement0": "MLN.PV-INV-16.measurement0",
             "measurement1": "MLN.PV-INV-16.measurement1",
             "measurement2": "MLN.PV-INV-16.measurement2"
@@ -9061,8 +9078,6 @@
           "type": "array-pv",
           "name": "PV array 16",
           "bindings": {
-            "power": "MLN.PV-ARR-16.power",
-            "status": "MLN.PV-ARR-16.status",
             "measurement0": "MLN.PV-ARR-16.measurement0",
             "measurement1": "MLN.PV-ARR-16.measurement1",
             "measurement2": "MLN.PV-ARR-16.measurement2"
@@ -9079,11 +9094,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 17",
           "bindings": {
-            "power": "MLN.PV-INV-17.power",
             "temperature": "MLN.PV-INV-17.temperature",
             "dcVoltage": "MLN.PV-INV-17.dcVoltage",
             "limit": "MLN.PV-INV-17.limit",
-            "status": "MLN.PV-INV-17.status",
             "measurement0": "MLN.PV-INV-17.measurement0",
             "measurement1": "MLN.PV-INV-17.measurement1",
             "measurement2": "MLN.PV-INV-17.measurement2"
@@ -9100,8 +9113,6 @@
           "type": "array-pv",
           "name": "PV array 17",
           "bindings": {
-            "power": "MLN.PV-ARR-17.power",
-            "status": "MLN.PV-ARR-17.status",
             "measurement0": "MLN.PV-ARR-17.measurement0",
             "measurement1": "MLN.PV-ARR-17.measurement1",
             "measurement2": "MLN.PV-ARR-17.measurement2"
@@ -9118,11 +9129,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 18",
           "bindings": {
-            "power": "MLN.PV-INV-18.power",
             "temperature": "MLN.PV-INV-18.temperature",
             "dcVoltage": "MLN.PV-INV-18.dcVoltage",
             "limit": "MLN.PV-INV-18.limit",
-            "status": "MLN.PV-INV-18.status",
             "measurement0": "MLN.PV-INV-18.measurement0",
             "measurement1": "MLN.PV-INV-18.measurement1",
             "measurement2": "MLN.PV-INV-18.measurement2"
@@ -9139,8 +9148,6 @@
           "type": "array-pv",
           "name": "PV array 18",
           "bindings": {
-            "power": "MLN.PV-ARR-18.power",
-            "status": "MLN.PV-ARR-18.status",
             "measurement0": "MLN.PV-ARR-18.measurement0",
             "measurement1": "MLN.PV-ARR-18.measurement1",
             "measurement2": "MLN.PV-ARR-18.measurement2"
@@ -9157,11 +9164,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 19",
           "bindings": {
-            "power": "MLN.PV-INV-19.power",
             "temperature": "MLN.PV-INV-19.temperature",
             "dcVoltage": "MLN.PV-INV-19.dcVoltage",
             "limit": "MLN.PV-INV-19.limit",
-            "status": "MLN.PV-INV-19.status",
             "measurement0": "MLN.PV-INV-19.measurement0",
             "measurement1": "MLN.PV-INV-19.measurement1",
             "measurement2": "MLN.PV-INV-19.measurement2"
@@ -9178,8 +9183,6 @@
           "type": "array-pv",
           "name": "PV array 19",
           "bindings": {
-            "power": "MLN.PV-ARR-19.power",
-            "status": "MLN.PV-ARR-19.status",
             "measurement0": "MLN.PV-ARR-19.measurement0",
             "measurement1": "MLN.PV-ARR-19.measurement1",
             "measurement2": "MLN.PV-ARR-19.measurement2"
@@ -9196,11 +9199,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 20",
           "bindings": {
-            "power": "MLN.PV-INV-20.power",
             "temperature": "MLN.PV-INV-20.temperature",
             "dcVoltage": "MLN.PV-INV-20.dcVoltage",
             "limit": "MLN.PV-INV-20.limit",
-            "status": "MLN.PV-INV-20.status",
             "measurement0": "MLN.PV-INV-20.measurement0",
             "measurement1": "MLN.PV-INV-20.measurement1",
             "measurement2": "MLN.PV-INV-20.measurement2"
@@ -9217,8 +9218,6 @@
           "type": "array-pv",
           "name": "PV array 20",
           "bindings": {
-            "power": "MLN.PV-ARR-20.power",
-            "status": "MLN.PV-ARR-20.status",
             "measurement0": "MLN.PV-ARR-20.measurement0",
             "measurement1": "MLN.PV-ARR-20.measurement1",
             "measurement2": "MLN.PV-ARR-20.measurement2"
@@ -9235,11 +9234,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 21",
           "bindings": {
-            "power": "MLN.PV-INV-21.power",
             "temperature": "MLN.PV-INV-21.temperature",
             "dcVoltage": "MLN.PV-INV-21.dcVoltage",
             "limit": "MLN.PV-INV-21.limit",
-            "status": "MLN.PV-INV-21.status",
             "measurement0": "MLN.PV-INV-21.measurement0",
             "measurement1": "MLN.PV-INV-21.measurement1",
             "measurement2": "MLN.PV-INV-21.measurement2"
@@ -9256,8 +9253,6 @@
           "type": "array-pv",
           "name": "PV array 21",
           "bindings": {
-            "power": "MLN.PV-ARR-21.power",
-            "status": "MLN.PV-ARR-21.status",
             "measurement0": "MLN.PV-ARR-21.measurement0",
             "measurement1": "MLN.PV-ARR-21.measurement1",
             "measurement2": "MLN.PV-ARR-21.measurement2"
@@ -9274,11 +9269,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 22",
           "bindings": {
-            "power": "MLN.PV-INV-22.power",
             "temperature": "MLN.PV-INV-22.temperature",
             "dcVoltage": "MLN.PV-INV-22.dcVoltage",
             "limit": "MLN.PV-INV-22.limit",
-            "status": "MLN.PV-INV-22.status",
             "measurement0": "MLN.PV-INV-22.measurement0",
             "measurement1": "MLN.PV-INV-22.measurement1",
             "measurement2": "MLN.PV-INV-22.measurement2"
@@ -9295,8 +9288,6 @@
           "type": "array-pv",
           "name": "PV array 22",
           "bindings": {
-            "power": "MLN.PV-ARR-22.power",
-            "status": "MLN.PV-ARR-22.status",
             "measurement0": "MLN.PV-ARR-22.measurement0",
             "measurement1": "MLN.PV-ARR-22.measurement1",
             "measurement2": "MLN.PV-ARR-22.measurement2"
@@ -9313,11 +9304,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 23",
           "bindings": {
-            "power": "MLN.PV-INV-23.power",
             "temperature": "MLN.PV-INV-23.temperature",
             "dcVoltage": "MLN.PV-INV-23.dcVoltage",
             "limit": "MLN.PV-INV-23.limit",
-            "status": "MLN.PV-INV-23.status",
             "measurement0": "MLN.PV-INV-23.measurement0",
             "measurement1": "MLN.PV-INV-23.measurement1",
             "measurement2": "MLN.PV-INV-23.measurement2"
@@ -9334,8 +9323,6 @@
           "type": "array-pv",
           "name": "PV array 23",
           "bindings": {
-            "power": "MLN.PV-ARR-23.power",
-            "status": "MLN.PV-ARR-23.status",
             "measurement0": "MLN.PV-ARR-23.measurement0",
             "measurement1": "MLN.PV-ARR-23.measurement1",
             "measurement2": "MLN.PV-ARR-23.measurement2"
@@ -9352,11 +9339,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 24",
           "bindings": {
-            "power": "MLN.PV-INV-24.power",
             "temperature": "MLN.PV-INV-24.temperature",
             "dcVoltage": "MLN.PV-INV-24.dcVoltage",
             "limit": "MLN.PV-INV-24.limit",
-            "status": "MLN.PV-INV-24.status",
             "measurement0": "MLN.PV-INV-24.measurement0",
             "measurement1": "MLN.PV-INV-24.measurement1",
             "measurement2": "MLN.PV-INV-24.measurement2"
@@ -9373,8 +9358,6 @@
           "type": "array-pv",
           "name": "PV array 24",
           "bindings": {
-            "power": "MLN.PV-ARR-24.power",
-            "status": "MLN.PV-ARR-24.status",
             "measurement0": "MLN.PV-ARR-24.measurement0",
             "measurement1": "MLN.PV-ARR-24.measurement1",
             "measurement2": "MLN.PV-ARR-24.measurement2"
@@ -9391,11 +9374,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 25",
           "bindings": {
-            "power": "MLN.PV-INV-25.power",
             "temperature": "MLN.PV-INV-25.temperature",
             "dcVoltage": "MLN.PV-INV-25.dcVoltage",
             "limit": "MLN.PV-INV-25.limit",
-            "status": "MLN.PV-INV-25.status",
             "measurement0": "MLN.PV-INV-25.measurement0",
             "measurement1": "MLN.PV-INV-25.measurement1",
             "measurement2": "MLN.PV-INV-25.measurement2"
@@ -9412,8 +9393,6 @@
           "type": "array-pv",
           "name": "PV array 25",
           "bindings": {
-            "power": "MLN.PV-ARR-25.power",
-            "status": "MLN.PV-ARR-25.status",
             "measurement0": "MLN.PV-ARR-25.measurement0",
             "measurement1": "MLN.PV-ARR-25.measurement1",
             "measurement2": "MLN.PV-ARR-25.measurement2"
@@ -9430,11 +9409,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 26",
           "bindings": {
-            "power": "MLN.PV-INV-26.power",
             "temperature": "MLN.PV-INV-26.temperature",
             "dcVoltage": "MLN.PV-INV-26.dcVoltage",
             "limit": "MLN.PV-INV-26.limit",
-            "status": "MLN.PV-INV-26.status",
             "measurement0": "MLN.PV-INV-26.measurement0",
             "measurement1": "MLN.PV-INV-26.measurement1",
             "measurement2": "MLN.PV-INV-26.measurement2"
@@ -9451,8 +9428,6 @@
           "type": "array-pv",
           "name": "PV array 26",
           "bindings": {
-            "power": "MLN.PV-ARR-26.power",
-            "status": "MLN.PV-ARR-26.status",
             "measurement0": "MLN.PV-ARR-26.measurement0",
             "measurement1": "MLN.PV-ARR-26.measurement1",
             "measurement2": "MLN.PV-ARR-26.measurement2"
@@ -9469,11 +9444,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 27",
           "bindings": {
-            "power": "MLN.PV-INV-27.power",
             "temperature": "MLN.PV-INV-27.temperature",
             "dcVoltage": "MLN.PV-INV-27.dcVoltage",
             "limit": "MLN.PV-INV-27.limit",
-            "status": "MLN.PV-INV-27.status",
             "measurement0": "MLN.PV-INV-27.measurement0",
             "measurement1": "MLN.PV-INV-27.measurement1",
             "measurement2": "MLN.PV-INV-27.measurement2"
@@ -9490,8 +9463,6 @@
           "type": "array-pv",
           "name": "PV array 27",
           "bindings": {
-            "power": "MLN.PV-ARR-27.power",
-            "status": "MLN.PV-ARR-27.status",
             "measurement0": "MLN.PV-ARR-27.measurement0",
             "measurement1": "MLN.PV-ARR-27.measurement1",
             "measurement2": "MLN.PV-ARR-27.measurement2"
@@ -9508,11 +9479,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 28",
           "bindings": {
-            "power": "MLN.PV-INV-28.power",
             "temperature": "MLN.PV-INV-28.temperature",
             "dcVoltage": "MLN.PV-INV-28.dcVoltage",
             "limit": "MLN.PV-INV-28.limit",
-            "status": "MLN.PV-INV-28.status",
             "measurement0": "MLN.PV-INV-28.measurement0",
             "measurement1": "MLN.PV-INV-28.measurement1",
             "measurement2": "MLN.PV-INV-28.measurement2"
@@ -9529,8 +9498,6 @@
           "type": "array-pv",
           "name": "PV array 28",
           "bindings": {
-            "power": "MLN.PV-ARR-28.power",
-            "status": "MLN.PV-ARR-28.status",
             "measurement0": "MLN.PV-ARR-28.measurement0",
             "measurement1": "MLN.PV-ARR-28.measurement1",
             "measurement2": "MLN.PV-ARR-28.measurement2"
@@ -9547,11 +9514,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 29",
           "bindings": {
-            "power": "MLN.PV-INV-29.power",
             "temperature": "MLN.PV-INV-29.temperature",
             "dcVoltage": "MLN.PV-INV-29.dcVoltage",
             "limit": "MLN.PV-INV-29.limit",
-            "status": "MLN.PV-INV-29.status",
             "measurement0": "MLN.PV-INV-29.measurement0",
             "measurement1": "MLN.PV-INV-29.measurement1",
             "measurement2": "MLN.PV-INV-29.measurement2"
@@ -9568,8 +9533,6 @@
           "type": "array-pv",
           "name": "PV array 29",
           "bindings": {
-            "power": "MLN.PV-ARR-29.power",
-            "status": "MLN.PV-ARR-29.status",
             "measurement0": "MLN.PV-ARR-29.measurement0",
             "measurement1": "MLN.PV-ARR-29.measurement1",
             "measurement2": "MLN.PV-ARR-29.measurement2"
@@ -9586,11 +9549,9 @@
           "type": "inverter-pv",
           "name": "PV inverter 30",
           "bindings": {
-            "power": "MLN.PV-INV-30.power",
             "temperature": "MLN.PV-INV-30.temperature",
             "dcVoltage": "MLN.PV-INV-30.dcVoltage",
             "limit": "MLN.PV-INV-30.limit",
-            "status": "MLN.PV-INV-30.status",
             "measurement0": "MLN.PV-INV-30.measurement0",
             "measurement1": "MLN.PV-INV-30.measurement1",
             "measurement2": "MLN.PV-INV-30.measurement2"
@@ -9607,8 +9568,6 @@
           "type": "array-pv",
           "name": "PV array 30",
           "bindings": {
-            "power": "MLN.PV-ARR-30.power",
-            "status": "MLN.PV-ARR-30.status",
             "measurement0": "MLN.PV-ARR-30.measurement0",
             "measurement1": "MLN.PV-ARR-30.measurement1",
             "measurement2": "MLN.PV-ARR-30.measurement2"
@@ -9626,11 +9585,9 @@
           "name": "PV inverter 31",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-31.power",
             "temperature": "MLN.PV-INV-31.temperature",
             "dcVoltage": "MLN.PV-INV-31.dcVoltage",
             "limit": "MLN.PV-INV-31.limit",
-            "status": "MLN.PV-INV-31.status",
             "measurement0": "MLN.PV-INV-31.measurement0",
             "measurement1": "MLN.PV-INV-31.measurement1",
             "measurement2": "MLN.PV-INV-31.measurement2"
@@ -9648,8 +9605,6 @@
           "name": "PV array 31",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-31.power",
-            "status": "MLN.PV-ARR-31.status",
             "measurement0": "MLN.PV-ARR-31.measurement0",
             "measurement1": "MLN.PV-ARR-31.measurement1",
             "measurement2": "MLN.PV-ARR-31.measurement2"
@@ -9667,11 +9622,9 @@
           "name": "PV inverter 32",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-32.power",
             "temperature": "MLN.PV-INV-32.temperature",
             "dcVoltage": "MLN.PV-INV-32.dcVoltage",
             "limit": "MLN.PV-INV-32.limit",
-            "status": "MLN.PV-INV-32.status",
             "measurement0": "MLN.PV-INV-32.measurement0",
             "measurement1": "MLN.PV-INV-32.measurement1",
             "measurement2": "MLN.PV-INV-32.measurement2"
@@ -9689,8 +9642,6 @@
           "name": "PV array 32",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-32.power",
-            "status": "MLN.PV-ARR-32.status",
             "measurement0": "MLN.PV-ARR-32.measurement0",
             "measurement1": "MLN.PV-ARR-32.measurement1",
             "measurement2": "MLN.PV-ARR-32.measurement2"
@@ -9708,11 +9659,9 @@
           "name": "PV inverter 33",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-33.power",
             "temperature": "MLN.PV-INV-33.temperature",
             "dcVoltage": "MLN.PV-INV-33.dcVoltage",
             "limit": "MLN.PV-INV-33.limit",
-            "status": "MLN.PV-INV-33.status",
             "measurement0": "MLN.PV-INV-33.measurement0",
             "measurement1": "MLN.PV-INV-33.measurement1",
             "measurement2": "MLN.PV-INV-33.measurement2"
@@ -9730,8 +9679,6 @@
           "name": "PV array 33",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-33.power",
-            "status": "MLN.PV-ARR-33.status",
             "measurement0": "MLN.PV-ARR-33.measurement0",
             "measurement1": "MLN.PV-ARR-33.measurement1",
             "measurement2": "MLN.PV-ARR-33.measurement2"
@@ -9749,11 +9696,9 @@
           "name": "PV inverter 34",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-34.power",
             "temperature": "MLN.PV-INV-34.temperature",
             "dcVoltage": "MLN.PV-INV-34.dcVoltage",
             "limit": "MLN.PV-INV-34.limit",
-            "status": "MLN.PV-INV-34.status",
             "measurement0": "MLN.PV-INV-34.measurement0",
             "measurement1": "MLN.PV-INV-34.measurement1",
             "measurement2": "MLN.PV-INV-34.measurement2"
@@ -9771,8 +9716,6 @@
           "name": "PV array 34",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-34.power",
-            "status": "MLN.PV-ARR-34.status",
             "measurement0": "MLN.PV-ARR-34.measurement0",
             "measurement1": "MLN.PV-ARR-34.measurement1",
             "measurement2": "MLN.PV-ARR-34.measurement2"
@@ -9790,11 +9733,9 @@
           "name": "PV inverter 35",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-35.power",
             "temperature": "MLN.PV-INV-35.temperature",
             "dcVoltage": "MLN.PV-INV-35.dcVoltage",
             "limit": "MLN.PV-INV-35.limit",
-            "status": "MLN.PV-INV-35.status",
             "measurement0": "MLN.PV-INV-35.measurement0",
             "measurement1": "MLN.PV-INV-35.measurement1",
             "measurement2": "MLN.PV-INV-35.measurement2"
@@ -9812,8 +9753,6 @@
           "name": "PV array 35",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-35.power",
-            "status": "MLN.PV-ARR-35.status",
             "measurement0": "MLN.PV-ARR-35.measurement0",
             "measurement1": "MLN.PV-ARR-35.measurement1",
             "measurement2": "MLN.PV-ARR-35.measurement2"
@@ -9831,11 +9770,9 @@
           "name": "PV inverter 36",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-36.power",
             "temperature": "MLN.PV-INV-36.temperature",
             "dcVoltage": "MLN.PV-INV-36.dcVoltage",
             "limit": "MLN.PV-INV-36.limit",
-            "status": "MLN.PV-INV-36.status",
             "measurement0": "MLN.PV-INV-36.measurement0",
             "measurement1": "MLN.PV-INV-36.measurement1",
             "measurement2": "MLN.PV-INV-36.measurement2"
@@ -9853,8 +9790,6 @@
           "name": "PV array 36",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-36.power",
-            "status": "MLN.PV-ARR-36.status",
             "measurement0": "MLN.PV-ARR-36.measurement0",
             "measurement1": "MLN.PV-ARR-36.measurement1",
             "measurement2": "MLN.PV-ARR-36.measurement2"
@@ -9872,11 +9807,9 @@
           "name": "PV inverter 37",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-37.power",
             "temperature": "MLN.PV-INV-37.temperature",
             "dcVoltage": "MLN.PV-INV-37.dcVoltage",
             "limit": "MLN.PV-INV-37.limit",
-            "status": "MLN.PV-INV-37.status",
             "measurement0": "MLN.PV-INV-37.measurement0",
             "measurement1": "MLN.PV-INV-37.measurement1",
             "measurement2": "MLN.PV-INV-37.measurement2"
@@ -9894,8 +9827,6 @@
           "name": "PV array 37",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-37.power",
-            "status": "MLN.PV-ARR-37.status",
             "measurement0": "MLN.PV-ARR-37.measurement0",
             "measurement1": "MLN.PV-ARR-37.measurement1",
             "measurement2": "MLN.PV-ARR-37.measurement2"
@@ -9913,11 +9844,9 @@
           "name": "PV inverter 38",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-38.power",
             "temperature": "MLN.PV-INV-38.temperature",
             "dcVoltage": "MLN.PV-INV-38.dcVoltage",
             "limit": "MLN.PV-INV-38.limit",
-            "status": "MLN.PV-INV-38.status",
             "measurement0": "MLN.PV-INV-38.measurement0",
             "measurement1": "MLN.PV-INV-38.measurement1",
             "measurement2": "MLN.PV-INV-38.measurement2"
@@ -9935,8 +9864,6 @@
           "name": "PV array 38",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-38.power",
-            "status": "MLN.PV-ARR-38.status",
             "measurement0": "MLN.PV-ARR-38.measurement0",
             "measurement1": "MLN.PV-ARR-38.measurement1",
             "measurement2": "MLN.PV-ARR-38.measurement2"
@@ -9954,11 +9881,9 @@
           "name": "PV inverter 39",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-39.power",
             "temperature": "MLN.PV-INV-39.temperature",
             "dcVoltage": "MLN.PV-INV-39.dcVoltage",
             "limit": "MLN.PV-INV-39.limit",
-            "status": "MLN.PV-INV-39.status",
             "measurement0": "MLN.PV-INV-39.measurement0",
             "measurement1": "MLN.PV-INV-39.measurement1",
             "measurement2": "MLN.PV-INV-39.measurement2"
@@ -9976,8 +9901,6 @@
           "name": "PV array 39",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-39.power",
-            "status": "MLN.PV-ARR-39.status",
             "measurement0": "MLN.PV-ARR-39.measurement0",
             "measurement1": "MLN.PV-ARR-39.measurement1",
             "measurement2": "MLN.PV-ARR-39.measurement2"
@@ -9995,11 +9918,9 @@
           "name": "PV inverter 40",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-40.power",
             "temperature": "MLN.PV-INV-40.temperature",
             "dcVoltage": "MLN.PV-INV-40.dcVoltage",
             "limit": "MLN.PV-INV-40.limit",
-            "status": "MLN.PV-INV-40.status",
             "measurement0": "MLN.PV-INV-40.measurement0",
             "measurement1": "MLN.PV-INV-40.measurement1",
             "measurement2": "MLN.PV-INV-40.measurement2"
@@ -10017,8 +9938,6 @@
           "name": "PV array 40",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-40.power",
-            "status": "MLN.PV-ARR-40.status",
             "measurement0": "MLN.PV-ARR-40.measurement0",
             "measurement1": "MLN.PV-ARR-40.measurement1",
             "measurement2": "MLN.PV-ARR-40.measurement2"
@@ -10036,11 +9955,9 @@
           "name": "PV inverter 41",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-41.power",
             "temperature": "MLN.PV-INV-41.temperature",
             "dcVoltage": "MLN.PV-INV-41.dcVoltage",
             "limit": "MLN.PV-INV-41.limit",
-            "status": "MLN.PV-INV-41.status",
             "measurement0": "MLN.PV-INV-41.measurement0",
             "measurement1": "MLN.PV-INV-41.measurement1",
             "measurement2": "MLN.PV-INV-41.measurement2"
@@ -10058,8 +9975,6 @@
           "name": "PV array 41",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-41.power",
-            "status": "MLN.PV-ARR-41.status",
             "measurement0": "MLN.PV-ARR-41.measurement0",
             "measurement1": "MLN.PV-ARR-41.measurement1",
             "measurement2": "MLN.PV-ARR-41.measurement2"
@@ -10077,11 +9992,9 @@
           "name": "PV inverter 42",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-42.power",
             "temperature": "MLN.PV-INV-42.temperature",
             "dcVoltage": "MLN.PV-INV-42.dcVoltage",
             "limit": "MLN.PV-INV-42.limit",
-            "status": "MLN.PV-INV-42.status",
             "measurement0": "MLN.PV-INV-42.measurement0",
             "measurement1": "MLN.PV-INV-42.measurement1",
             "measurement2": "MLN.PV-INV-42.measurement2"
@@ -10099,8 +10012,6 @@
           "name": "PV array 42",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-42.power",
-            "status": "MLN.PV-ARR-42.status",
             "measurement0": "MLN.PV-ARR-42.measurement0",
             "measurement1": "MLN.PV-ARR-42.measurement1",
             "measurement2": "MLN.PV-ARR-42.measurement2"
@@ -10118,11 +10029,9 @@
           "name": "PV inverter 43",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-43.power",
             "temperature": "MLN.PV-INV-43.temperature",
             "dcVoltage": "MLN.PV-INV-43.dcVoltage",
             "limit": "MLN.PV-INV-43.limit",
-            "status": "MLN.PV-INV-43.status",
             "measurement0": "MLN.PV-INV-43.measurement0",
             "measurement1": "MLN.PV-INV-43.measurement1",
             "measurement2": "MLN.PV-INV-43.measurement2"
@@ -10140,8 +10049,6 @@
           "name": "PV array 43",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-43.power",
-            "status": "MLN.PV-ARR-43.status",
             "measurement0": "MLN.PV-ARR-43.measurement0",
             "measurement1": "MLN.PV-ARR-43.measurement1",
             "measurement2": "MLN.PV-ARR-43.measurement2"
@@ -10159,11 +10066,9 @@
           "name": "PV inverter 44",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-44.power",
             "temperature": "MLN.PV-INV-44.temperature",
             "dcVoltage": "MLN.PV-INV-44.dcVoltage",
             "limit": "MLN.PV-INV-44.limit",
-            "status": "MLN.PV-INV-44.status",
             "measurement0": "MLN.PV-INV-44.measurement0",
             "measurement1": "MLN.PV-INV-44.measurement1",
             "measurement2": "MLN.PV-INV-44.measurement2"
@@ -10181,8 +10086,6 @@
           "name": "PV array 44",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-44.power",
-            "status": "MLN.PV-ARR-44.status",
             "measurement0": "MLN.PV-ARR-44.measurement0",
             "measurement1": "MLN.PV-ARR-44.measurement1",
             "measurement2": "MLN.PV-ARR-44.measurement2"
@@ -10200,11 +10103,9 @@
           "name": "PV inverter 45",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-45.power",
             "temperature": "MLN.PV-INV-45.temperature",
             "dcVoltage": "MLN.PV-INV-45.dcVoltage",
             "limit": "MLN.PV-INV-45.limit",
-            "status": "MLN.PV-INV-45.status",
             "measurement0": "MLN.PV-INV-45.measurement0",
             "measurement1": "MLN.PV-INV-45.measurement1",
             "measurement2": "MLN.PV-INV-45.measurement2"
@@ -10222,8 +10123,6 @@
           "name": "PV array 45",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-45.power",
-            "status": "MLN.PV-ARR-45.status",
             "measurement0": "MLN.PV-ARR-45.measurement0",
             "measurement1": "MLN.PV-ARR-45.measurement1",
             "measurement2": "MLN.PV-ARR-45.measurement2"
@@ -10241,11 +10140,9 @@
           "name": "PV inverter 46",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-46.power",
             "temperature": "MLN.PV-INV-46.temperature",
             "dcVoltage": "MLN.PV-INV-46.dcVoltage",
             "limit": "MLN.PV-INV-46.limit",
-            "status": "MLN.PV-INV-46.status",
             "measurement0": "MLN.PV-INV-46.measurement0",
             "measurement1": "MLN.PV-INV-46.measurement1",
             "measurement2": "MLN.PV-INV-46.measurement2"
@@ -10263,8 +10160,6 @@
           "name": "PV array 46",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-46.power",
-            "status": "MLN.PV-ARR-46.status",
             "measurement0": "MLN.PV-ARR-46.measurement0",
             "measurement1": "MLN.PV-ARR-46.measurement1",
             "measurement2": "MLN.PV-ARR-46.measurement2"
@@ -10282,11 +10177,9 @@
           "name": "PV inverter 47",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-47.power",
             "temperature": "MLN.PV-INV-47.temperature",
             "dcVoltage": "MLN.PV-INV-47.dcVoltage",
             "limit": "MLN.PV-INV-47.limit",
-            "status": "MLN.PV-INV-47.status",
             "measurement0": "MLN.PV-INV-47.measurement0",
             "measurement1": "MLN.PV-INV-47.measurement1",
             "measurement2": "MLN.PV-INV-47.measurement2"
@@ -10304,8 +10197,6 @@
           "name": "PV array 47",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-47.power",
-            "status": "MLN.PV-ARR-47.status",
             "measurement0": "MLN.PV-ARR-47.measurement0",
             "measurement1": "MLN.PV-ARR-47.measurement1",
             "measurement2": "MLN.PV-ARR-47.measurement2"
@@ -10323,11 +10214,9 @@
           "name": "PV inverter 48",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-48.power",
             "temperature": "MLN.PV-INV-48.temperature",
             "dcVoltage": "MLN.PV-INV-48.dcVoltage",
             "limit": "MLN.PV-INV-48.limit",
-            "status": "MLN.PV-INV-48.status",
             "measurement0": "MLN.PV-INV-48.measurement0",
             "measurement1": "MLN.PV-INV-48.measurement1",
             "measurement2": "MLN.PV-INV-48.measurement2"
@@ -10345,8 +10234,6 @@
           "name": "PV array 48",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-48.power",
-            "status": "MLN.PV-ARR-48.status",
             "measurement0": "MLN.PV-ARR-48.measurement0",
             "measurement1": "MLN.PV-ARR-48.measurement1",
             "measurement2": "MLN.PV-ARR-48.measurement2"
@@ -10364,11 +10251,9 @@
           "name": "PV inverter 49",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-49.power",
             "temperature": "MLN.PV-INV-49.temperature",
             "dcVoltage": "MLN.PV-INV-49.dcVoltage",
             "limit": "MLN.PV-INV-49.limit",
-            "status": "MLN.PV-INV-49.status",
             "measurement0": "MLN.PV-INV-49.measurement0",
             "measurement1": "MLN.PV-INV-49.measurement1",
             "measurement2": "MLN.PV-INV-49.measurement2"
@@ -10386,8 +10271,6 @@
           "name": "PV array 49",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-49.power",
-            "status": "MLN.PV-ARR-49.status",
             "measurement0": "MLN.PV-ARR-49.measurement0",
             "measurement1": "MLN.PV-ARR-49.measurement1",
             "measurement2": "MLN.PV-ARR-49.measurement2"
@@ -10405,11 +10288,9 @@
           "name": "PV inverter 50",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-50.power",
             "temperature": "MLN.PV-INV-50.temperature",
             "dcVoltage": "MLN.PV-INV-50.dcVoltage",
             "limit": "MLN.PV-INV-50.limit",
-            "status": "MLN.PV-INV-50.status",
             "measurement0": "MLN.PV-INV-50.measurement0",
             "measurement1": "MLN.PV-INV-50.measurement1",
             "measurement2": "MLN.PV-INV-50.measurement2"
@@ -10427,8 +10308,6 @@
           "name": "PV array 50",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-50.power",
-            "status": "MLN.PV-ARR-50.status",
             "measurement0": "MLN.PV-ARR-50.measurement0",
             "measurement1": "MLN.PV-ARR-50.measurement1",
             "measurement2": "MLN.PV-ARR-50.measurement2"
@@ -10446,11 +10325,9 @@
           "name": "PV inverter 51",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-51.power",
             "temperature": "MLN.PV-INV-51.temperature",
             "dcVoltage": "MLN.PV-INV-51.dcVoltage",
             "limit": "MLN.PV-INV-51.limit",
-            "status": "MLN.PV-INV-51.status",
             "measurement0": "MLN.PV-INV-51.measurement0",
             "measurement1": "MLN.PV-INV-51.measurement1",
             "measurement2": "MLN.PV-INV-51.measurement2"
@@ -10468,8 +10345,6 @@
           "name": "PV array 51",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-51.power",
-            "status": "MLN.PV-ARR-51.status",
             "measurement0": "MLN.PV-ARR-51.measurement0",
             "measurement1": "MLN.PV-ARR-51.measurement1",
             "measurement2": "MLN.PV-ARR-51.measurement2"
@@ -10487,11 +10362,9 @@
           "name": "PV inverter 52",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-52.power",
             "temperature": "MLN.PV-INV-52.temperature",
             "dcVoltage": "MLN.PV-INV-52.dcVoltage",
             "limit": "MLN.PV-INV-52.limit",
-            "status": "MLN.PV-INV-52.status",
             "measurement0": "MLN.PV-INV-52.measurement0",
             "measurement1": "MLN.PV-INV-52.measurement1",
             "measurement2": "MLN.PV-INV-52.measurement2"
@@ -10509,8 +10382,6 @@
           "name": "PV array 52",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-52.power",
-            "status": "MLN.PV-ARR-52.status",
             "measurement0": "MLN.PV-ARR-52.measurement0",
             "measurement1": "MLN.PV-ARR-52.measurement1",
             "measurement2": "MLN.PV-ARR-52.measurement2"
@@ -10528,11 +10399,9 @@
           "name": "PV inverter 53",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-53.power",
             "temperature": "MLN.PV-INV-53.temperature",
             "dcVoltage": "MLN.PV-INV-53.dcVoltage",
             "limit": "MLN.PV-INV-53.limit",
-            "status": "MLN.PV-INV-53.status",
             "measurement0": "MLN.PV-INV-53.measurement0",
             "measurement1": "MLN.PV-INV-53.measurement1",
             "measurement2": "MLN.PV-INV-53.measurement2"
@@ -10550,8 +10419,6 @@
           "name": "PV array 53",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-53.power",
-            "status": "MLN.PV-ARR-53.status",
             "measurement0": "MLN.PV-ARR-53.measurement0",
             "measurement1": "MLN.PV-ARR-53.measurement1",
             "measurement2": "MLN.PV-ARR-53.measurement2"
@@ -10569,11 +10436,9 @@
           "name": "PV inverter 54",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-54.power",
             "temperature": "MLN.PV-INV-54.temperature",
             "dcVoltage": "MLN.PV-INV-54.dcVoltage",
             "limit": "MLN.PV-INV-54.limit",
-            "status": "MLN.PV-INV-54.status",
             "measurement0": "MLN.PV-INV-54.measurement0",
             "measurement1": "MLN.PV-INV-54.measurement1",
             "measurement2": "MLN.PV-INV-54.measurement2"
@@ -10591,8 +10456,6 @@
           "name": "PV array 54",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-54.power",
-            "status": "MLN.PV-ARR-54.status",
             "measurement0": "MLN.PV-ARR-54.measurement0",
             "measurement1": "MLN.PV-ARR-54.measurement1",
             "measurement2": "MLN.PV-ARR-54.measurement2"
@@ -10610,11 +10473,9 @@
           "name": "PV inverter 55",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-55.power",
             "temperature": "MLN.PV-INV-55.temperature",
             "dcVoltage": "MLN.PV-INV-55.dcVoltage",
             "limit": "MLN.PV-INV-55.limit",
-            "status": "MLN.PV-INV-55.status",
             "measurement0": "MLN.PV-INV-55.measurement0",
             "measurement1": "MLN.PV-INV-55.measurement1",
             "measurement2": "MLN.PV-INV-55.measurement2"
@@ -10632,8 +10493,6 @@
           "name": "PV array 55",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-55.power",
-            "status": "MLN.PV-ARR-55.status",
             "measurement0": "MLN.PV-ARR-55.measurement0",
             "measurement1": "MLN.PV-ARR-55.measurement1",
             "measurement2": "MLN.PV-ARR-55.measurement2"
@@ -10651,11 +10510,9 @@
           "name": "PV inverter 56",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-56.power",
             "temperature": "MLN.PV-INV-56.temperature",
             "dcVoltage": "MLN.PV-INV-56.dcVoltage",
             "limit": "MLN.PV-INV-56.limit",
-            "status": "MLN.PV-INV-56.status",
             "measurement0": "MLN.PV-INV-56.measurement0",
             "measurement1": "MLN.PV-INV-56.measurement1",
             "measurement2": "MLN.PV-INV-56.measurement2"
@@ -10673,8 +10530,6 @@
           "name": "PV array 56",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-56.power",
-            "status": "MLN.PV-ARR-56.status",
             "measurement0": "MLN.PV-ARR-56.measurement0",
             "measurement1": "MLN.PV-ARR-56.measurement1",
             "measurement2": "MLN.PV-ARR-56.measurement2"
@@ -10692,11 +10547,9 @@
           "name": "PV inverter 57",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-57.power",
             "temperature": "MLN.PV-INV-57.temperature",
             "dcVoltage": "MLN.PV-INV-57.dcVoltage",
             "limit": "MLN.PV-INV-57.limit",
-            "status": "MLN.PV-INV-57.status",
             "measurement0": "MLN.PV-INV-57.measurement0",
             "measurement1": "MLN.PV-INV-57.measurement1",
             "measurement2": "MLN.PV-INV-57.measurement2"
@@ -10714,8 +10567,6 @@
           "name": "PV array 57",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-57.power",
-            "status": "MLN.PV-ARR-57.status",
             "measurement0": "MLN.PV-ARR-57.measurement0",
             "measurement1": "MLN.PV-ARR-57.measurement1",
             "measurement2": "MLN.PV-ARR-57.measurement2"
@@ -10733,11 +10584,9 @@
           "name": "PV inverter 58",
           "description": "West field · DC conversion and grid synchronization.",
           "bindings": {
-            "power": "MLN.PV-INV-58.power",
             "temperature": "MLN.PV-INV-58.temperature",
             "dcVoltage": "MLN.PV-INV-58.dcVoltage",
             "limit": "MLN.PV-INV-58.limit",
-            "status": "MLN.PV-INV-58.status",
             "measurement0": "MLN.PV-INV-58.measurement0",
             "measurement1": "MLN.PV-INV-58.measurement1",
             "measurement2": "MLN.PV-INV-58.measurement2"
@@ -10755,8 +10604,6 @@
           "name": "PV array 58",
           "capacity": "571 kWp",
           "bindings": {
-            "power": "MLN.PV-ARR-58.power",
-            "status": "MLN.PV-ARR-58.status",
             "measurement0": "MLN.PV-ARR-58.measurement0",
             "measurement1": "MLN.PV-ARR-58.measurement1",
             "measurement2": "MLN.PV-ARR-58.measurement2"
@@ -10773,9 +10620,6 @@
           "type": "converter-bess",
           "name": "Power converter 01",
           "bindings": {
-            "power": "MLN.PCS-01.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-01.status",
             "measurement0": "MLN.PCS-01.measurement0",
             "measurement1": "MLN.PCS-01.measurement1",
             "measurement2": "MLN.PCS-01.measurement2"
@@ -10793,9 +10637,6 @@
           "name": "Battery rack 01",
           "description": "Container battery rack managed by BMS-01.",
           "bindings": {
-            "power": "MLN.BMS-01.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-01.status",
             "measurement0": "MLN.BMS-01.measurement0",
             "measurement1": "MLN.BMS-01.measurement1",
             "measurement2": "MLN.BMS-01.measurement2"
@@ -10813,9 +10654,6 @@
           "name": "Battery rack 02",
           "description": "Container battery rack managed by BMS-02.",
           "bindings": {
-            "power": "MLN.BMS-02.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-02.status",
             "measurement0": "MLN.BMS-02.measurement0",
             "measurement1": "MLN.BMS-02.measurement1",
             "measurement2": "MLN.BMS-02.measurement2"
@@ -10832,9 +10670,6 @@
           "type": "converter-bess",
           "name": "Power converter 02",
           "bindings": {
-            "power": "MLN.PCS-02.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-02.status",
             "measurement0": "MLN.PCS-02.measurement0",
             "measurement1": "MLN.PCS-02.measurement1",
             "measurement2": "MLN.PCS-02.measurement2"
@@ -10852,9 +10687,6 @@
           "name": "Battery rack 03",
           "description": "Container battery rack managed by BMS-03.",
           "bindings": {
-            "power": "MLN.BMS-03.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-03.status",
             "measurement0": "MLN.BMS-03.measurement0",
             "measurement1": "MLN.BMS-03.measurement1",
             "measurement2": "MLN.BMS-03.measurement2"
@@ -10872,9 +10704,6 @@
           "name": "Battery rack 04",
           "description": "Container battery rack managed by BMS-04.",
           "bindings": {
-            "power": "MLN.BMS-04.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-04.status",
             "measurement0": "MLN.BMS-04.measurement0",
             "measurement1": "MLN.BMS-04.measurement1",
             "measurement2": "MLN.BMS-04.measurement2"
@@ -10891,9 +10720,6 @@
           "type": "converter-bess",
           "name": "Power converter 03",
           "bindings": {
-            "power": "MLN.PCS-03.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-03.status",
             "measurement0": "MLN.PCS-03.measurement0",
             "measurement1": "MLN.PCS-03.measurement1",
             "measurement2": "MLN.PCS-03.measurement2"
@@ -10911,9 +10737,6 @@
           "name": "Battery rack 05",
           "description": "Container battery rack managed by BMS-05.",
           "bindings": {
-            "power": "MLN.BMS-05.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-05.status",
             "measurement0": "MLN.BMS-05.measurement0",
             "measurement1": "MLN.BMS-05.measurement1",
             "measurement2": "MLN.BMS-05.measurement2"
@@ -10931,9 +10754,6 @@
           "name": "Battery rack 06",
           "description": "Container battery rack managed by BMS-06.",
           "bindings": {
-            "power": "MLN.BMS-06.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-06.status",
             "measurement0": "MLN.BMS-06.measurement0",
             "measurement1": "MLN.BMS-06.measurement1",
             "measurement2": "MLN.BMS-06.measurement2"
@@ -10950,9 +10770,6 @@
           "type": "converter-bess",
           "name": "Power converter 04",
           "bindings": {
-            "power": "MLN.PCS-04.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-04.status",
             "measurement0": "MLN.PCS-04.measurement0",
             "measurement1": "MLN.PCS-04.measurement1",
             "measurement2": "MLN.PCS-04.measurement2"
@@ -10970,9 +10787,6 @@
           "name": "Battery rack 07",
           "description": "Container battery rack managed by BMS-07.",
           "bindings": {
-            "power": "MLN.BMS-07.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-07.status",
             "measurement0": "MLN.BMS-07.measurement0",
             "measurement1": "MLN.BMS-07.measurement1",
             "measurement2": "MLN.BMS-07.measurement2"
@@ -10990,9 +10804,6 @@
           "name": "Battery rack 08",
           "description": "Container battery rack managed by BMS-08.",
           "bindings": {
-            "power": "MLN.BMS-08.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-08.status",
             "measurement0": "MLN.BMS-08.measurement0",
             "measurement1": "MLN.BMS-08.measurement1",
             "measurement2": "MLN.BMS-08.measurement2"
@@ -11009,9 +10820,6 @@
           "type": "converter-bess",
           "name": "Power converter 05",
           "bindings": {
-            "power": "MLN.PCS-05.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-05.status",
             "measurement0": "MLN.PCS-05.measurement0",
             "measurement1": "MLN.PCS-05.measurement1",
             "measurement2": "MLN.PCS-05.measurement2"
@@ -11029,9 +10837,6 @@
           "name": "Battery rack 09",
           "description": "Container battery rack managed by BMS-09.",
           "bindings": {
-            "power": "MLN.BMS-09.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-09.status",
             "measurement0": "MLN.BMS-09.measurement0",
             "measurement1": "MLN.BMS-09.measurement1",
             "measurement2": "MLN.BMS-09.measurement2"
@@ -11049,9 +10854,6 @@
           "name": "Battery rack 10",
           "description": "Container battery rack managed by BMS-10.",
           "bindings": {
-            "power": "MLN.BMS-10.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-10.status",
             "measurement0": "MLN.BMS-10.measurement0",
             "measurement1": "MLN.BMS-10.measurement1",
             "measurement2": "MLN.BMS-10.measurement2"
@@ -11068,9 +10870,6 @@
           "type": "converter-bess",
           "name": "Power converter 06",
           "bindings": {
-            "power": "MLN.PCS-06.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-06.status",
             "measurement0": "MLN.PCS-06.measurement0",
             "measurement1": "MLN.PCS-06.measurement1",
             "measurement2": "MLN.PCS-06.measurement2"
@@ -11088,9 +10887,6 @@
           "name": "Battery rack 11",
           "description": "Container battery rack managed by BMS-11.",
           "bindings": {
-            "power": "MLN.BMS-11.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-11.status",
             "measurement0": "MLN.BMS-11.measurement0",
             "measurement1": "MLN.BMS-11.measurement1",
             "measurement2": "MLN.BMS-11.measurement2"
@@ -11108,9 +10904,6 @@
           "name": "Battery rack 12",
           "description": "Container battery rack managed by BMS-12.",
           "bindings": {
-            "power": "MLN.BMS-12.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-12.status",
             "measurement0": "MLN.BMS-12.measurement0",
             "measurement1": "MLN.BMS-12.measurement1",
             "measurement2": "MLN.BMS-12.measurement2"
@@ -11127,9 +10920,6 @@
           "type": "converter-bess",
           "name": "Power converter 07",
           "bindings": {
-            "power": "MLN.PCS-07.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-07.status",
             "measurement0": "MLN.PCS-07.measurement0",
             "measurement1": "MLN.PCS-07.measurement1",
             "measurement2": "MLN.PCS-07.measurement2"
@@ -11147,9 +10937,6 @@
           "name": "Battery rack 13",
           "description": "Container battery rack managed by BMS-13.",
           "bindings": {
-            "power": "MLN.BMS-13.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-13.status",
             "measurement0": "MLN.BMS-13.measurement0",
             "measurement1": "MLN.BMS-13.measurement1",
             "measurement2": "MLN.BMS-13.measurement2"
@@ -11167,9 +10954,6 @@
           "name": "Battery rack 14",
           "description": "Container battery rack managed by BMS-14.",
           "bindings": {
-            "power": "MLN.BMS-14.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-14.status",
             "measurement0": "MLN.BMS-14.measurement0",
             "measurement1": "MLN.BMS-14.measurement1",
             "measurement2": "MLN.BMS-14.measurement2"
@@ -11186,9 +10970,6 @@
           "type": "converter-bess",
           "name": "Power converter 08",
           "bindings": {
-            "power": "MLN.PCS-08.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-08.status",
             "measurement0": "MLN.PCS-08.measurement0",
             "measurement1": "MLN.PCS-08.measurement1",
             "measurement2": "MLN.PCS-08.measurement2"
@@ -11206,9 +10987,6 @@
           "name": "Battery rack 15",
           "description": "Container battery rack managed by BMS-15.",
           "bindings": {
-            "power": "MLN.BMS-15.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-15.status",
             "measurement0": "MLN.BMS-15.measurement0",
             "measurement1": "MLN.BMS-15.measurement1",
             "measurement2": "MLN.BMS-15.measurement2"
@@ -11226,9 +11004,6 @@
           "name": "Battery rack 16",
           "description": "Container battery rack managed by BMS-16.",
           "bindings": {
-            "power": "MLN.BMS-16.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-16.status",
             "measurement0": "MLN.BMS-16.measurement0",
             "measurement1": "MLN.BMS-16.measurement1",
             "measurement2": "MLN.BMS-16.measurement2"
@@ -11245,9 +11020,6 @@
           "type": "converter-bess",
           "name": "Power converter 09",
           "bindings": {
-            "power": "MLN.PCS-09.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-09.status",
             "measurement0": "MLN.PCS-09.measurement0",
             "measurement1": "MLN.PCS-09.measurement1",
             "measurement2": "MLN.PCS-09.measurement2"
@@ -11265,9 +11037,6 @@
           "name": "Battery rack 17",
           "description": "Container battery rack managed by BMS-17.",
           "bindings": {
-            "power": "MLN.BMS-17.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-17.status",
             "measurement0": "MLN.BMS-17.measurement0",
             "measurement1": "MLN.BMS-17.measurement1",
             "measurement2": "MLN.BMS-17.measurement2"
@@ -11285,9 +11054,6 @@
           "name": "Battery rack 18",
           "description": "Container battery rack managed by BMS-18.",
           "bindings": {
-            "power": "MLN.BMS-18.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-18.status",
             "measurement0": "MLN.BMS-18.measurement0",
             "measurement1": "MLN.BMS-18.measurement1",
             "measurement2": "MLN.BMS-18.measurement2"
@@ -11304,9 +11070,6 @@
           "type": "converter-bess",
           "name": "Power converter 10",
           "bindings": {
-            "power": "MLN.PCS-10.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-10.status",
             "measurement0": "MLN.PCS-10.measurement0",
             "measurement1": "MLN.PCS-10.measurement1",
             "measurement2": "MLN.PCS-10.measurement2"
@@ -11324,9 +11087,6 @@
           "name": "Battery rack 19",
           "description": "Container battery rack managed by BMS-19.",
           "bindings": {
-            "power": "MLN.BMS-19.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-19.status",
             "measurement0": "MLN.BMS-19.measurement0",
             "measurement1": "MLN.BMS-19.measurement1",
             "measurement2": "MLN.BMS-19.measurement2"
@@ -11344,9 +11104,6 @@
           "name": "Battery rack 20",
           "description": "Container battery rack managed by BMS-20.",
           "bindings": {
-            "power": "MLN.BMS-20.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-20.status",
             "measurement0": "MLN.BMS-20.measurement0",
             "measurement1": "MLN.BMS-20.measurement1",
             "measurement2": "MLN.BMS-20.measurement2"
@@ -11363,9 +11120,6 @@
           "type": "converter-bess",
           "name": "Power converter 11",
           "bindings": {
-            "power": "MLN.PCS-11.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-11.status",
             "measurement0": "MLN.PCS-11.measurement0",
             "measurement1": "MLN.PCS-11.measurement1",
             "measurement2": "MLN.PCS-11.measurement2"
@@ -11383,9 +11137,6 @@
           "name": "Battery rack 21",
           "description": "Container battery rack managed by BMS-21.",
           "bindings": {
-            "power": "MLN.BMS-21.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-21.status",
             "measurement0": "MLN.BMS-21.measurement0",
             "measurement1": "MLN.BMS-21.measurement1",
             "measurement2": "MLN.BMS-21.measurement2"
@@ -11403,9 +11154,6 @@
           "name": "Battery rack 22",
           "description": "Container battery rack managed by BMS-22.",
           "bindings": {
-            "power": "MLN.BMS-22.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-22.status",
             "measurement0": "MLN.BMS-22.measurement0",
             "measurement1": "MLN.BMS-22.measurement1",
             "measurement2": "MLN.BMS-22.measurement2"
@@ -11422,9 +11170,6 @@
           "type": "converter-bess",
           "name": "Power converter 12",
           "bindings": {
-            "power": "MLN.PCS-12.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-12.status",
             "measurement0": "MLN.PCS-12.measurement0",
             "measurement1": "MLN.PCS-12.measurement1",
             "measurement2": "MLN.PCS-12.measurement2"
@@ -11442,9 +11187,6 @@
           "name": "Battery rack 23",
           "description": "Container battery rack managed by BMS-23.",
           "bindings": {
-            "power": "MLN.BMS-23.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-23.status",
             "measurement0": "MLN.BMS-23.measurement0",
             "measurement1": "MLN.BMS-23.measurement1",
             "measurement2": "MLN.BMS-23.measurement2"
@@ -11462,9 +11204,6 @@
           "name": "Battery rack 24",
           "description": "Container battery rack managed by BMS-24.",
           "bindings": {
-            "power": "MLN.BMS-24.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-24.status",
             "measurement0": "MLN.BMS-24.measurement0",
             "measurement1": "MLN.BMS-24.measurement1",
             "measurement2": "MLN.BMS-24.measurement2"
@@ -11482,9 +11221,6 @@
           "name": "Power converter 13",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-13.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-13.status",
             "measurement0": "MLN.PCS-13.measurement0",
             "measurement1": "MLN.PCS-13.measurement1",
             "measurement2": "MLN.PCS-13.measurement2"
@@ -11502,9 +11238,6 @@
           "name": "Battery rack 25",
           "description": "Container battery rack managed by BMS-25.",
           "bindings": {
-            "power": "MLN.BMS-25.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-25.status",
             "measurement0": "MLN.BMS-25.measurement0",
             "measurement1": "MLN.BMS-25.measurement1",
             "measurement2": "MLN.BMS-25.measurement2"
@@ -11522,9 +11255,6 @@
           "name": "Power converter 14",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-14.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-14.status",
             "measurement0": "MLN.PCS-14.measurement0",
             "measurement1": "MLN.PCS-14.measurement1",
             "measurement2": "MLN.PCS-14.measurement2"
@@ -11542,9 +11272,6 @@
           "name": "Battery rack 26",
           "description": "Container battery rack managed by BMS-26.",
           "bindings": {
-            "power": "MLN.BMS-26.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-26.status",
             "measurement0": "MLN.BMS-26.measurement0",
             "measurement1": "MLN.BMS-26.measurement1",
             "measurement2": "MLN.BMS-26.measurement2"
@@ -11562,9 +11289,6 @@
           "name": "Power converter 15",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-15.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-15.status",
             "measurement0": "MLN.PCS-15.measurement0",
             "measurement1": "MLN.PCS-15.measurement1",
             "measurement2": "MLN.PCS-15.measurement2"
@@ -11582,9 +11306,6 @@
           "name": "Battery rack 27",
           "description": "Container battery rack managed by BMS-27.",
           "bindings": {
-            "power": "MLN.BMS-27.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-27.status",
             "measurement0": "MLN.BMS-27.measurement0",
             "measurement1": "MLN.BMS-27.measurement1",
             "measurement2": "MLN.BMS-27.measurement2"
@@ -11602,9 +11323,6 @@
           "name": "Power converter 16",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-16.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-16.status",
             "measurement0": "MLN.PCS-16.measurement0",
             "measurement1": "MLN.PCS-16.measurement1",
             "measurement2": "MLN.PCS-16.measurement2"
@@ -11622,9 +11340,6 @@
           "name": "Battery rack 28",
           "description": "Container battery rack managed by BMS-28.",
           "bindings": {
-            "power": "MLN.BMS-28.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-28.status",
             "measurement0": "MLN.BMS-28.measurement0",
             "measurement1": "MLN.BMS-28.measurement1",
             "measurement2": "MLN.BMS-28.measurement2"
@@ -11642,9 +11357,6 @@
           "name": "Power converter 17",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-17.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-17.status",
             "measurement0": "MLN.PCS-17.measurement0",
             "measurement1": "MLN.PCS-17.measurement1",
             "measurement2": "MLN.PCS-17.measurement2"
@@ -11662,9 +11374,6 @@
           "name": "Battery rack 29",
           "description": "Container battery rack managed by BMS-29.",
           "bindings": {
-            "power": "MLN.BMS-29.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-29.status",
             "measurement0": "MLN.BMS-29.measurement0",
             "measurement1": "MLN.BMS-29.measurement1",
             "measurement2": "MLN.BMS-29.measurement2"
@@ -11682,9 +11391,6 @@
           "name": "Power converter 18",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-18.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-18.status",
             "measurement0": "MLN.PCS-18.measurement0",
             "measurement1": "MLN.PCS-18.measurement1",
             "measurement2": "MLN.PCS-18.measurement2"
@@ -11702,9 +11408,6 @@
           "name": "Battery rack 30",
           "description": "Container battery rack managed by BMS-30.",
           "bindings": {
-            "power": "MLN.BMS-30.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-30.status",
             "measurement0": "MLN.BMS-30.measurement0",
             "measurement1": "MLN.BMS-30.measurement1",
             "measurement2": "MLN.BMS-30.measurement2"
@@ -11722,9 +11425,6 @@
           "name": "Power converter 19",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-19.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-19.status",
             "measurement0": "MLN.PCS-19.measurement0",
             "measurement1": "MLN.PCS-19.measurement1",
             "measurement2": "MLN.PCS-19.measurement2"
@@ -11742,9 +11442,6 @@
           "name": "Battery rack 31",
           "description": "Container battery rack managed by BMS-31.",
           "bindings": {
-            "power": "MLN.BMS-31.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-31.status",
             "measurement0": "MLN.BMS-31.measurement0",
             "measurement1": "MLN.BMS-31.measurement1",
             "measurement2": "MLN.BMS-31.measurement2"
@@ -11762,9 +11459,6 @@
           "name": "Power converter 20",
           "description": "Bidirectional battery converter · 1 connected battery rack.",
           "bindings": {
-            "power": "MLN.PCS-20.power",
-            "soc": "MLN.soc",
-            "status": "MLN.PCS-20.status",
             "measurement0": "MLN.PCS-20.measurement0",
             "measurement1": "MLN.PCS-20.measurement1",
             "measurement2": "MLN.PCS-20.measurement2"
@@ -11782,9 +11476,6 @@
           "name": "Battery rack 32",
           "description": "Container battery rack managed by BMS-32.",
           "bindings": {
-            "power": "MLN.BMS-32.power",
-            "soc": "MLN.soc",
-            "status": "MLN.BMS-32.status",
             "measurement0": "MLN.BMS-32.measurement0",
             "measurement1": "MLN.BMS-32.measurement1",
             "measurement2": "MLN.BMS-32.measurement2"
@@ -11803,8 +11494,6 @@
           "protocol": "OPC UA",
           "physical": true,
           "bindings": {
-            "power": "MLN.WTG-01.power",
-            "status": "MLN.WTG-01.status",
             "measurement0": "MLN.WTG-01.measurement0",
             "measurement1": "MLN.WTG-01.measurement1",
             "measurement2": "MLN.WTG-01.measurement2",
@@ -11830,8 +11519,6 @@
           "protocol": "OPC UA",
           "physical": true,
           "bindings": {
-            "power": "MLN.WTG-02.power",
-            "status": "MLN.WTG-02.status",
             "measurement0": "MLN.WTG-02.measurement0",
             "measurement1": "MLN.WTG-02.measurement1",
             "measurement2": "MLN.WTG-02.measurement2",
@@ -11857,8 +11544,6 @@
           "protocol": "OPC UA",
           "physical": true,
           "bindings": {
-            "power": "MLN.WTG-03.power",
-            "status": "MLN.WTG-03.status",
             "measurement0": "MLN.WTG-03.measurement0",
             "measurement1": "MLN.WTG-03.measurement1",
             "measurement2": "MLN.WTG-03.measurement2",
@@ -11884,8 +11569,6 @@
           "protocol": "OPC UA",
           "physical": true,
           "bindings": {
-            "power": "MLN.WTG-04.power",
-            "status": "MLN.WTG-04.status",
             "measurement0": "MLN.WTG-04.measurement0",
             "measurement1": "MLN.WTG-04.measurement1",
             "measurement2": "MLN.WTG-04.measurement2",
@@ -11911,8 +11594,6 @@
           "protocol": "Modbus TCP",
           "physical": true,
           "bindings": {
-            "power": "MLN.HPP-01.power",
-            "status": "MLN.HPP-01.status",
             "measurement0": "MLN.HPP-01.measurement0",
             "measurement1": "MLN.HPP-01.measurement1",
             "measurement2": "MLN.HPP-01.measurement2",
@@ -11938,8 +11619,6 @@
           "protocol": "Modbus TCP",
           "physical": true,
           "bindings": {
-            "power": "MLN.HPP-02.power",
-            "status": "MLN.HPP-02.status",
             "measurement0": "MLN.HPP-02.measurement0",
             "measurement1": "MLN.HPP-02.measurement1",
             "measurement2": "MLN.HPP-02.measurement2",
@@ -12223,11 +11902,6 @@
       "gridCapacityMW": 4.8,
       "busVoltageKV": 22,
       "bindings": {
-        "pv": "POU.pv",
-        "load": "POU.load",
-        "energyToday": "POU.energyToday",
-        "generation": "POU.generation",
-        "grid": "POU.grid",
         "frequency": "POU.frequency",
         "voltage": "POU.voltage",
         "powerFactor": "POU.powerFactor",
@@ -12285,8 +11959,6 @@
           "description": "Southern field",
           "capacity": "4.8 MWp",
           "bindings": {
-            "power": "POU.POU-PV-01.power",
-            "status": "POU.POU-PV-01.status",
             "mode": "POU.POU-PV-01.mode",
             "devices": "POU.POU-PV-01.devices",
             "measurement0": "POU.POU-PV-01.measurement0",
@@ -12320,11 +11992,6 @@
       "gridCapacityMW": 12.6,
       "busVoltageKV": 22,
       "bindings": {
-        "wind": "VYS.wind",
-        "load": "VYS.load",
-        "energyToday": "VYS.energyToday",
-        "generation": "VYS.generation",
-        "grid": "VYS.grid",
         "frequency": "VYS.frequency",
         "voltage": "VYS.voltage",
         "powerFactor": "VYS.powerFactor",
@@ -12404,8 +12071,6 @@
           "description": "Western ridge",
           "capacity": "4.2 MW",
           "bindings": {
-            "power": "VYS.VYS-WTG-01.power",
-            "status": "VYS.VYS-WTG-01.status",
             "mode": "VYS.VYS-WTG-01.mode",
             "devices": "VYS.VYS-WTG-01.devices",
             "measurement0": "VYS.VYS-WTG-01.measurement0",
@@ -12429,8 +12094,6 @@
           "description": "Central ridge",
           "capacity": "4.2 MW",
           "bindings": {
-            "power": "VYS.VYS-WTG-02.power",
-            "status": "VYS.VYS-WTG-02.status",
             "mode": "VYS.VYS-WTG-02.mode",
             "devices": "VYS.VYS-WTG-02.devices",
             "measurement0": "VYS.VYS-WTG-02.measurement0",
@@ -12454,8 +12117,6 @@
           "description": "Eastern ridge",
           "capacity": "4.2 MW",
           "bindings": {
-            "power": "VYS.VYS-WTG-03.power",
-            "status": "VYS.VYS-WTG-03.status",
             "mode": "VYS.VYS-WTG-03.mode",
             "devices": "VYS.VYS-WTG-03.devices",
             "measurement0": "VYS.VYS-WTG-03.measurement0",
@@ -12491,13 +12152,6 @@
       "gridCapacityMW": 8,
       "busVoltageKV": 22,
       "bindings": {
-        "pv": "PRE.pv",
-        "battery": "PRE.battery",
-        "load": "PRE.load",
-        "soc": "PRE.soc",
-        "energyToday": "PRE.energyToday",
-        "generation": "PRE.generation",
-        "grid": "PRE.grid",
         "frequency": "PRE.frequency",
         "voltage": "PRE.voltage",
         "powerFactor": "PRE.powerFactor",
@@ -12566,8 +12220,6 @@
           "description": "Industrial zone · Roofs A–D",
           "capacity": "8.0 MWp",
           "bindings": {
-            "power": "PRE.PRE-PV-01.power",
-            "status": "PRE.PRE-PV-01.status",
             "mode": "PRE.PRE-PV-01.mode",
             "devices": "PRE.PRE-PV-01.devices",
             "measurement0": "PRE.PRE-PV-01.measurement0",
@@ -12591,11 +12243,8 @@
           "description": "Southern energy compound",
           "capacity": "8 MW / 16 MWh",
           "bindings": {
-            "power": "PRE.PRE-BESS-01.power",
-            "status": "PRE.PRE-BESS-01.status",
             "mode": "PRE.PRE-BESS-01.mode",
             "devices": "PRE.PRE-BESS-01.devices",
-            "soc": "PRE.PRE-BESS-01.soc",
             "measurement0": "PRE.PRE-BESS-01.measurement0",
             "measurement1": "PRE.PRE-BESS-01.measurement1",
             "measurement2": "PRE.PRE-BESS-01.measurement2"
@@ -12629,12 +12278,6 @@
       "gridCapacityMW": 30,
       "busVoltageKV": 22,
       "bindings": {
-        "battery": "BRN.battery",
-        "load": "BRN.load",
-        "soc": "BRN.soc",
-        "energyToday": "BRN.energyToday",
-        "generation": "BRN.generation",
-        "grid": "BRN.grid",
         "frequency": "BRN.frequency",
         "voltage": "BRN.voltage",
         "powerFactor": "BRN.powerFactor",
@@ -12692,8 +12335,6 @@
           "description": "Grid connection compound",
           "capacity": "30 MW / 60 MWh",
           "bindings": {
-            "power": "BRN.BRN-BESS-01.power",
-            "status": "BRN.BRN-BESS-01.status",
             "mode": "BRN.BRN-BESS-01.mode",
             "devices": "BRN.BRN-BESS-01.devices",
             "measurement0": "BRN.BRN-BESS-01.measurement0",
@@ -12728,11 +12369,6 @@
       "gridCapacityMW": 3.2,
       "busVoltageKV": 22,
       "bindings": {
-        "hydro": "LIT.hydro",
-        "load": "LIT.load",
-        "energyToday": "LIT.energyToday",
-        "generation": "LIT.generation",
-        "grid": "LIT.grid",
         "frequency": "LIT.frequency",
         "voltage": "LIT.voltage",
         "powerFactor": "LIT.powerFactor",
@@ -12801,8 +12437,6 @@
           "description": "River intake · Unit 01",
           "capacity": "1.6 MW",
           "bindings": {
-            "power": "LIT.LIT-HPP-01.power",
-            "status": "LIT.LIT-HPP-01.status",
             "mode": "LIT.LIT-HPP-01.mode",
             "devices": "LIT.LIT-HPP-01.devices",
             "measurement0": "LIT.LIT-HPP-01.measurement0",
@@ -12826,8 +12460,6 @@
           "description": "River intake · Unit 02",
           "capacity": "1.6 MW",
           "bindings": {
-            "power": "LIT.LIT-HPP-02.power",
-            "status": "LIT.LIT-HPP-02.status",
             "mode": "LIT.LIT-HPP-02.mode",
             "devices": "LIT.LIT-HPP-02.devices",
             "measurement0": "LIT.LIT-HPP-02.measurement0",
@@ -12975,5 +12607,2037 @@
         "lat": 50
       }
     ]
+  },
+  "features": {
+    "MLN-metering": {
+      "type": "site-metering",
+      "site": "MLN",
+      "tags": {
+        "grid": "MLN.grid",
+        "generation": "MLN.generation",
+        "load": "MLN.load",
+        "pv": "MLN.pv",
+        "wind": "MLN.wind",
+        "hydro": "MLN.hydro",
+        "battery": "MLN.battery",
+        "energyToday": "MLN.energyToday",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PV": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV",
+      "tags": {
+        "power": "MLN.PV.power",
+        "status": "MLN.PV.status"
+      }
+    },
+    "MLN-PV-01": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-01",
+      "tags": {
+        "power": "MLN.PV-01.power",
+        "status": "MLN.PV-01.status"
+      }
+    },
+    "MLN-PV-02": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-02",
+      "tags": {
+        "power": "MLN.PV-02.power",
+        "status": "MLN.PV-02.status"
+      }
+    },
+    "MLN-BESS-01": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BESS-01",
+      "tags": {
+        "power": "MLN.BESS-01.power",
+        "status": "MLN.BESS-01.status",
+        "soc": "MLN.BESS-01.soc"
+      }
+    },
+    "MLN-WIND": {
+      "type": "wind",
+      "site": "MLN",
+      "equipment": "WIND",
+      "tags": {
+        "power": "MLN.WIND.power",
+        "status": "MLN.WIND.status"
+      }
+    },
+    "MLN-HYDRO": {
+      "type": "hydro",
+      "site": "MLN",
+      "equipment": "HYDRO",
+      "tags": {
+        "power": "MLN.HYDRO.power",
+        "status": "MLN.HYDRO.status"
+      }
+    },
+    "MLN-PV-INV-01": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-01",
+      "tags": {
+        "power": "MLN.PV-INV-01.power",
+        "status": "MLN.PV-INV-01.status"
+      }
+    },
+    "MLN-PV-ARR-01": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-01",
+      "tags": {
+        "power": "MLN.PV-ARR-01.power",
+        "status": "MLN.PV-ARR-01.status"
+      }
+    },
+    "MLN-PV-INV-02": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-02",
+      "tags": {
+        "power": "MLN.PV-INV-02.power",
+        "status": "MLN.PV-INV-02.status"
+      }
+    },
+    "MLN-PV-ARR-02": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-02",
+      "tags": {
+        "power": "MLN.PV-ARR-02.power",
+        "status": "MLN.PV-ARR-02.status"
+      }
+    },
+    "MLN-PV-INV-03": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-03",
+      "tags": {
+        "power": "MLN.PV-INV-03.power",
+        "status": "MLN.PV-INV-03.status"
+      }
+    },
+    "MLN-PV-ARR-03": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-03",
+      "tags": {
+        "power": "MLN.PV-ARR-03.power",
+        "status": "MLN.PV-ARR-03.status"
+      }
+    },
+    "MLN-PV-INV-04": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-04",
+      "tags": {
+        "power": "MLN.PV-INV-04.power",
+        "status": "MLN.PV-INV-04.status"
+      }
+    },
+    "MLN-PV-ARR-04": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-04",
+      "tags": {
+        "power": "MLN.PV-ARR-04.power",
+        "status": "MLN.PV-ARR-04.status"
+      }
+    },
+    "MLN-PV-INV-05": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-05",
+      "tags": {
+        "power": "MLN.PV-INV-05.power",
+        "status": "MLN.PV-INV-05.status"
+      }
+    },
+    "MLN-PV-ARR-05": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-05",
+      "tags": {
+        "power": "MLN.PV-ARR-05.power",
+        "status": "MLN.PV-ARR-05.status"
+      }
+    },
+    "MLN-PV-INV-06": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-06",
+      "tags": {
+        "power": "MLN.PV-INV-06.power",
+        "status": "MLN.PV-INV-06.status"
+      }
+    },
+    "MLN-PV-ARR-06": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-06",
+      "tags": {
+        "power": "MLN.PV-ARR-06.power",
+        "status": "MLN.PV-ARR-06.status"
+      }
+    },
+    "MLN-PV-INV-07": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-07",
+      "tags": {
+        "power": "MLN.PV-INV-07.power",
+        "status": "MLN.PV-INV-07.status"
+      }
+    },
+    "MLN-PV-ARR-07": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-07",
+      "tags": {
+        "power": "MLN.PV-ARR-07.power",
+        "status": "MLN.PV-ARR-07.status"
+      }
+    },
+    "MLN-PV-INV-08": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-08",
+      "tags": {
+        "power": "MLN.PV-INV-08.power",
+        "status": "MLN.PV-INV-08.status"
+      }
+    },
+    "MLN-PV-ARR-08": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-08",
+      "tags": {
+        "power": "MLN.PV-ARR-08.power",
+        "status": "MLN.PV-ARR-08.status"
+      }
+    },
+    "MLN-PV-INV-09": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-09",
+      "tags": {
+        "power": "MLN.PV-INV-09.power",
+        "status": "MLN.PV-INV-09.status"
+      }
+    },
+    "MLN-PV-ARR-09": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-09",
+      "tags": {
+        "power": "MLN.PV-ARR-09.power",
+        "status": "MLN.PV-ARR-09.status"
+      }
+    },
+    "MLN-PV-INV-10": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-10",
+      "tags": {
+        "power": "MLN.PV-INV-10.power",
+        "status": "MLN.PV-INV-10.status"
+      }
+    },
+    "MLN-PV-ARR-10": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-10",
+      "tags": {
+        "power": "MLN.PV-ARR-10.power",
+        "status": "MLN.PV-ARR-10.status"
+      }
+    },
+    "MLN-PV-INV-11": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-11",
+      "tags": {
+        "power": "MLN.PV-INV-11.power",
+        "status": "MLN.PV-INV-11.status"
+      }
+    },
+    "MLN-PV-ARR-11": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-11",
+      "tags": {
+        "power": "MLN.PV-ARR-11.power",
+        "status": "MLN.PV-ARR-11.status"
+      }
+    },
+    "MLN-PV-INV-12": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-12",
+      "tags": {
+        "power": "MLN.PV-INV-12.power",
+        "status": "MLN.PV-INV-12.status"
+      }
+    },
+    "MLN-PV-ARR-12": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-12",
+      "tags": {
+        "power": "MLN.PV-ARR-12.power",
+        "status": "MLN.PV-ARR-12.status"
+      }
+    },
+    "MLN-PV-INV-13": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-13",
+      "tags": {
+        "power": "MLN.PV-INV-13.power",
+        "status": "MLN.PV-INV-13.status"
+      }
+    },
+    "MLN-PV-ARR-13": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-13",
+      "tags": {
+        "power": "MLN.PV-ARR-13.power",
+        "status": "MLN.PV-ARR-13.status"
+      }
+    },
+    "MLN-PV-INV-14": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-14",
+      "tags": {
+        "power": "MLN.PV-INV-14.power",
+        "status": "MLN.PV-INV-14.status"
+      }
+    },
+    "MLN-PV-ARR-14": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-14",
+      "tags": {
+        "power": "MLN.PV-ARR-14.power",
+        "status": "MLN.PV-ARR-14.status"
+      }
+    },
+    "MLN-PV-INV-15": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-15",
+      "tags": {
+        "power": "MLN.PV-INV-15.power",
+        "status": "MLN.PV-INV-15.status"
+      }
+    },
+    "MLN-PV-ARR-15": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-15",
+      "tags": {
+        "power": "MLN.PV-ARR-15.power",
+        "status": "MLN.PV-ARR-15.status"
+      }
+    },
+    "MLN-PV-INV-16": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-16",
+      "tags": {
+        "power": "MLN.PV-INV-16.power",
+        "status": "MLN.PV-INV-16.status"
+      }
+    },
+    "MLN-PV-ARR-16": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-16",
+      "tags": {
+        "power": "MLN.PV-ARR-16.power",
+        "status": "MLN.PV-ARR-16.status"
+      }
+    },
+    "MLN-PV-INV-17": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-17",
+      "tags": {
+        "power": "MLN.PV-INV-17.power",
+        "status": "MLN.PV-INV-17.status"
+      }
+    },
+    "MLN-PV-ARR-17": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-17",
+      "tags": {
+        "power": "MLN.PV-ARR-17.power",
+        "status": "MLN.PV-ARR-17.status"
+      }
+    },
+    "MLN-PV-INV-18": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-18",
+      "tags": {
+        "power": "MLN.PV-INV-18.power",
+        "status": "MLN.PV-INV-18.status"
+      }
+    },
+    "MLN-PV-ARR-18": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-18",
+      "tags": {
+        "power": "MLN.PV-ARR-18.power",
+        "status": "MLN.PV-ARR-18.status"
+      }
+    },
+    "MLN-PV-INV-19": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-19",
+      "tags": {
+        "power": "MLN.PV-INV-19.power",
+        "status": "MLN.PV-INV-19.status"
+      }
+    },
+    "MLN-PV-ARR-19": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-19",
+      "tags": {
+        "power": "MLN.PV-ARR-19.power",
+        "status": "MLN.PV-ARR-19.status"
+      }
+    },
+    "MLN-PV-INV-20": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-20",
+      "tags": {
+        "power": "MLN.PV-INV-20.power",
+        "status": "MLN.PV-INV-20.status"
+      }
+    },
+    "MLN-PV-ARR-20": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-20",
+      "tags": {
+        "power": "MLN.PV-ARR-20.power",
+        "status": "MLN.PV-ARR-20.status"
+      }
+    },
+    "MLN-PV-INV-21": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-21",
+      "tags": {
+        "power": "MLN.PV-INV-21.power",
+        "status": "MLN.PV-INV-21.status"
+      }
+    },
+    "MLN-PV-ARR-21": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-21",
+      "tags": {
+        "power": "MLN.PV-ARR-21.power",
+        "status": "MLN.PV-ARR-21.status"
+      }
+    },
+    "MLN-PV-INV-22": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-22",
+      "tags": {
+        "power": "MLN.PV-INV-22.power",
+        "status": "MLN.PV-INV-22.status"
+      }
+    },
+    "MLN-PV-ARR-22": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-22",
+      "tags": {
+        "power": "MLN.PV-ARR-22.power",
+        "status": "MLN.PV-ARR-22.status"
+      }
+    },
+    "MLN-PV-INV-23": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-23",
+      "tags": {
+        "power": "MLN.PV-INV-23.power",
+        "status": "MLN.PV-INV-23.status"
+      }
+    },
+    "MLN-PV-ARR-23": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-23",
+      "tags": {
+        "power": "MLN.PV-ARR-23.power",
+        "status": "MLN.PV-ARR-23.status"
+      }
+    },
+    "MLN-PV-INV-24": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-24",
+      "tags": {
+        "power": "MLN.PV-INV-24.power",
+        "status": "MLN.PV-INV-24.status"
+      }
+    },
+    "MLN-PV-ARR-24": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-24",
+      "tags": {
+        "power": "MLN.PV-ARR-24.power",
+        "status": "MLN.PV-ARR-24.status"
+      }
+    },
+    "MLN-PV-INV-25": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-25",
+      "tags": {
+        "power": "MLN.PV-INV-25.power",
+        "status": "MLN.PV-INV-25.status"
+      }
+    },
+    "MLN-PV-ARR-25": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-25",
+      "tags": {
+        "power": "MLN.PV-ARR-25.power",
+        "status": "MLN.PV-ARR-25.status"
+      }
+    },
+    "MLN-PV-INV-26": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-26",
+      "tags": {
+        "power": "MLN.PV-INV-26.power",
+        "status": "MLN.PV-INV-26.status"
+      }
+    },
+    "MLN-PV-ARR-26": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-26",
+      "tags": {
+        "power": "MLN.PV-ARR-26.power",
+        "status": "MLN.PV-ARR-26.status"
+      }
+    },
+    "MLN-PV-INV-27": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-27",
+      "tags": {
+        "power": "MLN.PV-INV-27.power",
+        "status": "MLN.PV-INV-27.status"
+      }
+    },
+    "MLN-PV-ARR-27": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-27",
+      "tags": {
+        "power": "MLN.PV-ARR-27.power",
+        "status": "MLN.PV-ARR-27.status"
+      }
+    },
+    "MLN-PV-INV-28": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-28",
+      "tags": {
+        "power": "MLN.PV-INV-28.power",
+        "status": "MLN.PV-INV-28.status"
+      }
+    },
+    "MLN-PV-ARR-28": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-28",
+      "tags": {
+        "power": "MLN.PV-ARR-28.power",
+        "status": "MLN.PV-ARR-28.status"
+      }
+    },
+    "MLN-PV-INV-29": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-29",
+      "tags": {
+        "power": "MLN.PV-INV-29.power",
+        "status": "MLN.PV-INV-29.status"
+      }
+    },
+    "MLN-PV-ARR-29": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-29",
+      "tags": {
+        "power": "MLN.PV-ARR-29.power",
+        "status": "MLN.PV-ARR-29.status"
+      }
+    },
+    "MLN-PV-INV-30": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-30",
+      "tags": {
+        "power": "MLN.PV-INV-30.power",
+        "status": "MLN.PV-INV-30.status"
+      }
+    },
+    "MLN-PV-ARR-30": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-30",
+      "tags": {
+        "power": "MLN.PV-ARR-30.power",
+        "status": "MLN.PV-ARR-30.status"
+      }
+    },
+    "MLN-PV-INV-31": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-31",
+      "tags": {
+        "power": "MLN.PV-INV-31.power",
+        "status": "MLN.PV-INV-31.status"
+      }
+    },
+    "MLN-PV-ARR-31": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-31",
+      "tags": {
+        "power": "MLN.PV-ARR-31.power",
+        "status": "MLN.PV-ARR-31.status"
+      }
+    },
+    "MLN-PV-INV-32": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-32",
+      "tags": {
+        "power": "MLN.PV-INV-32.power",
+        "status": "MLN.PV-INV-32.status"
+      }
+    },
+    "MLN-PV-ARR-32": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-32",
+      "tags": {
+        "power": "MLN.PV-ARR-32.power",
+        "status": "MLN.PV-ARR-32.status"
+      }
+    },
+    "MLN-PV-INV-33": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-33",
+      "tags": {
+        "power": "MLN.PV-INV-33.power",
+        "status": "MLN.PV-INV-33.status"
+      }
+    },
+    "MLN-PV-ARR-33": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-33",
+      "tags": {
+        "power": "MLN.PV-ARR-33.power",
+        "status": "MLN.PV-ARR-33.status"
+      }
+    },
+    "MLN-PV-INV-34": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-34",
+      "tags": {
+        "power": "MLN.PV-INV-34.power",
+        "status": "MLN.PV-INV-34.status"
+      }
+    },
+    "MLN-PV-ARR-34": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-34",
+      "tags": {
+        "power": "MLN.PV-ARR-34.power",
+        "status": "MLN.PV-ARR-34.status"
+      }
+    },
+    "MLN-PV-INV-35": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-35",
+      "tags": {
+        "power": "MLN.PV-INV-35.power",
+        "status": "MLN.PV-INV-35.status"
+      }
+    },
+    "MLN-PV-ARR-35": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-35",
+      "tags": {
+        "power": "MLN.PV-ARR-35.power",
+        "status": "MLN.PV-ARR-35.status"
+      }
+    },
+    "MLN-PV-INV-36": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-36",
+      "tags": {
+        "power": "MLN.PV-INV-36.power",
+        "status": "MLN.PV-INV-36.status"
+      }
+    },
+    "MLN-PV-ARR-36": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-36",
+      "tags": {
+        "power": "MLN.PV-ARR-36.power",
+        "status": "MLN.PV-ARR-36.status"
+      }
+    },
+    "MLN-PV-INV-37": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-37",
+      "tags": {
+        "power": "MLN.PV-INV-37.power",
+        "status": "MLN.PV-INV-37.status"
+      }
+    },
+    "MLN-PV-ARR-37": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-37",
+      "tags": {
+        "power": "MLN.PV-ARR-37.power",
+        "status": "MLN.PV-ARR-37.status"
+      }
+    },
+    "MLN-PV-INV-38": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-38",
+      "tags": {
+        "power": "MLN.PV-INV-38.power",
+        "status": "MLN.PV-INV-38.status"
+      }
+    },
+    "MLN-PV-ARR-38": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-38",
+      "tags": {
+        "power": "MLN.PV-ARR-38.power",
+        "status": "MLN.PV-ARR-38.status"
+      }
+    },
+    "MLN-PV-INV-39": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-39",
+      "tags": {
+        "power": "MLN.PV-INV-39.power",
+        "status": "MLN.PV-INV-39.status"
+      }
+    },
+    "MLN-PV-ARR-39": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-39",
+      "tags": {
+        "power": "MLN.PV-ARR-39.power",
+        "status": "MLN.PV-ARR-39.status"
+      }
+    },
+    "MLN-PV-INV-40": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-40",
+      "tags": {
+        "power": "MLN.PV-INV-40.power",
+        "status": "MLN.PV-INV-40.status"
+      }
+    },
+    "MLN-PV-ARR-40": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-40",
+      "tags": {
+        "power": "MLN.PV-ARR-40.power",
+        "status": "MLN.PV-ARR-40.status"
+      }
+    },
+    "MLN-PV-INV-41": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-41",
+      "tags": {
+        "power": "MLN.PV-INV-41.power",
+        "status": "MLN.PV-INV-41.status"
+      }
+    },
+    "MLN-PV-ARR-41": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-41",
+      "tags": {
+        "power": "MLN.PV-ARR-41.power",
+        "status": "MLN.PV-ARR-41.status"
+      }
+    },
+    "MLN-PV-INV-42": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-42",
+      "tags": {
+        "power": "MLN.PV-INV-42.power",
+        "status": "MLN.PV-INV-42.status"
+      }
+    },
+    "MLN-PV-ARR-42": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-42",
+      "tags": {
+        "power": "MLN.PV-ARR-42.power",
+        "status": "MLN.PV-ARR-42.status"
+      }
+    },
+    "MLN-PV-INV-43": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-43",
+      "tags": {
+        "power": "MLN.PV-INV-43.power",
+        "status": "MLN.PV-INV-43.status"
+      }
+    },
+    "MLN-PV-ARR-43": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-43",
+      "tags": {
+        "power": "MLN.PV-ARR-43.power",
+        "status": "MLN.PV-ARR-43.status"
+      }
+    },
+    "MLN-PV-INV-44": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-44",
+      "tags": {
+        "power": "MLN.PV-INV-44.power",
+        "status": "MLN.PV-INV-44.status"
+      }
+    },
+    "MLN-PV-ARR-44": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-44",
+      "tags": {
+        "power": "MLN.PV-ARR-44.power",
+        "status": "MLN.PV-ARR-44.status"
+      }
+    },
+    "MLN-PV-INV-45": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-45",
+      "tags": {
+        "power": "MLN.PV-INV-45.power",
+        "status": "MLN.PV-INV-45.status"
+      }
+    },
+    "MLN-PV-ARR-45": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-45",
+      "tags": {
+        "power": "MLN.PV-ARR-45.power",
+        "status": "MLN.PV-ARR-45.status"
+      }
+    },
+    "MLN-PV-INV-46": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-46",
+      "tags": {
+        "power": "MLN.PV-INV-46.power",
+        "status": "MLN.PV-INV-46.status"
+      }
+    },
+    "MLN-PV-ARR-46": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-46",
+      "tags": {
+        "power": "MLN.PV-ARR-46.power",
+        "status": "MLN.PV-ARR-46.status"
+      }
+    },
+    "MLN-PV-INV-47": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-47",
+      "tags": {
+        "power": "MLN.PV-INV-47.power",
+        "status": "MLN.PV-INV-47.status"
+      }
+    },
+    "MLN-PV-ARR-47": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-47",
+      "tags": {
+        "power": "MLN.PV-ARR-47.power",
+        "status": "MLN.PV-ARR-47.status"
+      }
+    },
+    "MLN-PV-INV-48": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-48",
+      "tags": {
+        "power": "MLN.PV-INV-48.power",
+        "status": "MLN.PV-INV-48.status"
+      }
+    },
+    "MLN-PV-ARR-48": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-48",
+      "tags": {
+        "power": "MLN.PV-ARR-48.power",
+        "status": "MLN.PV-ARR-48.status"
+      }
+    },
+    "MLN-PV-INV-49": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-49",
+      "tags": {
+        "power": "MLN.PV-INV-49.power",
+        "status": "MLN.PV-INV-49.status"
+      }
+    },
+    "MLN-PV-ARR-49": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-49",
+      "tags": {
+        "power": "MLN.PV-ARR-49.power",
+        "status": "MLN.PV-ARR-49.status"
+      }
+    },
+    "MLN-PV-INV-50": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-50",
+      "tags": {
+        "power": "MLN.PV-INV-50.power",
+        "status": "MLN.PV-INV-50.status"
+      }
+    },
+    "MLN-PV-ARR-50": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-50",
+      "tags": {
+        "power": "MLN.PV-ARR-50.power",
+        "status": "MLN.PV-ARR-50.status"
+      }
+    },
+    "MLN-PV-INV-51": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-51",
+      "tags": {
+        "power": "MLN.PV-INV-51.power",
+        "status": "MLN.PV-INV-51.status"
+      }
+    },
+    "MLN-PV-ARR-51": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-51",
+      "tags": {
+        "power": "MLN.PV-ARR-51.power",
+        "status": "MLN.PV-ARR-51.status"
+      }
+    },
+    "MLN-PV-INV-52": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-52",
+      "tags": {
+        "power": "MLN.PV-INV-52.power",
+        "status": "MLN.PV-INV-52.status"
+      }
+    },
+    "MLN-PV-ARR-52": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-52",
+      "tags": {
+        "power": "MLN.PV-ARR-52.power",
+        "status": "MLN.PV-ARR-52.status"
+      }
+    },
+    "MLN-PV-INV-53": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-53",
+      "tags": {
+        "power": "MLN.PV-INV-53.power",
+        "status": "MLN.PV-INV-53.status"
+      }
+    },
+    "MLN-PV-ARR-53": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-53",
+      "tags": {
+        "power": "MLN.PV-ARR-53.power",
+        "status": "MLN.PV-ARR-53.status"
+      }
+    },
+    "MLN-PV-INV-54": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-54",
+      "tags": {
+        "power": "MLN.PV-INV-54.power",
+        "status": "MLN.PV-INV-54.status"
+      }
+    },
+    "MLN-PV-ARR-54": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-54",
+      "tags": {
+        "power": "MLN.PV-ARR-54.power",
+        "status": "MLN.PV-ARR-54.status"
+      }
+    },
+    "MLN-PV-INV-55": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-55",
+      "tags": {
+        "power": "MLN.PV-INV-55.power",
+        "status": "MLN.PV-INV-55.status"
+      }
+    },
+    "MLN-PV-ARR-55": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-55",
+      "tags": {
+        "power": "MLN.PV-ARR-55.power",
+        "status": "MLN.PV-ARR-55.status"
+      }
+    },
+    "MLN-PV-INV-56": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-56",
+      "tags": {
+        "power": "MLN.PV-INV-56.power",
+        "status": "MLN.PV-INV-56.status"
+      }
+    },
+    "MLN-PV-ARR-56": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-56",
+      "tags": {
+        "power": "MLN.PV-ARR-56.power",
+        "status": "MLN.PV-ARR-56.status"
+      }
+    },
+    "MLN-PV-INV-57": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-57",
+      "tags": {
+        "power": "MLN.PV-INV-57.power",
+        "status": "MLN.PV-INV-57.status"
+      }
+    },
+    "MLN-PV-ARR-57": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-57",
+      "tags": {
+        "power": "MLN.PV-ARR-57.power",
+        "status": "MLN.PV-ARR-57.status"
+      }
+    },
+    "MLN-PV-INV-58": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-INV-58",
+      "tags": {
+        "power": "MLN.PV-INV-58.power",
+        "status": "MLN.PV-INV-58.status"
+      }
+    },
+    "MLN-PV-ARR-58": {
+      "type": "pv",
+      "site": "MLN",
+      "equipment": "PV-ARR-58",
+      "tags": {
+        "power": "MLN.PV-ARR-58.power",
+        "status": "MLN.PV-ARR-58.status"
+      }
+    },
+    "MLN-PCS-01": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-01",
+      "tags": {
+        "power": "MLN.PCS-01.power",
+        "status": "MLN.PCS-01.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-01": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-01",
+      "tags": {
+        "power": "MLN.BMS-01.power",
+        "status": "MLN.BMS-01.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-02": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-02",
+      "tags": {
+        "power": "MLN.BMS-02.power",
+        "status": "MLN.BMS-02.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-02": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-02",
+      "tags": {
+        "power": "MLN.PCS-02.power",
+        "status": "MLN.PCS-02.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-03": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-03",
+      "tags": {
+        "power": "MLN.BMS-03.power",
+        "status": "MLN.BMS-03.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-04": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-04",
+      "tags": {
+        "power": "MLN.BMS-04.power",
+        "status": "MLN.BMS-04.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-03": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-03",
+      "tags": {
+        "power": "MLN.PCS-03.power",
+        "status": "MLN.PCS-03.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-05": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-05",
+      "tags": {
+        "power": "MLN.BMS-05.power",
+        "status": "MLN.BMS-05.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-06": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-06",
+      "tags": {
+        "power": "MLN.BMS-06.power",
+        "status": "MLN.BMS-06.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-04": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-04",
+      "tags": {
+        "power": "MLN.PCS-04.power",
+        "status": "MLN.PCS-04.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-07": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-07",
+      "tags": {
+        "power": "MLN.BMS-07.power",
+        "status": "MLN.BMS-07.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-08": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-08",
+      "tags": {
+        "power": "MLN.BMS-08.power",
+        "status": "MLN.BMS-08.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-05": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-05",
+      "tags": {
+        "power": "MLN.PCS-05.power",
+        "status": "MLN.PCS-05.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-09": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-09",
+      "tags": {
+        "power": "MLN.BMS-09.power",
+        "status": "MLN.BMS-09.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-10": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-10",
+      "tags": {
+        "power": "MLN.BMS-10.power",
+        "status": "MLN.BMS-10.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-06": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-06",
+      "tags": {
+        "power": "MLN.PCS-06.power",
+        "status": "MLN.PCS-06.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-11": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-11",
+      "tags": {
+        "power": "MLN.BMS-11.power",
+        "status": "MLN.BMS-11.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-12": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-12",
+      "tags": {
+        "power": "MLN.BMS-12.power",
+        "status": "MLN.BMS-12.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-07": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-07",
+      "tags": {
+        "power": "MLN.PCS-07.power",
+        "status": "MLN.PCS-07.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-13": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-13",
+      "tags": {
+        "power": "MLN.BMS-13.power",
+        "status": "MLN.BMS-13.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-14": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-14",
+      "tags": {
+        "power": "MLN.BMS-14.power",
+        "status": "MLN.BMS-14.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-08": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-08",
+      "tags": {
+        "power": "MLN.PCS-08.power",
+        "status": "MLN.PCS-08.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-15": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-15",
+      "tags": {
+        "power": "MLN.BMS-15.power",
+        "status": "MLN.BMS-15.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-16": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-16",
+      "tags": {
+        "power": "MLN.BMS-16.power",
+        "status": "MLN.BMS-16.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-09": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-09",
+      "tags": {
+        "power": "MLN.PCS-09.power",
+        "status": "MLN.PCS-09.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-17": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-17",
+      "tags": {
+        "power": "MLN.BMS-17.power",
+        "status": "MLN.BMS-17.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-18": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-18",
+      "tags": {
+        "power": "MLN.BMS-18.power",
+        "status": "MLN.BMS-18.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-10": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-10",
+      "tags": {
+        "power": "MLN.PCS-10.power",
+        "status": "MLN.PCS-10.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-19": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-19",
+      "tags": {
+        "power": "MLN.BMS-19.power",
+        "status": "MLN.BMS-19.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-20": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-20",
+      "tags": {
+        "power": "MLN.BMS-20.power",
+        "status": "MLN.BMS-20.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-11": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-11",
+      "tags": {
+        "power": "MLN.PCS-11.power",
+        "status": "MLN.PCS-11.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-21": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-21",
+      "tags": {
+        "power": "MLN.BMS-21.power",
+        "status": "MLN.BMS-21.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-22": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-22",
+      "tags": {
+        "power": "MLN.BMS-22.power",
+        "status": "MLN.BMS-22.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-12": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-12",
+      "tags": {
+        "power": "MLN.PCS-12.power",
+        "status": "MLN.PCS-12.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-23": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-23",
+      "tags": {
+        "power": "MLN.BMS-23.power",
+        "status": "MLN.BMS-23.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-24": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-24",
+      "tags": {
+        "power": "MLN.BMS-24.power",
+        "status": "MLN.BMS-24.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-13": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-13",
+      "tags": {
+        "power": "MLN.PCS-13.power",
+        "status": "MLN.PCS-13.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-25": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-25",
+      "tags": {
+        "power": "MLN.BMS-25.power",
+        "status": "MLN.BMS-25.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-14": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-14",
+      "tags": {
+        "power": "MLN.PCS-14.power",
+        "status": "MLN.PCS-14.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-26": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-26",
+      "tags": {
+        "power": "MLN.BMS-26.power",
+        "status": "MLN.BMS-26.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-15": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-15",
+      "tags": {
+        "power": "MLN.PCS-15.power",
+        "status": "MLN.PCS-15.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-27": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-27",
+      "tags": {
+        "power": "MLN.BMS-27.power",
+        "status": "MLN.BMS-27.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-16": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-16",
+      "tags": {
+        "power": "MLN.PCS-16.power",
+        "status": "MLN.PCS-16.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-28": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-28",
+      "tags": {
+        "power": "MLN.BMS-28.power",
+        "status": "MLN.BMS-28.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-17": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-17",
+      "tags": {
+        "power": "MLN.PCS-17.power",
+        "status": "MLN.PCS-17.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-29": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-29",
+      "tags": {
+        "power": "MLN.BMS-29.power",
+        "status": "MLN.BMS-29.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-18": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-18",
+      "tags": {
+        "power": "MLN.PCS-18.power",
+        "status": "MLN.PCS-18.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-30": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-30",
+      "tags": {
+        "power": "MLN.BMS-30.power",
+        "status": "MLN.BMS-30.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-19": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-19",
+      "tags": {
+        "power": "MLN.PCS-19.power",
+        "status": "MLN.PCS-19.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-31": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-31",
+      "tags": {
+        "power": "MLN.BMS-31.power",
+        "status": "MLN.BMS-31.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-PCS-20": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "PCS-20",
+      "tags": {
+        "power": "MLN.PCS-20.power",
+        "status": "MLN.PCS-20.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-BMS-32": {
+      "type": "bess",
+      "site": "MLN",
+      "equipment": "BMS-32",
+      "tags": {
+        "power": "MLN.BMS-32.power",
+        "status": "MLN.BMS-32.status",
+        "soc": "MLN.soc"
+      }
+    },
+    "MLN-WTG-01": {
+      "type": "wind",
+      "site": "MLN",
+      "equipment": "WTG-01",
+      "tags": {
+        "power": "MLN.WTG-01.power",
+        "status": "MLN.WTG-01.status"
+      }
+    },
+    "MLN-WTG-02": {
+      "type": "wind",
+      "site": "MLN",
+      "equipment": "WTG-02",
+      "tags": {
+        "power": "MLN.WTG-02.power",
+        "status": "MLN.WTG-02.status"
+      }
+    },
+    "MLN-WTG-03": {
+      "type": "wind",
+      "site": "MLN",
+      "equipment": "WTG-03",
+      "tags": {
+        "power": "MLN.WTG-03.power",
+        "status": "MLN.WTG-03.status"
+      }
+    },
+    "MLN-WTG-04": {
+      "type": "wind",
+      "site": "MLN",
+      "equipment": "WTG-04",
+      "tags": {
+        "power": "MLN.WTG-04.power",
+        "status": "MLN.WTG-04.status"
+      }
+    },
+    "MLN-HPP-01": {
+      "type": "hydro",
+      "site": "MLN",
+      "equipment": "HPP-01",
+      "tags": {
+        "power": "MLN.HPP-01.power",
+        "status": "MLN.HPP-01.status"
+      }
+    },
+    "MLN-HPP-02": {
+      "type": "hydro",
+      "site": "MLN",
+      "equipment": "HPP-02",
+      "tags": {
+        "power": "MLN.HPP-02.power",
+        "status": "MLN.HPP-02.status"
+      }
+    },
+    "MLN-topology": {
+      "type": "topology",
+      "site": "MLN"
+    },
+    "MLN-analytics": {
+      "type": "analytics",
+      "site": "MLN",
+      "uses": {
+        "metering": "MLN-metering"
+      }
+    },
+    "MLN-alerts": {
+      "type": "alerts",
+      "site": "MLN"
+    },
+    "MLN-connections": {
+      "type": "connections",
+      "site": "MLN"
+    },
+    "MLN-cameras": {
+      "type": "cameras",
+      "site": "MLN"
+    },
+    "MLN-meteo": {
+      "type": "meteo",
+      "site": "MLN",
+      "equipment": "MET-01",
+      "tags": {
+        "temperature": "MLN.temperature",
+        "irradiance": "MLN.irradiance",
+        "windSpeed": "MLN.windSpeed",
+        "windDirection": "MLN.windDirection",
+        "humidity": "MLN.humidity",
+        "pressure": "MLN.pressure"
+      }
+    },
+    "MLN-dso": {
+      "type": "dso",
+      "site": "MLN",
+      "equipment": "RTU-01",
+      "tags": {
+        "signal": "MLN.rtu"
+      }
+    },
+    "MLN-dso-simulation": {
+      "type": "dso-simulation",
+      "site": "MLN",
+      "uses": {
+        "dso": "MLN-dso"
+      }
+    },
+    "MLN-history": {
+      "type": "history",
+      "site": "MLN"
+    },
+    "MLN-users": {
+      "type": "users",
+      "site": "MLN"
+    },
+    "POU-metering": {
+      "type": "site-metering",
+      "site": "POU",
+      "tags": {
+        "grid": "POU.grid",
+        "generation": "POU.generation",
+        "load": "POU.load",
+        "pv": "POU.pv",
+        "energyToday": "POU.energyToday"
+      }
+    },
+    "POU-POU-PV-01": {
+      "type": "pv",
+      "site": "POU",
+      "equipment": "POU-PV-01",
+      "tags": {
+        "power": "POU.POU-PV-01.power",
+        "status": "POU.POU-PV-01.status"
+      }
+    },
+    "POU-topology": {
+      "type": "topology",
+      "site": "POU"
+    },
+    "POU-analytics": {
+      "type": "analytics",
+      "site": "POU",
+      "uses": {
+        "metering": "POU-metering"
+      }
+    },
+    "POU-connections": {
+      "type": "connections",
+      "site": "POU"
+    },
+    "VYS-metering": {
+      "type": "site-metering",
+      "site": "VYS",
+      "tags": {
+        "grid": "VYS.grid",
+        "generation": "VYS.generation",
+        "load": "VYS.load",
+        "wind": "VYS.wind",
+        "energyToday": "VYS.energyToday"
+      }
+    },
+    "VYS-VYS-WTG-01": {
+      "type": "wind",
+      "site": "VYS",
+      "equipment": "VYS-WTG-01",
+      "tags": {
+        "power": "VYS.VYS-WTG-01.power",
+        "status": "VYS.VYS-WTG-01.status"
+      }
+    },
+    "VYS-VYS-WTG-02": {
+      "type": "wind",
+      "site": "VYS",
+      "equipment": "VYS-WTG-02",
+      "tags": {
+        "power": "VYS.VYS-WTG-02.power",
+        "status": "VYS.VYS-WTG-02.status"
+      }
+    },
+    "VYS-VYS-WTG-03": {
+      "type": "wind",
+      "site": "VYS",
+      "equipment": "VYS-WTG-03",
+      "tags": {
+        "power": "VYS.VYS-WTG-03.power",
+        "status": "VYS.VYS-WTG-03.status"
+      }
+    },
+    "VYS-topology": {
+      "type": "topology",
+      "site": "VYS"
+    },
+    "VYS-analytics": {
+      "type": "analytics",
+      "site": "VYS",
+      "uses": {
+        "metering": "VYS-metering"
+      }
+    },
+    "VYS-connections": {
+      "type": "connections",
+      "site": "VYS"
+    },
+    "PRE-metering": {
+      "type": "site-metering",
+      "site": "PRE",
+      "tags": {
+        "grid": "PRE.grid",
+        "generation": "PRE.generation",
+        "load": "PRE.load",
+        "pv": "PRE.pv",
+        "battery": "PRE.battery",
+        "energyToday": "PRE.energyToday",
+        "soc": "PRE.soc"
+      }
+    },
+    "PRE-PRE-PV-01": {
+      "type": "pv",
+      "site": "PRE",
+      "equipment": "PRE-PV-01",
+      "tags": {
+        "power": "PRE.PRE-PV-01.power",
+        "status": "PRE.PRE-PV-01.status"
+      }
+    },
+    "PRE-PRE-BESS-01": {
+      "type": "bess",
+      "site": "PRE",
+      "equipment": "PRE-BESS-01",
+      "tags": {
+        "power": "PRE.PRE-BESS-01.power",
+        "status": "PRE.PRE-BESS-01.status",
+        "soc": "PRE.PRE-BESS-01.soc"
+      }
+    },
+    "PRE-topology": {
+      "type": "topology",
+      "site": "PRE"
+    },
+    "PRE-analytics": {
+      "type": "analytics",
+      "site": "PRE",
+      "uses": {
+        "metering": "PRE-metering"
+      }
+    },
+    "PRE-connections": {
+      "type": "connections",
+      "site": "PRE"
+    },
+    "BRN-metering": {
+      "type": "site-metering",
+      "site": "BRN",
+      "tags": {
+        "grid": "BRN.grid",
+        "generation": "BRN.generation",
+        "load": "BRN.load",
+        "battery": "BRN.battery",
+        "energyToday": "BRN.energyToday",
+        "soc": "BRN.soc"
+      }
+    },
+    "BRN-BRN-BESS-01": {
+      "type": "bess",
+      "site": "BRN",
+      "equipment": "BRN-BESS-01",
+      "tags": {
+        "power": "BRN.BRN-BESS-01.power",
+        "status": "BRN.BRN-BESS-01.status",
+        "soc": "BRN.soc"
+      }
+    },
+    "BRN-topology": {
+      "type": "topology",
+      "site": "BRN"
+    },
+    "BRN-analytics": {
+      "type": "analytics",
+      "site": "BRN",
+      "uses": {
+        "metering": "BRN-metering"
+      }
+    },
+    "BRN-connections": {
+      "type": "connections",
+      "site": "BRN"
+    },
+    "LIT-metering": {
+      "type": "site-metering",
+      "site": "LIT",
+      "tags": {
+        "grid": "LIT.grid",
+        "generation": "LIT.generation",
+        "load": "LIT.load",
+        "hydro": "LIT.hydro",
+        "energyToday": "LIT.energyToday"
+      }
+    },
+    "LIT-LIT-HPP-01": {
+      "type": "hydro",
+      "site": "LIT",
+      "equipment": "LIT-HPP-01",
+      "tags": {
+        "power": "LIT.LIT-HPP-01.power",
+        "status": "LIT.LIT-HPP-01.status"
+      }
+    },
+    "LIT-LIT-HPP-02": {
+      "type": "hydro",
+      "site": "LIT",
+      "equipment": "LIT-HPP-02",
+      "tags": {
+        "power": "LIT.LIT-HPP-02.power",
+        "status": "LIT.LIT-HPP-02.status"
+      }
+    },
+    "LIT-topology": {
+      "type": "topology",
+      "site": "LIT"
+    },
+    "LIT-analytics": {
+      "type": "analytics",
+      "site": "LIT",
+      "uses": {
+        "metering": "LIT-metering"
+      }
+    },
+    "LIT-connections": {
+      "type": "connections",
+      "site": "LIT"
+    },
+    "MLN-controller": {
+      "type": "local-controller",
+      "site": "MLN",
+      "equipment": "EMS-CTRL-01",
+      "tags": {
+        "state": "MLN.control.state",
+        "requestedPower": "MLN.control.requestedPower",
+        "deliveredPower": "MLN.control.deliveredPower"
+      }
+    },
+    "MLN-controller-settings": {
+      "type": "controller-settings",
+      "site": "MLN",
+      "equipment": "EMS-CTRL-01",
+      "tags": {
+        "peakTarget": "MLN.control.peakTarget",
+        "peakShare": "MLN.control.peakShare",
+        "socMin": "MLN.control.socMin",
+        "socMax": "MLN.control.socMax"
+      },
+      "uses": {
+        "controller": "MLN-controller",
+        "battery": "MLN-BESS-01"
+      }
+    },
+    "MLN-remote": {
+      "type": "remote-dispatch",
+      "site": "MLN",
+      "equipment": "AGG-01",
+      "tags": {
+        "connected": "MLN.control.remote.connected",
+        "enabled": "MLN.control.remote.enabled",
+        "source": "MLN.control.remote.source",
+        "profile": "MLN.control.profile.requested",
+        "profileStatus": "MLN.control.remote.profileStatus"
+      },
+      "uses": {
+        "controller": "MLN-controller"
+      }
+    },
+    "MLN-profiles": {
+      "type": "command-profiles",
+      "site": "MLN",
+      "tags": {
+        "requested": "MLN.control.profile.requested",
+        "afterController": "MLN.control.profile.afterController",
+        "afterDso": "MLN.control.profile.delivered",
+        "delivered": "MLN.control.profile.delivered"
+      },
+      "uses": {
+        "controller": "MLN-controller",
+        "dso": "MLN-dso"
+      }
+    },
+    "MLN-schedules": {
+      "type": "schedules",
+      "site": "MLN",
+      "equipment": "LOCAL-PLAN",
+      "tags": {
+        "plan": "MLN.control.schedule.plan",
+        "acceptedRevision": "MLN.control.schedule.acceptedRevision",
+        "state": "MLN.control.schedule.state"
+      },
+      "uses": {
+        "controller": "MLN-controller"
+      }
+    }
   }
 }
