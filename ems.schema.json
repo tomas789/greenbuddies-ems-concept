@@ -1,0 +1,1199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:greenbuddies:ems:configuration:2",
+  "title": "EMS configuration v2",
+  "description": "Each site and equipment item is defined once. Reference shared types, formats and layouts by ID.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "version": {
+      "const": 2
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "region": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "defaultSite": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "defaultLayout": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "illustration": {
+          "type": "object",
+          "properties": {
+            "media": {
+              "type": "string",
+              "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            },
+            "alt": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "caption": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "media",
+            "alt",
+            "caption"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "timezone",
+        "defaultSite",
+        "defaultLayout"
+      ],
+      "additionalProperties": false
+    },
+    "telemetry": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "demo",
+            "sse"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "\\S",
+          "default": "/api/telemetry"
+        },
+        "staleAfterMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 86400000,
+          "default": 20000
+        },
+        "historyLimit": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10000,
+          "default": 300
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "additionalProperties": false
+    },
+    "formats": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/format"
+      }
+    },
+    "tags": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/tag"
+      }
+    },
+    "equipmentTypes": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/equipmentType"
+      }
+    },
+    "layouts": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/layout"
+      }
+    },
+    "sites": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/site"
+      },
+      "minProperties": 1
+    },
+    "media": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "\\S"
+      }
+    },
+    "map": {
+      "$ref": "#/$defs/map"
+    },
+    "demo": {
+      "$ref": "#/$defs/demo"
+    }
+  },
+  "required": [
+    "version",
+    "app",
+    "telemetry",
+    "tags",
+    "equipmentTypes",
+    "layouts",
+    "sites"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "properties": {
+        "binding": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "label": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string"
+        },
+        "icon": {
+          "enum": [
+            "generation",
+            "grid",
+            "bess",
+            "energy",
+            "pv",
+            "wind",
+            "hydro"
+          ],
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean",
+          "description": "For a shared dashboard, omit this metric on sites without the corresponding binding."
+        }
+      },
+      "required": [
+        "binding",
+        "label"
+      ],
+      "additionalProperties": false
+    },
+    "dashboard": {
+      "type": "object",
+      "properties": {
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "flow",
+              "status",
+              "performance",
+              "alerts",
+              "environment"
+            ],
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "metrics",
+        "sections"
+      ],
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "pages": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "overview",
+              "assets",
+              "system",
+              "alerts",
+              "analytics",
+              "grid",
+              "dispatch",
+              "environment",
+              "cameras",
+              "history",
+              "connections",
+              "users"
+            ],
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "dashboard": {
+          "$ref": "#/$defs/dashboard"
+        }
+      },
+      "required": [
+        "pages",
+        "dashboard"
+      ],
+      "additionalProperties": false
+    },
+    "format": {
+      "type": "object",
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "scale": {
+          "type": "number",
+          "not": {
+            "const": 0
+          }
+        },
+        "offset": {
+          "type": "number"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "tag": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "pattern": "\\S",
+          "description": "Canonical OPC UA address, for example ns=2;s=Plant.Power. Required by live gateway startup."
+        },
+        "format": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "description": "ID in formats. Local unit/precision/conversion fields override that shared format."
+        },
+        "unit": {
+          "type": "string"
+        },
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "scale": {
+          "type": "number",
+          "not": {
+            "const": 0
+          }
+        },
+        "offset": {
+          "type": "number"
+        },
+        "staleAfterMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 86400000
+        },
+        "demo": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "dataType": {
+          "enum": [
+            "number",
+            "string",
+            "boolean"
+          ],
+          "type": "string",
+          "description": "Type of scalar values. Defaults to number; use string for equipment status or boolean for an alarm.",
+          "default": "number"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "camera": {
+      "type": "object",
+      "properties": {
+        "media": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "position": {
+          "type": "string",
+          "pattern": "^(?:100|\\d{1,2})(?:\\.\\d+)?% (?:100|\\d{1,2})(?:\\.\\d+)?%$"
+        },
+        "zoom": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "reference": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "media"
+      ],
+      "additionalProperties": false
+    },
+    "equipmentType": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "aggregator",
+            "schedule",
+            "controller",
+            "rtu",
+            "group",
+            "field",
+            "inverter",
+            "array",
+            "storage",
+            "converter",
+            "battery",
+            "turbine",
+            "hydro",
+            "meteo",
+            "camera",
+            "meter"
+          ],
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "control",
+            "pv",
+            "bess",
+            "wind",
+            "hydro",
+            "monitoring"
+          ],
+          "type": "string"
+        },
+        "capacity": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "physical": {
+          "type": "boolean"
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "category"
+      ],
+      "additionalProperties": false
+    },
+    "equipmentDemo": {
+      "type": "object",
+      "properties": {
+        "power": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "enum": [
+                "pv",
+                "wind",
+                "hydro",
+                "battery",
+                "grid",
+                "load"
+              ],
+              "type": "string"
+            },
+            "share": {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "key",
+            "share"
+          ],
+          "additionalProperties": false
+        },
+        "warning": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "offline": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "equipment": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "description": "ID in equipmentTypes. Shared defaults are applied once; fields on this equipment override them."
+        },
+        "name": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "parent": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "description": "Parent equipment ID within this site. Omit to attach to the generated site root."
+        },
+        "capacity": {
+          "type": "string",
+          "pattern": "\\S",
+          "description": "Optional descriptive capacity label; the numeric rating is used for calculations."
+        },
+        "description": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "physical": {
+          "type": "boolean"
+        },
+        "location": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "object",
+          "properties": {
+            "powerMW": {
+              "type": "number",
+              "minimum": 0
+            },
+            "energyMWh": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "powerMW"
+          ],
+          "additionalProperties": false,
+          "description": "Numeric installed capacity for inventory totals. Power in MW and optional energy in MWh."
+        },
+        "bindings": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "description": "Map meaningful names such as power, temperature and status to logical tag IDs."
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "camera": {
+          "$ref": "#/$defs/camera"
+        },
+        "demo": {
+          "$ref": "#/$defs/equipmentDemo"
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "alarm": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "asset": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "severity": {
+          "enum": [
+            "Critical",
+            "Warning",
+            "Notice"
+          ],
+          "type": "string"
+        },
+        "time": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "description": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "active": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "title",
+        "asset",
+        "severity",
+        "time",
+        "description",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "connection": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "protocol": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bindings": {
+          "type": "object",
+          "properties": {
+            "connected": {
+              "type": "string",
+              "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            },
+            "latency": {
+              "type": "string",
+              "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            },
+            "status": {
+              "type": "string",
+              "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            }
+          },
+          "required": [
+            "connected",
+            "latency",
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "protocol",
+        "total",
+        "bindings"
+      ],
+      "additionalProperties": false
+    },
+    "schedule": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "start": {
+          "type": "string",
+          "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+        },
+        "end": {
+          "type": "string",
+          "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+        },
+        "power": {
+          "type": "number"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "start",
+        "end",
+        "power",
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "control": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "enum": [
+            "local",
+            "aggregator"
+          ],
+          "type": "string"
+        },
+        "remoteEnabled": {
+          "type": "boolean"
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "peakTargetMW": {
+              "type": "number",
+              "minimum": 0
+            },
+            "peakSharePercent": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "socMin": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "socMax": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "peakTargetMW",
+            "peakSharePercent",
+            "socMin",
+            "socMax"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "source",
+        "remoteEnabled",
+        "settings"
+      ],
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "title": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "actor": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "type": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "time",
+        "title",
+        "actor",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "siteDemo": {
+      "type": "object",
+      "properties": {
+        "schedules": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/schedule"
+          }
+        },
+        "control": {
+          "$ref": "#/$defs/control"
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/audit"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "station": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "hydro": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "forecast": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "type": "string",
+                "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$"
+              },
+              "temperature": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "irradiance": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "wind": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            },
+            "required": [
+              "time",
+              "temperature",
+              "irradiance",
+              "wind"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "station",
+        "measurements",
+        "details",
+        "hydro"
+      ],
+      "additionalProperties": false
+    },
+    "canvas": {
+      "type": "object",
+      "properties": {
+        "roots": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "uniqueItems": true
+        },
+        "aggregator": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "schedule": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "controller": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "rtu": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "grid": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "load": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "monitoring": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "roots"
+      ],
+      "additionalProperties": false
+    },
+    "site": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "city": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "region": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "gridCapacityMW": {
+          "type": "number",
+          "minimum": 0
+        },
+        "busVoltageKV": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "layout": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "description": "ID in layouts. Omit to use app.defaultLayout."
+        },
+        "rootId": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "description": "Optional root entity ID. Default is the site ID followed by -SITE. Do not define a second root equipment record."
+        },
+        "description": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "bindings": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "description": "Map site totals and sensor names to tags. Equipment-specific values belong in equipment bindings."
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          }
+        },
+        "equipment": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/equipment"
+          }
+        },
+        "canvas": {
+          "$ref": "#/$defs/canvas"
+        },
+        "alarms": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/alarm"
+          }
+        },
+        "connections": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/connection"
+          }
+        },
+        "environment": {
+          "$ref": "#/$defs/environment"
+        },
+        "demo": {
+          "$ref": "#/$defs/siteDemo"
+        },
+        "inventory": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "uniqueItems": true,
+          "description": "Ordered equipment IDs shown in Assets and Portfolio. Metadata and tag bindings remain in equipment."
+        }
+      },
+      "required": [
+        "name",
+        "latitude",
+        "longitude",
+        "gridCapacityMW",
+        "busVoltageKV",
+        "equipment"
+      ],
+      "additionalProperties": false
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "initials": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "email": {
+          "type": "string",
+          "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+        },
+        "role": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "site": {
+          "type": "string",
+          "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "last": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "name",
+        "initials",
+        "email",
+        "role",
+        "last"
+      ],
+      "additionalProperties": false
+    },
+    "demo": {
+      "type": "object",
+      "properties": {
+        "snapshot": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "users": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/user"
+          }
+        },
+        "permissions": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "View telemetry",
+                "Export data",
+                "Acknowledge alerts",
+                "Manage schedules",
+                "Configure devices",
+                "Manage users"
+              ],
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "map": {
+      "type": "object",
+      "properties": {
+        "bounds": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "geometry": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "cities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "lon": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "lat": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              }
+            },
+            "required": [
+              "name",
+              "lon",
+              "lat"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "countryLabels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "lon": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "lat": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              }
+            },
+            "required": [
+              "name",
+              "lon",
+              "lat"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "bounds",
+        "geometry"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
