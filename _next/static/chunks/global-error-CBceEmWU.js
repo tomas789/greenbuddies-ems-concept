@@ -1,0 +1,1 @@
+import{r as e}from"./framework-CRVBm-_k.js";import{t}from"./page-failure-BxrypHtO.js";var n=e();function r(e){return(0,n.jsx)(`html`,{lang:`en`,children:(0,n.jsx)(`body`,{style:{margin:0},children:(0,n.jsx)(t,{...e})})})}export{r as default};
