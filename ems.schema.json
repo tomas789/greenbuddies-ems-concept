@@ -176,6 +176,129 @@
       "additionalProperties": {
         "$ref": "#/$defs/feature"
       }
+    },
+    "alarmTypes": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "en": {
+                "type": "string",
+                "pattern": "^[\\s\\S]{1,2048}$"
+              },
+              "cs": {
+                "type": "string",
+                "pattern": "^[\\s\\S]{1,2048}$"
+              }
+            },
+            "required": [
+              "en"
+            ]
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "en": {
+                "type": "string",
+                "pattern": "^[\\s\\S]{1,2048}$"
+              },
+              "cs": {
+                "type": "string",
+                "pattern": "^[\\s\\S]{1,2048}$"
+              }
+            },
+            "required": [
+              "en"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "critical"
+            ]
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "severity"
+        ]
+      }
+    },
+    "alarmSources": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "site": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "notifier": {
+            "type": "string",
+            "pattern": "^(ns=[0-9]+;)?[isgb]=.+$"
+          },
+          "namespaceUri": {
+            "type": "string",
+            "pattern": "^[\\s\\S]{1,1024}$"
+          }
+        },
+        "required": [
+          "site",
+          "notifier"
+        ]
+      }
+    },
+    "alarmBindings": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "asset": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "type": {
+            "type": "string",
+            "pattern": "^(?!__proto__$|prototype$|constructor$)[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "condition": {
+            "type": "string",
+            "pattern": "^(ns=[0-9]+;)?[isgb]=.+$"
+          }
+        },
+        "required": [
+          "source",
+          "asset",
+          "type",
+          "condition"
+        ]
+      }
     }
   },
   "required": [

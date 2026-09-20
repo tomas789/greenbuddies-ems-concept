@@ -291,6 +291,48 @@ END_STRUCT
 END_TYPE
 
 
+(* ===== FB_EmsHighAlarm.st ===== *)
+(* Create a FUNCTION_BLOCK POU. Declarations above, implementation below the divider.
+   Requires the CODESYS Standard library (TON). Example settings are not safety limits.
+   One instance per condition. Call every scan from ONE acquisition/alarm task.
+   Acknowledgement belongs to Alarm Manager, never to this block. *)
+FUNCTION_BLOCK FB_EmsHighAlarm
+VAR_INPUT
+    lrValue       : LREAL;
+    xValid        : BOOL;        (* Good, fresh sample AND valid mapping *)
+    lrHigh        : LREAL;
+    lrReset       : LREAL;       (* Must be below lrHigh: hysteresis *)
+    tRaiseDelay   : TIME := T#2s;
+    tClearDelay   : TIME := T#5s;
+END_VAR
+VAR_OUTPUT
+    xActive       : BOOL;        (* Digital alarm expression; never writable by HMI *)
+    xInputFault   : BOOL;        (* Separate communication/measurement alarm *)
+    xConfigFault  : BOOL;
+END_VAR
+VAR
+    fbRaise       : TON;
+    fbClear       : TON;
+END_VAR
+(* ---- Implementation ---- *)
+xConfigFault := (lrReset >= lrHigh);
+xInputFault := NOT xValid;
+IF xInputFault OR xConfigFault THEN
+    fbRaise(IN := FALSE, PT := tRaiseDelay);
+    fbClear(IN := FALSE, PT := tClearDelay);
+    (* Hold last known condition; unavailable data must not clear a fault. *)
+ELSE
+    fbRaise(IN := (NOT xActive) AND (lrValue >= lrHigh), PT := tRaiseDelay);
+    fbClear(IN := xActive AND (lrValue <= lrReset), PT := tClearDelay);
+    IF fbRaise.Q THEN
+        xActive := TRUE;
+    ELSIF fbClear.Q THEN
+        xActive := FALSE;
+    END_IF;
+END_IF;
+END_FUNCTION_BLOCK
+
+
 (* ===== FB_EmsSample.st ===== *)
 (* POU: FUNCTION_BLOCK FB_EmsSample. Declaration above the divider; implementation below it. *)
 FUNCTION_BLOCK FB_EmsSample
@@ -447,6 +489,35 @@ END_FUNCTION
 VAR_GLOBAL
     Battery : ST_EmsAsset := (Id := 'BESS-01', Kind := 'battery-system');
 END_VAR
+
+
+(* ===== PRG_EmsAlarms.st ===== *)
+(* Reference only: wire these inputs to the completed Modbus acquisition result.
+   xTemperatureValid must include freshness, device health, range and finite-value checks.
+   Schedule this program cyclically. Choose limits/delays during commissioning. *)
+PROGRAM PRG_EmsAlarms
+VAR
+    lrTemperatureC    : LREAL;
+    xTemperatureValid: BOOL := FALSE;
+    fbTemperature    : FB_EmsHighAlarm;
+END_VAR
+(* ---- Implementation ---- *)
+fbTemperature(
+    lrValue := lrTemperatureC,
+    xValid := xTemperatureValid,
+    lrHigh := 45.0,
+    lrReset := 42.0,
+    tRaiseDelay := T#2s,
+    tClearDelay := T#5s
+);
+(* Alarm Manager / digital expressions:
+   bess.temperature.high    := PRG_EmsAlarms.fbTemperature.xActive
+   bess.temperature.invalid := PRG_EmsAlarms.fbTemperature.xInputFault
+   bess.alarm.config        := PRG_EmsAlarms.fbTemperature.xConfigFault
+   Define all three in an ACK_REP alarm class. Do not reset digital alarms on ACK.
+   Alarm Manager owns occurrence state, timestamps, archive and acknowledgment.
+   These expressions do NOT need individual OPC UA boolean tag subscriptions. *)
+END_PROGRAM
 
 
 (* ===== PRG_EmsExample.st ===== *)

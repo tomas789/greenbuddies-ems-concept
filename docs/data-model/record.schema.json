@@ -76,10 +76,42 @@
                   "cleared"
                 ]
               },
+              "acknowledged": {
+                "type": "boolean"
+              },
+              "retained": {
+                "type": "boolean"
+              },
+              "quality": {
+                "enum": [
+                  "good",
+                  "uncertain",
+                  "bad"
+                ]
+              },
+              "sourceTime": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 8640000000000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
               "raisedAt": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 8640000000000000
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 8640000000000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               },
               "clearedAt": {
                 "anyOf": [
@@ -109,7 +141,8 @@
                 "anyOf": [
                   {
                     "type": "string",
-                    "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+                    "minLength": 1,
+                    "maxLength": 255
                   },
                   {
                     "type": "null"
@@ -121,6 +154,10 @@
               "code",
               "severity",
               "state",
+              "acknowledged",
+              "retained",
+              "quality",
+              "sourceTime",
               "raisedAt",
               "clearedAt",
               "acknowledgedAt",

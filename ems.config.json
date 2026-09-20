@@ -6905,21 +6905,6 @@
       "demo": 64,
       "format": "percent0"
     },
-    "MLN.AL-1042.active": {
-      "nodeId": "ns=2;s=EMS.MLN.AL-1042.active",
-      "demo": true,
-      "dataType": "boolean"
-    },
-    "MLN.AL-1041.active": {
-      "nodeId": "ns=2;s=EMS.MLN.AL-1041.active",
-      "demo": true,
-      "dataType": "boolean"
-    },
-    "MLN.AL-1040.active": {
-      "nodeId": "ns=2;s=EMS.MLN.AL-1040.active",
-      "demo": true,
-      "dataType": "boolean"
-    },
     "MLN.connection.PV-EAST.connected": {
       "nodeId": "ns=2;s=EMS.MLN.connection.PV-EAST.connected",
       "demo": 29
@@ -7935,32 +7920,6 @@
         "grid": "METER-01",
         "load": "METER-02",
         "monitoring": "MONITORING"
-      },
-      "alarms": {
-        "AL-1042": {
-          "title": "Inverter output derating",
-          "asset": "PV-INV-12",
-          "severity": "Warning",
-          "time": "13:18:42",
-          "description": "Module temperature is 72.4°C, above the 70°C derating threshold. Inverter power is limited to 82%. Monitor cooling and compare adjacent strings.",
-          "active": "MLN.AL-1042.active"
-        },
-        "AL-1041": {
-          "title": "Camera connection lost",
-          "asset": "CAM-04",
-          "severity": "Warning",
-          "time": "13:07:16",
-          "description": "Northern perimeter camera has missed 3 consecutive heartbeats. Last frame received at 13:06:58. Check the network switch and PoE supply.",
-          "active": "MLN.AL-1041.active"
-        },
-        "AL-1040": {
-          "title": "Scheduled maintenance",
-          "asset": "WTG-03",
-          "severity": "Notice",
-          "time": "12:45:00",
-          "description": "Annual inspection planned for 20 Sep, 08:00–12:00 CEST. Turbine availability will be reduced during the maintenance window.",
-          "active": "MLN.AL-1040.active"
-        }
       },
       "connections": {
         "PV-EAST": {
@@ -14638,6 +14597,67 @@
       "uses": {
         "controller": "MLN-controller"
       }
+    }
+  },
+  "alarmTypes": {
+    "inverter.derating": {
+      "title": {
+        "en": "Inverter output derating",
+        "cs": "Omezení výkonu střídače"
+      },
+      "description": {
+        "en": "Module temperature is 72.4°C, above the 70°C derating threshold. Inverter power is limited to 82%. Monitor cooling and compare adjacent strings.",
+        "cs": "Teplota střídače překročila mez pro omezení výkonu. Zkontrolujte chlazení a porovnejte okolní střídače."
+      },
+      "severity": "warning"
+    },
+    "camera.communication": {
+      "title": {
+        "en": "Camera connection lost",
+        "cs": "Výpadek komunikace s kamerou"
+      },
+      "description": {
+        "en": "Northern perimeter camera has missed 3 consecutive heartbeats. Last frame received at 13:06:58. Check the network switch and PoE supply.",
+        "cs": "Kamera neodpovídá. Zkontrolujte síťové připojení a napájení PoE."
+      },
+      "severity": "warning"
+    },
+    "maintenance.due": {
+      "title": {
+        "en": "Scheduled maintenance",
+        "cs": "Blíží se plánovaná údržba"
+      },
+      "description": {
+        "en": "Annual inspection planned for 20 Sep, 08:00–12:00 CEST. Turbine availability will be reduced during the maintenance window.",
+        "cs": "Zkontrolujte termín plánované údržby a koordinujte dostupnost zařízení."
+      },
+      "severity": "info"
+    }
+  },
+  "alarmSources": {
+    "melnik-plc": {
+      "site": "MLN",
+      "notifier": "ns=1;s=EMS.Alarms.MLN"
+    }
+  },
+  "alarmBindings": {
+    "AL-1042": {
+      "source": "melnik-plc",
+      "asset": "PV-INV-12",
+      "type": "inverter.derating",
+      "condition": "ns=1;s=EMS.Alarm.AL-1042"
+    },
+    "AL-1041": {
+      "source": "melnik-plc",
+      "asset": "CAM-04",
+      "type": "camera.communication",
+      "condition": "ns=1;s=EMS.Alarm.AL-1041"
+    },
+    "AL-1040": {
+      "source": "melnik-plc",
+      "asset": "WTG-03",
+      "type": "maintenance.due",
+      "condition": "ns=1;s=EMS.Alarm.AL-1040"
     }
   }
 }

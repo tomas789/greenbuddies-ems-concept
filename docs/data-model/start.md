@@ -22,4 +22,4 @@ The example receives +1250 kW in a vendor's charging convention. It publishes **
 
 [Model](#docs/model) defines the rules. [Modbus](#docs/modbus) shows mapping. [CODESYS](#docs/codesys) contains the code. [Export](#docs/export) connects the UI. Use the [field reference](#docs/fields) when adding equipment.
 
-Version **1.0** is a vendor-neutral application contract. The supplied CODESYS source is a reference implementation; compile and commission it on your selected runtime. The current EMS gateway remains read-only.
+Version **1.0** is a vendor-neutral application contract. The supplied CODESYS source is a reference implementation; compile and commission it on your selected runtime. The gateway reads equipment telemetry and supports authenticated native alarm acknowledgement; see [Alarms](#docs/alarms).
