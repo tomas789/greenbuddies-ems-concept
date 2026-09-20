@@ -1,1 +1,0 @@
-import{r as e}from"./framework-CRVBm-_k.js";import{u as t}from"./typography-Dh_zxwFR.js";import{t as n}from"./page-failure-CbCMZX1k.js";var r=e();function i(e){return(0,r.jsx)(t,{children:(0,r.jsx)(n,{...e})})}export{i as default};

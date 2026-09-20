@@ -12524,19 +12524,59 @@
         "lat": 50.075
       },
       {
-        "name": "Plzeň",
-        "lon": 13.38,
-        "lat": 49.74
+        "name": "Brno",
+        "lon": 16.609983,
+        "lat": 49.200393
       },
       {
         "name": "Ostrava",
-        "lon": 18.26,
-        "lat": 49.82
+        "lon": 18.249986,
+        "lat": 49.830355
+      },
+      {
+        "name": "Plzeň",
+        "lon": 13.360001,
+        "lat": 49.740438
+      },
+      {
+        "name": "Liberec",
+        "lon": 15.079999,
+        "lat": 50.79996
+      },
+      {
+        "name": "Olomouc",
+        "lon": 17.256796,
+        "lat": 49.586661
       },
       {
         "name": "České Budějovice",
-        "lon": 14.47,
-        "lat": 48.98
+        "lon": 14.460037,
+        "lat": 48.980019
+      },
+      {
+        "name": "Hradec Králové",
+        "lon": 15.812001,
+        "lat": 50.205996
+      },
+      {
+        "name": "Pardubice",
+        "lon": 15.760009,
+        "lat": 50.04042
+      },
+      {
+        "name": "Ústí nad Labem",
+        "lon": 14.081005,
+        "lat": 50.662998
+      },
+      {
+        "name": "Zlín",
+        "lon": 17.650023,
+        "lat": 49.230418
+      },
+      {
+        "name": "Jihlava",
+        "lon": 15.583328,
+        "lat": 49.400381
       }
     ],
     "countryLabels": [

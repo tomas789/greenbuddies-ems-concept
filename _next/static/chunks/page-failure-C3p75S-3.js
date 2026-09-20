@@ -1,4 +1,4 @@
-import{r as e}from"./framework-CRVBm-_k.js";import{d as t,s as n,t as r}from"./typography-Dh_zxwFR.js";var i=e();function a({error:e,reset:a}){let{t:o}=t(),s=()=>window.location.reload();return(0,i.jsxs)(`main`,{className:`ems-recovery`,children:[(0,i.jsx)(`style`,{children:`
+import{r as e}from"./framework-CRVBm-_k.js";import{d as t,s as n,t as r}from"./typography-C7YhrQFY.js";var i=e();function a({error:e,reset:a}){let{t:o}=t(),s=()=>window.location.reload();return(0,i.jsxs)(`main`,{className:`ems-recovery`,children:[(0,i.jsx)(`style`,{children:`
         .ems-recovery {
           box-sizing: border-box; min-height: 100svh; padding: 24px;
           display: grid; place-content: center;
