@@ -1,0 +1,6 @@
+"producer","session","frameSequence","point","asset","field","type","unit","access","value","quality","observedAt","pointSequence","reason"
+"PLC-A","commissioning-001","12","bess.power","BESS-01","ac.activePower","number","W","r","-1250000","good","2026-09-21T14:13:20.000Z","12",""
+"PLC-A","commissioning-001","12","bess.soc","BESS-01","battery.soc","number","%","r","67.4","good","2026-09-21T14:13:20.000Z","12",""
+"PLC-A","commissioning-001","12","bess.state","BESS-01","device.state","string","","r","running","good","2026-09-21T14:13:20.000Z","12",""
+"PLC-A","commissioning-001","12","bess.energy","BESS-01","energy.exported","counter","Wh","r","9007199254740993","good","2026-09-21T14:13:20.000Z","6",""
+"PLC-A","commissioning-001","12","dso.allowance","RTU-01","grid.dsoAllowance","number","%","r","60","good","2026-09-21T14:13:20.000Z","12",""

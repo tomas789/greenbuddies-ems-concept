@@ -1,0 +1,787 @@
+{
+  "modelVersion": "1.0",
+  "fields": {
+    "device.online": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Last device transaction succeeded; does not imply every point is healthy."
+    },
+    "device.state": {
+      "type": "string",
+      "unit": "",
+      "access": "r",
+      "description": "Normalized operating state; unknown codes map to unknown, never running.",
+      "values": [
+        "unknown",
+        "stopped",
+        "starting",
+        "running",
+        "standby",
+        "maintenance",
+        "fault",
+        "offline"
+      ]
+    },
+    "device.available": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Device reports available for operation."
+    },
+    "device.remoteMode": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Device accepts remote control at its own interface."
+    },
+    "device.faultActive": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "At least one device fault is active."
+    },
+    "device.warningActive": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "At least one device warning is active."
+    },
+    "device.vendorCode": {
+      "type": "string",
+      "unit": "",
+      "access": "r",
+      "description": "Unmodified diagnostic code for service; never drives portable UI behavior."
+    },
+    "device.latency": {
+      "type": "number",
+      "unit": "ms",
+      "access": "r",
+      "description": "Most recent successful transaction duration.",
+      "minimum": 0
+    },
+    "device.uptime": {
+      "type": "counter",
+      "unit": "s",
+      "access": "r",
+      "description": "Device uptime. A reset is not negative consumption."
+    },
+    "device.communicationErrors": {
+      "type": "counter",
+      "unit": "count",
+      "access": "r",
+      "description": "Cumulative failed transactions since source restart."
+    },
+    "ac.activePower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Signed active power at the declared measurement boundary."
+    },
+    "ac.reactivePower": {
+      "type": "number",
+      "unit": "var",
+      "access": "r",
+      "description": "Signed reactive power at the same boundary as activePower."
+    },
+    "ac.apparentPower": {
+      "type": "number",
+      "unit": "VA",
+      "access": "r",
+      "description": "Non-negative apparent power.",
+      "minimum": 0
+    },
+    "ac.frequency": {
+      "type": "number",
+      "unit": "Hz",
+      "access": "r",
+      "description": "Measured AC frequency.",
+      "minimum": 0
+    },
+    "ac.powerFactor": {
+      "type": "number",
+      "unit": "1",
+      "access": "r",
+      "description": "P / apparent power, signed by active power; null if undefined.",
+      "minimum": -1,
+      "maximum": 1
+    },
+    "ac.voltageL1N": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "L1 to neutral RMS voltage.",
+      "minimum": 0
+    },
+    "ac.voltageL2N": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "L2 to neutral RMS voltage.",
+      "minimum": 0
+    },
+    "ac.voltageL3N": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "L3 to neutral RMS voltage.",
+      "minimum": 0
+    },
+    "ac.voltageL1L2": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "L1 to L2 RMS voltage.",
+      "minimum": 0
+    },
+    "ac.voltageL2L3": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "L2 to L3 RMS voltage.",
+      "minimum": 0
+    },
+    "ac.voltageL3L1": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "L3 to L1 RMS voltage.",
+      "minimum": 0
+    },
+    "ac.currentL1": {
+      "type": "number",
+      "unit": "A",
+      "access": "r",
+      "description": "L1 RMS current magnitude.",
+      "minimum": 0
+    },
+    "ac.currentL2": {
+      "type": "number",
+      "unit": "A",
+      "access": "r",
+      "description": "L2 RMS current magnitude.",
+      "minimum": 0
+    },
+    "ac.currentL3": {
+      "type": "number",
+      "unit": "A",
+      "access": "r",
+      "description": "L3 RMS current magnitude.",
+      "minimum": 0
+    },
+    "ac.activePowerL1": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Signed active power, L1."
+    },
+    "ac.activePowerL2": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Signed active power, L2."
+    },
+    "ac.activePowerL3": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Signed active power, L3."
+    },
+    "ac.voltageThd": {
+      "type": "number",
+      "unit": "%",
+      "access": "r",
+      "description": "Reported aggregate voltage total harmonic distortion.",
+      "minimum": 0
+    },
+    "dc.voltage": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "DC terminal voltage.",
+      "minimum": 0
+    },
+    "dc.current": {
+      "type": "number",
+      "unit": "A",
+      "access": "r",
+      "description": "DC current; positive out of the asset."
+    },
+    "dc.power": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "DC power; positive out of the asset."
+    },
+    "dc.insulationResistance": {
+      "type": "number",
+      "unit": "ohm",
+      "access": "r",
+      "description": "Insulation resistance to ground.",
+      "minimum": 0
+    },
+    "energy.exported": {
+      "type": "counter",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Cumulative active energy leaving the boundary."
+    },
+    "energy.imported": {
+      "type": "counter",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Cumulative active energy entering the boundary."
+    },
+    "energy.generatedToday": {
+      "type": "number",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Generation since site-local midnight; date/timezone are metadata.",
+      "minimum": 0
+    },
+    "energy.exportedToday": {
+      "type": "number",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Export since site-local midnight.",
+      "minimum": 0
+    },
+    "energy.importedToday": {
+      "type": "number",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Import since site-local midnight.",
+      "minimum": 0
+    },
+    "energy.runtime": {
+      "type": "counter",
+      "unit": "s",
+      "access": "r",
+      "description": "Cumulative operating time."
+    },
+    "pv.moduleTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "PV module temperature."
+    },
+    "pv.inverterTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Inverter internal temperature."
+    },
+    "pv.irradiance": {
+      "type": "number",
+      "unit": "W/m2",
+      "access": "r",
+      "description": "Plane-of-array irradiance.",
+      "minimum": 0
+    },
+    "pv.availablePower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Device-estimated available active power; not inferred from nameplate.",
+      "minimum": 0
+    },
+    "pv.curtailedPower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Reported curtailed active power.",
+      "minimum": 0
+    },
+    "battery.soc": {
+      "type": "number",
+      "unit": "%",
+      "access": "r",
+      "description": "State of charge.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "battery.soh": {
+      "type": "number",
+      "unit": "%",
+      "access": "r",
+      "description": "State of health.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "battery.storedEnergy": {
+      "type": "number",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Estimated stored usable energy.",
+      "minimum": 0
+    },
+    "battery.chargeAvailable": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Maximum currently available charge magnitude.",
+      "minimum": 0
+    },
+    "battery.dischargeAvailable": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Maximum currently available discharge magnitude.",
+      "minimum": 0
+    },
+    "battery.temperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Reported representative battery temperature."
+    },
+    "battery.minTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Lowest measured temperature."
+    },
+    "battery.maxTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Highest measured temperature."
+    },
+    "battery.minCellVoltage": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "Lowest measured cell voltage.",
+      "minimum": 0
+    },
+    "battery.maxCellVoltage": {
+      "type": "number",
+      "unit": "V",
+      "access": "r",
+      "description": "Highest measured cell voltage.",
+      "minimum": 0
+    },
+    "battery.cycles": {
+      "type": "counter",
+      "unit": "count",
+      "access": "r",
+      "description": "Completed equivalent cycles; fractional cycles require a separate extension field."
+    },
+    "battery.contactorClosed": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Battery contactor closed readback."
+    },
+    "battery.balancing": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Cell balancing active."
+    },
+    "wind.speed": {
+      "type": "number",
+      "unit": "m/s",
+      "access": "r",
+      "description": "Wind speed at the instrument.",
+      "minimum": 0
+    },
+    "wind.direction": {
+      "type": "number",
+      "unit": "deg",
+      "access": "r",
+      "description": "Wind direction, clockwise from true north.",
+      "minimum": 0,
+      "maximum": 360
+    },
+    "wind.rotorSpeed": {
+      "type": "number",
+      "unit": "rpm",
+      "access": "r",
+      "description": "Rotor speed.",
+      "minimum": 0
+    },
+    "wind.nacelleDirection": {
+      "type": "number",
+      "unit": "deg",
+      "access": "r",
+      "description": "Nacelle bearing from true north.",
+      "minimum": 0,
+      "maximum": 360
+    },
+    "wind.pitch": {
+      "type": "number",
+      "unit": "deg",
+      "access": "r",
+      "description": "Reported representative blade pitch."
+    },
+    "wind.gearboxTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Gearbox temperature."
+    },
+    "wind.availablePower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Reported available generation.",
+      "minimum": 0
+    },
+    "hydro.flow": {
+      "type": "number",
+      "unit": "m3/s",
+      "access": "r",
+      "description": "Volumetric flow through the unit.",
+      "minimum": 0
+    },
+    "hydro.head": {
+      "type": "number",
+      "unit": "m",
+      "access": "r",
+      "description": "Net hydraulic head.",
+      "minimum": 0
+    },
+    "hydro.upstreamLevel": {
+      "type": "number",
+      "unit": "m",
+      "access": "r",
+      "description": "Upstream level relative to the configured datum."
+    },
+    "hydro.downstreamLevel": {
+      "type": "number",
+      "unit": "m",
+      "access": "r",
+      "description": "Downstream level relative to the same datum."
+    },
+    "hydro.gatePosition": {
+      "type": "number",
+      "unit": "%",
+      "access": "r",
+      "description": "Gate opening.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "hydro.turbineSpeed": {
+      "type": "number",
+      "unit": "rpm",
+      "access": "r",
+      "description": "Hydro turbine speed.",
+      "minimum": 0
+    },
+    "hydro.waterTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Water temperature."
+    },
+    "grid.dsoAllowance": {
+      "type": "number",
+      "unit": "%",
+      "access": "r",
+      "description": "Discrete DSO export allowance.",
+      "minimum": 0,
+      "maximum": 100,
+      "values": [
+        0,
+        30,
+        60,
+        100
+      ]
+    },
+    "grid.exportLimit": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Effective non-negative export ceiling.",
+      "minimum": 0
+    },
+    "grid.importLimit": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Effective non-negative import ceiling.",
+      "minimum": 0
+    },
+    "grid.connected": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "PCC connected to the external grid."
+    },
+    "grid.islanded": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Site operating as an island."
+    },
+    "grid.breakerClosed": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Breaker closed auxiliary-contact readback."
+    },
+    "grid.tripActive": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Protection trip active."
+    },
+    "grid.transformerTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Transformer winding or oil sensor, identified in point metadata."
+    },
+    "grid.tapPosition": {
+      "type": "number",
+      "unit": "step",
+      "access": "r",
+      "description": "Transformer tap position; signed integral step."
+    },
+    "meteo.airTemperature": {
+      "type": "number",
+      "unit": "degC",
+      "access": "r",
+      "description": "Ambient air temperature."
+    },
+    "meteo.humidity": {
+      "type": "number",
+      "unit": "%",
+      "access": "r",
+      "description": "Relative humidity.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "meteo.pressure": {
+      "type": "number",
+      "unit": "Pa",
+      "access": "r",
+      "description": "Atmospheric pressure.",
+      "minimum": 0
+    },
+    "meteo.irradiance": {
+      "type": "number",
+      "unit": "W/m2",
+      "access": "r",
+      "description": "Global horizontal irradiance.",
+      "minimum": 0
+    },
+    "meteo.windSpeed": {
+      "type": "number",
+      "unit": "m/s",
+      "access": "r",
+      "description": "Wind speed.",
+      "minimum": 0
+    },
+    "meteo.windDirection": {
+      "type": "number",
+      "unit": "deg",
+      "access": "r",
+      "description": "Direction clockwise from true north.",
+      "minimum": 0,
+      "maximum": 360
+    },
+    "meteo.rainfall": {
+      "type": "number",
+      "unit": "mm",
+      "access": "r",
+      "description": "Precipitation in the configured measurement window.",
+      "minimum": 0
+    },
+    "load.demand": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Non-negative active power consumed.",
+      "minimum": 0
+    },
+    "load.flexiblePower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Reported shed-able load magnitude.",
+      "minimum": 0
+    },
+    "load.enabled": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Load enabled readback."
+    },
+    "load.vehicleConnected": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Vehicle present at this connector."
+    },
+    "load.charging": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Charging active readback."
+    },
+    "load.currentLimit": {
+      "type": "number",
+      "unit": "A",
+      "access": "r",
+      "description": "Accepted EV connector current limit.",
+      "minimum": 0
+    },
+    "load.sessionEnergy": {
+      "type": "number",
+      "unit": "Wh",
+      "access": "r",
+      "description": "Energy delivered in this charging session.",
+      "minimum": 0
+    },
+    "controller.mode": {
+      "type": "string",
+      "unit": "",
+      "access": "r",
+      "description": "Current controller mode.",
+      "values": [
+        "unknown",
+        "stopped",
+        "standby",
+        "optimizing",
+        "limited",
+        "fault"
+      ]
+    },
+    "controller.source": {
+      "type": "string",
+      "unit": "",
+      "access": "r",
+      "description": "Exactly one selected command authority.",
+      "values": [
+        "local",
+        "aggregator"
+      ]
+    },
+    "controller.remoteConnected": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Aggregator transport connected."
+    },
+    "controller.remoteAllowed": {
+      "type": "boolean",
+      "unit": "",
+      "access": "rw",
+      "description": "Remote permission readback; disabling selects local authority."
+    },
+    "controller.requestedPower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Requested aggregate active power before controller constraints."
+    },
+    "controller.afterController": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Power after local optimization and device feasibility limits."
+    },
+    "controller.afterDso": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Power after DSO/export constraints."
+    },
+    "controller.deliveredPower": {
+      "type": "number",
+      "unit": "W",
+      "access": "r",
+      "description": "Final dispatched power; distinct from measured power."
+    },
+    "controller.limitingReason": {
+      "type": "string",
+      "unit": "",
+      "access": "r",
+      "description": "Dominant normalized active constraint.",
+      "values": [
+        "none",
+        "dso",
+        "soc",
+        "thermal",
+        "power",
+        "ramp",
+        "communication",
+        "interlock",
+        "other"
+      ]
+    },
+    "settings.peakImportTarget": {
+      "type": "number",
+      "unit": "W",
+      "access": "rw",
+      "description": "Peak-shaving import target.",
+      "minimum": 0
+    },
+    "settings.peakShavingShare": {
+      "type": "number",
+      "unit": "%",
+      "access": "rw",
+      "description": "Usable battery allocation to peak shaving; remainder for load shifting.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "settings.socMin": {
+      "type": "number",
+      "unit": "%",
+      "access": "rw",
+      "description": "Minimum operating SoC; strictly below socMax.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "settings.socMax": {
+      "type": "number",
+      "unit": "%",
+      "access": "rw",
+      "description": "Maximum operating SoC; strictly above socMin.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "settings.chargeLimit": {
+      "type": "number",
+      "unit": "W",
+      "access": "rw",
+      "description": "Requested maximum charge magnitude.",
+      "minimum": 0
+    },
+    "settings.dischargeLimit": {
+      "type": "number",
+      "unit": "W",
+      "access": "rw",
+      "description": "Requested maximum discharge magnitude.",
+      "minimum": 0
+    },
+    "settings.rampLimit": {
+      "type": "number",
+      "unit": "W/s",
+      "access": "rw",
+      "description": "Maximum change of active power magnitude per second.",
+      "minimum": 0
+    },
+    "camera.online": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Camera reachable."
+    },
+    "camera.recording": {
+      "type": "boolean",
+      "unit": "",
+      "access": "r",
+      "description": "Recording active."
+    },
+    "camera.frameAge": {
+      "type": "number",
+      "unit": "ms",
+      "access": "r",
+      "description": "Age of most recently received image.",
+      "minimum": 0
+    }
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical EMS command v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "modelVersion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+    },
+    "asset": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "issuedAt": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8640000000000000
+    },
+    "expiresAt": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8640000000000000
+    },
+    "authority": {
+      "enum": [
+        "local",
+        "aggregator"
+      ]
+    },
+    "type": {
+      "enum": [
+        "profile",
+        "settings",
+        "authority",
+        "acknowledge"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "modelVersion",
+    "id",
+    "asset",
+    "revision",
+    "issuedAt",
+    "expiresAt",
+    "authority",
+    "type",
+    "payload"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "profile"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "validFrom": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              },
+              "validUntil": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              },
+              "intervals": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 10000,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "start": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8640000000000000
+                    },
+                    "end": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8640000000000000
+                    },
+                    "targets": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+                      },
+                      "additionalProperties": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "required": [
+                    "start",
+                    "end",
+                    "targets"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "validFrom",
+              "validUntil",
+              "intervals"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "settings"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "peakImportTarget": {
+                "type": "number",
+                "minimum": 0
+              },
+              "peakShavingShare": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "socMin": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "socMax": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "chargeLimit": {
+                "type": "number",
+                "minimum": 0
+              },
+              "dischargeLimit": {
+                "type": "number",
+                "minimum": 0
+              },
+              "rampLimit": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "peakImportTarget",
+              "peakShavingShare",
+              "socMin",
+              "socMax",
+              "chargeLimit",
+              "dischargeLimit",
+              "rampLimit"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "authority"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "remoteAllowed": {
+                "type": "boolean"
+              },
+              "selected": {
+                "enum": [
+                  "local",
+                  "aggregator"
+                ]
+              }
+            },
+            "required": [
+              "remoteAllowed",
+              "selected"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "acknowledge"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "eventId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+              },
+              "comment": {
+                "type": "string",
+                "maxLength": 255
+              }
+            },
+            "required": [
+              "eventId",
+              "comment"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

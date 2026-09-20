@@ -1,0 +1,477 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical EMS installation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "modelVersion": {
+      "const": "1.0"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "producerId": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+    },
+    "assets": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "site",
+              "meter",
+              "pv-field",
+              "pv-array",
+              "pv-string",
+              "inverter",
+              "battery-system",
+              "pcs",
+              "battery-rack",
+              "battery-cell",
+              "wind-turbine",
+              "hydro-unit",
+              "transformer",
+              "breaker",
+              "rtu",
+              "controller",
+              "aggregator",
+              "meteo",
+              "camera",
+              "load",
+              "ev-charger",
+              "ev-connector",
+              "other"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "parent": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+          },
+          "manufacturer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "serial": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "latitude": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              },
+              "longitude": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              }
+            },
+            "required": [
+              "latitude",
+              "longitude"
+            ]
+          },
+          "ratings": {
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "device.online",
+                "device.state",
+                "device.available",
+                "device.remoteMode",
+                "device.faultActive",
+                "device.warningActive",
+                "device.vendorCode",
+                "device.latency",
+                "device.uptime",
+                "device.communicationErrors",
+                "ac.activePower",
+                "ac.reactivePower",
+                "ac.apparentPower",
+                "ac.frequency",
+                "ac.powerFactor",
+                "ac.voltageL1N",
+                "ac.voltageL2N",
+                "ac.voltageL3N",
+                "ac.voltageL1L2",
+                "ac.voltageL2L3",
+                "ac.voltageL3L1",
+                "ac.currentL1",
+                "ac.currentL2",
+                "ac.currentL3",
+                "ac.activePowerL1",
+                "ac.activePowerL2",
+                "ac.activePowerL3",
+                "ac.voltageThd",
+                "dc.voltage",
+                "dc.current",
+                "dc.power",
+                "dc.insulationResistance",
+                "energy.exported",
+                "energy.imported",
+                "energy.generatedToday",
+                "energy.exportedToday",
+                "energy.importedToday",
+                "energy.runtime",
+                "pv.moduleTemperature",
+                "pv.inverterTemperature",
+                "pv.irradiance",
+                "pv.availablePower",
+                "pv.curtailedPower",
+                "battery.soc",
+                "battery.soh",
+                "battery.storedEnergy",
+                "battery.chargeAvailable",
+                "battery.dischargeAvailable",
+                "battery.temperature",
+                "battery.minTemperature",
+                "battery.maxTemperature",
+                "battery.minCellVoltage",
+                "battery.maxCellVoltage",
+                "battery.cycles",
+                "battery.contactorClosed",
+                "battery.balancing",
+                "wind.speed",
+                "wind.direction",
+                "wind.rotorSpeed",
+                "wind.nacelleDirection",
+                "wind.pitch",
+                "wind.gearboxTemperature",
+                "wind.availablePower",
+                "hydro.flow",
+                "hydro.head",
+                "hydro.upstreamLevel",
+                "hydro.downstreamLevel",
+                "hydro.gatePosition",
+                "hydro.turbineSpeed",
+                "hydro.waterTemperature",
+                "grid.dsoAllowance",
+                "grid.exportLimit",
+                "grid.importLimit",
+                "grid.connected",
+                "grid.islanded",
+                "grid.breakerClosed",
+                "grid.tripActive",
+                "grid.transformerTemperature",
+                "grid.tapPosition",
+                "meteo.airTemperature",
+                "meteo.humidity",
+                "meteo.pressure",
+                "meteo.irradiance",
+                "meteo.windSpeed",
+                "meteo.windDirection",
+                "meteo.rainfall",
+                "load.demand",
+                "load.flexiblePower",
+                "load.enabled",
+                "load.vehicleConnected",
+                "load.charging",
+                "load.currentLimit",
+                "load.sessionEnergy",
+                "controller.mode",
+                "controller.source",
+                "controller.remoteConnected",
+                "controller.remoteAllowed",
+                "controller.requestedPower",
+                "controller.afterController",
+                "controller.afterDso",
+                "controller.deliveredPower",
+                "controller.limitingReason",
+                "settings.peakImportTarget",
+                "settings.peakShavingShare",
+                "settings.socMin",
+                "settings.socMax",
+                "settings.chargeLimit",
+                "settings.dischargeLimit",
+                "settings.rampLimit",
+                "camera.online",
+                "camera.recording",
+                "camera.frameAge"
+              ]
+            },
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "timezone": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "kind",
+          "name"
+        ]
+      }
+    },
+    "points": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "asset": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+          },
+          "field": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "staleAfterMs": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 86400000
+          }
+        },
+        "required": [
+          "asset",
+          "field",
+          "staleAfterMs"
+        ]
+      }
+    },
+    "sources": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "protocol": {
+            "enum": [
+              "modbus-tcp",
+              "modbus-rtu"
+            ]
+          },
+          "host": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "port": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "serialPort": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "unitId": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        },
+        "required": [
+          "protocol",
+          "unitId"
+        ]
+      }
+    },
+    "mappings": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+          },
+          "functionCode": {
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "address": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "encoding": {
+            "enum": [
+              "bool",
+              "uint16",
+              "int16",
+              "uint32",
+              "int32",
+              "float32",
+              "uint64"
+            ]
+          },
+          "wordOrder": {
+            "enum": [
+              "highFirst",
+              "lowFirst"
+            ]
+          },
+          "byteOrder": {
+            "enum": [
+              "highFirst",
+              "lowFirst"
+            ]
+          },
+          "scale": {
+            "type": "number"
+          },
+          "offset": {
+            "type": "number"
+          },
+          "bit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15
+          },
+          "invalidRaw": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]+$"
+            },
+            "uniqueItems": true
+          },
+          "enumMap": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          "pollMs": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 86400000
+          }
+        },
+        "required": [
+          "source",
+          "functionCode",
+          "address",
+          "encoding",
+          "wordOrder",
+          "byteOrder",
+          "scale",
+          "offset",
+          "pollMs"
+        ]
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^x\\.[a-z][a-z0-9-]*\\.[A-Za-z][A-Za-z0-9.]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "number",
+              "boolean",
+              "string",
+              "counter"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "access": {
+            "enum": [
+              "r",
+              "rw"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "values": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": [
+                "number",
+                "string"
+              ]
+            }
+          }
+        },
+        "required": [
+          "type",
+          "unit",
+          "access",
+          "description"
+        ]
+      }
+    }
+  },
+  "required": [
+    "modelVersion",
+    "revision",
+    "producerId",
+    "assets",
+    "points",
+    "sources",
+    "mappings"
+  ]
+}

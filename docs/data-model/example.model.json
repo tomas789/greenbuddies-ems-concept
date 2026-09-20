@@ -1,0 +1,25 @@
+{
+  "modelVersion": "1.0",
+  "revision": "site-a-1",
+  "producerId": "PLC-A",
+  "assets": {
+    "SITE-A": {"kind":"site","name":"Example hybrid park","timezone":"Europe/Prague","location":{"latitude":50.35,"longitude":14.47}},
+    "BESS-01": {"kind":"battery-system","name":"Battery 01","parent":"SITE-A","ratings":{"ac.activePower":2000000}},
+    "RTU-01": {"kind":"rtu","name":"DSO interface","parent":"SITE-A"}
+  },
+  "points": {
+    "bess.power": {"asset":"BESS-01","field":"ac.activePower","staleAfterMs":5000},
+    "bess.soc": {"asset":"BESS-01","field":"battery.soc","staleAfterMs":5000},
+    "bess.state": {"asset":"BESS-01","field":"device.state","staleAfterMs":5000},
+    "bess.energy": {"asset":"BESS-01","field":"energy.exported","staleAfterMs":10000},
+    "dso.allowance": {"asset":"RTU-01","field":"grid.dsoAllowance","staleAfterMs":5000}
+  },
+  "sources": {"battery-modbus":{"protocol":"modbus-tcp","host":"192.0.2.10","port":502,"unitId":1},"rtu-modbus":{"protocol":"modbus-tcp","host":"192.0.2.11","port":502,"unitId":1}},
+  "mappings": {
+    "bess.power":{"source":"battery-modbus","functionCode":3,"address":100,"encoding":"int32","wordOrder":"highFirst","byteOrder":"highFirst","scale":-1000,"offset":0,"pollMs":1000,"invalidRaw":["80000000"]},
+    "bess.soc":{"source":"battery-modbus","functionCode":3,"address":102,"encoding":"uint16","wordOrder":"highFirst","byteOrder":"highFirst","scale":0.1,"offset":0,"pollMs":1000,"invalidRaw":["FFFF"]},
+    "bess.state":{"source":"battery-modbus","functionCode":3,"address":103,"encoding":"uint16","wordOrder":"highFirst","byteOrder":"highFirst","scale":1,"offset":0,"pollMs":1000,"enumMap":{"0":"standby","1":"running","2":"fault"}},
+    "bess.energy":{"source":"battery-modbus","functionCode":3,"address":104,"encoding":"uint64","wordOrder":"highFirst","byteOrder":"highFirst","scale":1,"offset":0,"pollMs":2000},
+    "dso.allowance":{"source":"rtu-modbus","functionCode":4,"address":0,"encoding":"uint16","wordOrder":"highFirst","byteOrder":"highFirst","scale":1,"offset":0,"pollMs":1000}
+  }
+}

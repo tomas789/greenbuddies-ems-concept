@@ -1,0 +1,454 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical EMS application record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "modelVersion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+    },
+    "asset": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+    },
+    "at": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8640000000000000
+    },
+    "type": {
+      "enum": [
+        "alarm",
+        "event",
+        "forecast",
+        "tariff",
+        "camera",
+        "accessPolicy",
+        "commandResult"
+      ]
+    },
+    "data": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "modelVersion",
+    "id",
+    "asset",
+    "at",
+    "type",
+    "data"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "alarm"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
+              },
+              "severity": {
+                "enum": [
+                  "info",
+                  "warning",
+                  "critical"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "active",
+                  "cleared"
+                ]
+              },
+              "raisedAt": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              },
+              "clearedAt": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 8640000000000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "acknowledgedAt": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 8640000000000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "acknowledgedBy": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "code",
+              "severity",
+              "state",
+              "raisedAt",
+              "clearedAt",
+              "acknowledgedAt",
+              "acknowledgedBy"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "event"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "actorId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
+              },
+              "result": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
+              },
+              "commandId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+              }
+            },
+            "required": [
+              "actorId",
+              "action",
+              "result"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "forecast"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "issuedAt": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              },
+              "quantile": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "intervals": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 10000,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "start": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8640000000000000
+                    },
+                    "end": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8640000000000000
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "start",
+                    "end",
+                    "value"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "field",
+              "issuedAt",
+              "intervals"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "tariff"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              },
+              "unit": {
+                "const": "currency/kWh"
+              },
+              "intervals": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 10000,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "start": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8640000000000000
+                    },
+                    "end": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8640000000000000
+                    },
+                    "buy": {
+                      "type": "number"
+                    },
+                    "sell": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "start",
+                    "end",
+                    "buy",
+                    "sell"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "currency",
+              "unit",
+              "intervals"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "camera"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "mediaRef": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+              },
+              "capturedAt": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 8640000000000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "quality": {
+                "enum": [
+                  "good",
+                  "uncertain",
+                  "bad",
+                  "stale",
+                  "unsupported",
+                  "disabled",
+                  "initializing"
+                ]
+              }
+            },
+            "required": [
+              "mediaRef",
+              "capturedAt",
+              "quality"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "accessPolicy"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "userId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+              },
+              "roleIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+                },
+                "uniqueItems": true
+              },
+              "actions": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "read",
+                    "configure",
+                    "dispatch",
+                    "acknowledge",
+                    "manage-users"
+                  ]
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "userId",
+              "roleIds",
+              "actions"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "commandResult"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commandId": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,127}$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 255
+              },
+              "state": {
+                "enum": [
+                  "received",
+                  "validated",
+                  "accepted",
+                  "applied",
+                  "rejected",
+                  "expired"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "maxLength": 255
+              }
+            },
+            "required": [
+              "commandId",
+              "revision",
+              "state",
+              "reason"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
